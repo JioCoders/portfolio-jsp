@@ -105,8 +105,8 @@
 
         <div class="container">
             <div class="profile">
-                <img class="avatar" src="https://i.pravatar.cc/300?img=12" alt="JioCoders Avatar">
-                <!-- <img class="avatar" src="/images/jiocoders.png" alt="JioCoders Avatar"> -->
+                <!-- <img class="avatar" src="https://i.pravatar.cc/300?img=12" alt="JioCoders Avatar"> -->
+                <img class="avatar" src="/images/jiocoders.png" alt="JioCoders Avatar">
                 <h1>JioCoders</h1>
                 <div class="location-box">
                     📍 Current: <strong>Mumbai</strong> | Preferred: <strong>Delhi NCR</strong><br />

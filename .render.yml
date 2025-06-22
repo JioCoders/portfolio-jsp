@@ -1,7 +1,22 @@
+# services:
+#   - type: web
+#     name: jiocoders-portfolio
+#     env: java
+#     buildCommand: "./mvnw clean package"
+#     startCommand: "" # Render will auto-deploy WAR
+#     plan: free
+
 services:
   - type: web
-    name: jiocoders-portfolio
-    env: java
-    buildCommand: "./mvnw clean package"
-    startCommand: "" # Render will auto-deploy WAR
+    name: portfolio-jsp
+    env: docker
+    dockerfilePath: ./Dockerfile
+    # startCommand: java -jar my-custom-start.jar
+    startCommand: catalina.sh run  # Optional: override CMD
     plan: free
+    region: oregon
+    autoDeploy: true
+    envVars:
+      - key: JAVA_OPTS
+        value: "-Xms256m -Xmx512m"
+    
