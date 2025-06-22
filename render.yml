@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: jiocoders-portfolio
+    env: java
+    buildCommand: "./mvnw clean package"
+    startCommand: "" # leave blank for WAR
+    plan: free
