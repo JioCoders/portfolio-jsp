@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -18,7 +19,8 @@ public class ApiController {
 
     // POST API: /api/hello
     @PostMapping("/api/hello")
-    public Map<String, String> helloPost() {
-        return Map.of("message", "Hi, I'm Jiocoders team");
+    public Map<String, String> helloPost(@RequestBody Map<String, String> body) {
+        String name = body.getOrDefault("name", "friend");
+        return Map.of("message", "Hi, I'm " + name + " from Jiocoders team");
     }
 }

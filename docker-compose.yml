@@ -1,6 +1,7 @@
-services:
-  web:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    command: java -jar my-custom-start.jar
+# services:
+#   web:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     # command: java -jar my-custom-start.jar
+#     command: catalina.sh run
