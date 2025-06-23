@@ -11,7 +11,7 @@
 	<groupId>com.jiocoders</groupId>
 	<artifactId>portfolio</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<name>jiocoders2206java</name>
 	<description>Portfolio project for Spring Boot</description>
 	<url/>
