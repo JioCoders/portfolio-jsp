@@ -1,7 +1,15 @@
-# services:
-#   web:
-#     build:
-#       context: .
-#       dockerfile: Dockerfile
-#     # command: java -jar my-custom-start.jar
-#     command: catalina.sh run
+# ✅ How to Run It
+# From the same directory as your docker-compose.yml, run:
+# docker-compose up --build
+
+version: '3.8'
+
+services:
+  portfolio-jsp:
+    build:
+      context: .              # Your project root
+      dockerfile: Dockerfile # Ensure this matches your Dockerfile name
+    ports:
+      - "8080:8080"           # Maps container port 8080 to your local port 8080
+    environment:
+      - JAVA_OPTS=-Xms256m -Xmx512m
