@@ -37,6 +37,7 @@
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
+		<!-- Spring Boot Web Starter (Excludes Thymeleaf) -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -54,6 +55,7 @@
 		</dependency>
 
 		<!-- Required to compile JSP pages -->
+		<!-- JSP support for embedded Tomcat -->
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>

@@ -12,7 +12,6 @@ services:
     env: docker
     dockerfilePath: ./Dockerfile
     # startCommand: java -jar my-custom-start.jar
-    # startCommand: catalina.sh run  # Optional: override CMD
     plan: free
     region: oregon
     autoDeploy: true
