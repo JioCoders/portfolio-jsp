@@ -82,7 +82,17 @@
 	</dependencies>
 
 	<build>
+		<resources>
+			<resource>
+			<directory>src/main/webapp</directory>
+			<targetPath>META-INF/resources</targetPath>
+			<includes>
+				<include>**/*.jsp</include>
+			</includes>
+			</resource>
+		</resources>
 		<plugins>
+			<!-- WAR Plugin (optional, can be default) -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
