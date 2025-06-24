@@ -13,13 +13,6 @@ COPY --from=builder /app/target/*.war /usr/local/tomcat/webapps/ROOT.war
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
 
-#############################################################
-# # Stage 1: Build the Spring Boot JAR - Use Maven to build JAR
-# FROM maven:3.8.5-openjdk-17 AS builder
-# WORKDIR /app
-# COPY . .
-# RUN mvn clean package -DskipTests
-
 # # Stage 2: Run the app with JDK - Run Spring Boot JAR
 # FROM openjdk:17
 # WORKDIR /app
