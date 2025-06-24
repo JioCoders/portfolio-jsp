@@ -11,7 +11,7 @@
 	<groupId>com.jiocoders</groupId>
 	<artifactId>portfolio</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<name>jiocoders2206java</name>
 	<description>Portfolio project for Spring Boot</description>
 	<url/>
@@ -82,20 +82,15 @@
 	</dependencies>
 
 	<build>
-		<resources>
-			<resource>
-			<directory>src/main/webapp</directory>
-			<targetPath>META-INF/resources</targetPath>
-			<includes>
-				<include>**/*.jsp</include>
-			</includes>
-			</resource>
-		</resources>
+		<finalName>portfolio</finalName>
 		<plugins>
-			<!-- WAR Plugin (optional, can be default) -->
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-war-plugin</artifactId>
+			<version>3.3.2</version>
+			<configuration>
+				<failOnMissingWebXml>false</failOnMissingWebXml>
+			</configuration>
 			</plugin>
 		</plugins>
 	</build>
