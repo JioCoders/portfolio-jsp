@@ -1,6 +1,6 @@
 #############################################################
 # Stage 1: Build WAR file - Use Maven to build the WAR
-FROM maven:3.5.3-openjdk-17 AS builder
+FROM maven:3.8.5-openjdk-17 AS builder
 WORKDIR /app
 COPY . .
 RUN mvn clean package -DskipTests
