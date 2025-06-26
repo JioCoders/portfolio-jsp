@@ -11,7 +11,7 @@
     <groupId>com.jiocoders</groupId>
     <artifactId>portfolio</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
     <name>jiocoders2206java</name>
     <description>Portfolio project for Spring Boot</description>
     <url/>
@@ -74,10 +74,16 @@
             <artifactId>jakarta.servlet-api</artifactId>
             <scope>provided</scope>
         </dependency>
+        <!-- <dependency>
+                <groupId>jakarta.servlet.jsp.jstl</groupId>
+                <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+                <version>3.0.0</version>
+        </dependency> -->
     </dependencies>
 
     <build>
-        <resources>
+        <finalName>portfolio-0.0.1-SNAPSHOT</finalName>
+        <!-- <resources>
             <resource>
                 <directory>src/main/webapp</directory>
                 <targetPath>META-INF/resources</targetPath>
@@ -85,27 +91,19 @@
                     <include>**/*.jsp</include>
                 </includes>
             </resource>
-        </resources>
+        </resources> -->
 
         <plugins>
             <!-- WAR Plugin (optional, can be default) -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-            </plugin>
-        </plugins>
-	
-        <!-- <finalName>portfolio-0.0.1-SNAPSHOT</finalName>
-        <plugins>
-                <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
                 <version>3.3.2</version>
                 <configuration>
-                        <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
-                </plugin>
-        </plugins> -->
+            </plugin>
+        </plugins>
     </build>
 
 </project>
