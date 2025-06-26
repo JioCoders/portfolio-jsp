@@ -6,19 +6,19 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 # Stage 2: Deploy WAR to Tomcat - Use Tomcat to run the WAR
-# FROM tomcat:9.0
-# COPY --from=builder /app/target/*.war /usr/local/tomcat/webapps/ROOT.war
-
-# # Expose port 8080
-# EXPOSE 8080
-# CMD ["catalina.sh", "run"]
-
-# Stage 2: Run the app with JDK - Run Spring Boot JAR
-FROM openjdk:17
-WORKDIR /app
-COPY --from=builder /app/target/*.jar app.jar
+FROM tomcat:9.0
+COPY --from=builder /app/target/*.war /usr/local/tomcat/webapps/ROOT.war
 
 # Expose port 8080
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+CMD ["catalina.sh", "run"]
+
+# # Stage 2: Run the app with JDK - Run Spring Boot JAR
+# FROM openjdk:17
+# WORKDIR /app
+# COPY --from=builder /app/target/*.jar app.jar
+
+# # Expose port 8080
+# EXPOSE 8080
+# ENTRYPOINT ["java", "-jar", "app.jar"]
 #############################################################
