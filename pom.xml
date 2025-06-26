@@ -91,7 +91,7 @@
     </dependencies>
 
     <build>
-        <finalName>portfolio-0.0.1-SNAPSHOT</finalName>
+        <finalName>portfolio-jsp</finalName>
         <resources>
             <resource>
                 <directory>src/main/webapp</directory>

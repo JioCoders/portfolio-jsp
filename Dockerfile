@@ -6,7 +6,7 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 # Stage 2: Deploy WAR to Tomcat - Use Tomcat to run the WAR
-FROM tomcat:9.0
+FROM tomcat:9.0-jdk17
 COPY --from=builder /app/target/*.war /usr/local/tomcat/webapps/ROOT.war
 
 # Expose port 8080
