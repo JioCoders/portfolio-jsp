@@ -15,6 +15,7 @@ RUN mvn clean package -DskipTests
 
 # Stage 2: Run the app with JDK - Run Spring Boot JAR
 FROM openjdk:17
+WORKDIR /app
 COPY --from=builder /app/target/*.jar app.jar
 
 # Expose port 8080
