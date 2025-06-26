@@ -60,6 +60,7 @@
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
+            <scope>provided</scope>
         </dependency>
 
         <!-- JSTL support for JSP pages (optional but common) -->
@@ -77,14 +78,16 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-                <groupId>jakarta.servlet.jsp.jstl</groupId>
-                <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
-                <!-- <version>3.0.0</version> -->
+			<groupId>jakarta.servlet.jsp.jstl</groupId>
+			<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+			<scope>provided</scope>
+			<!-- <version>3.0.0</version> -->
         </dependency>
 
 		<dependency>
 			<groupId>org.glassfish.web</groupId>
 			<artifactId>jakarta.servlet.jsp.jstl</artifactId>
+            <scope>provided</scope>
 			<!-- <version>3.0.1</version> -->
 		</dependency>
     </dependencies>
