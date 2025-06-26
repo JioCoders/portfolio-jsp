@@ -77,7 +77,25 @@
 	</dependencies>
 
 	<build>
-		<finalName>portfolio-0.0.1-SNAPSHOT</finalName>
+		<resources>
+			<resource>
+			<directory>src/main/webapp</directory>
+			<targetPath>META-INF/resources</targetPath>
+			<includes>
+				<include>**/*.jsp</include>
+			</includes>
+			</resource>
+		</resources>
+
+		<plugins>
+			<!-- WAR Plugin (optional, can be default) -->
+			<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-war-plugin</artifactId>
+			</plugin>
+		</plugins>
+	
+		<!-- <finalName>portfolio-0.0.1-SNAPSHOT</finalName>
 		<plugins>
 			<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
@@ -87,7 +105,7 @@
 				<failOnMissingWebXml>false</failOnMissingWebXml>
 			</configuration>
 			</plugin>
-		</plugins>
+		</plugins> -->
 	</build>
 
 </project>
