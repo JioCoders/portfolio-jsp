@@ -69,20 +69,20 @@
             <!-- <version>3.0.2</version> -->
             <scope>provided</scope>
         </dependency>
-        <dependency>
+        <!-- <dependency>
             <groupId>org.glassfish.web</groupId>
             <artifactId>jakarta.servlet.jsp.jstl</artifactId>
-            <!-- <version>3.0.1</version> -->
+            <version>3.0.1</version> 
             <scope>provided</scope>
-        </dependency>
+        </dependency> -->
 
         <!-- JSTL support for JSP pages (optional but common) -->
 		<!-- JSTL support -->
-        <!-- <dependency>
+        <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
             <version>1.2</version>
-        </dependency> -->
+        </dependency>
 
         <!-- Servlet API (only needed if building a WAR) -->
         <!-- <dependency>
@@ -93,7 +93,7 @@
     </dependencies>
 
     <build>
-        <!-- <finalName>portfolio-jsp</finalName> -->
+        <finalName>portfolio-jsp-0.0.1-SNAPSHOT</finalName>
         <!-- <resources>
             <resource>
                 <directory>src/main/webapp</directory>
@@ -107,12 +107,15 @@
         <plugins>
             <!-- WAR Plugin (optional, can be default) -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
+                <!-- <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.3.2</version>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
-                </configuration>
+                </configuration> -->
+
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
