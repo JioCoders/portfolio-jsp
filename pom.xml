@@ -63,27 +63,33 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>jakarta.servlet.jsp.jstl</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+            <version>3.0.2</version>
+            <!-- <scope>provided</scope> -->
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+            <version>3.0.1</version>
+            <!-- <scope>provided</scope> -->
+        </dependency>
+
         <!-- JSTL support for JSP pages (optional but common) -->
 		<!-- JSTL support -->
-        <dependency>
+        <!-- <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
             <version>1.2</version>
-        </dependency>
+        </dependency> -->
 
         <!-- Servlet API (only needed if building a WAR) -->
-        <dependency>
+        <!-- <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>
             <scope>provided</scope>
-        </dependency>
-
-		<dependency>
-			<groupId>org.glassfish.web</groupId>
-			<artifactId>jakarta.servlet.jsp.jstl</artifactId>
-            <scope>provided</scope>
-			<!-- <version>3.0.1</version> -->
-		</dependency>
+        </dependency> -->
     </dependencies>
 
     <build>
