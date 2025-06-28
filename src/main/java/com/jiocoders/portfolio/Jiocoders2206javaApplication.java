@@ -11,7 +11,6 @@ import jakarta.servlet.ServletContextListener;
 
 @SpringBootApplication
 public class Jiocoders2206javaApplication extends SpringBootServletInitializer implements  ServletContextListener {
-
 	public static void main(String[] args) {
 		SpringApplication.run(Jiocoders2206javaApplication.class, args);
 		System.out.println("****** Application has been Started ******");
