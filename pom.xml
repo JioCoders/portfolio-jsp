@@ -93,7 +93,7 @@
     </dependencies>
 
     <build>
-        <finalName>portfolio-jsp</finalName>
+        <!-- <finalName>portfolio-jsp</finalName> -->
         <!-- <resources>
             <resource>
                 <directory>src/main/webapp</directory>
