@@ -1,5 +1,6 @@
 package com.jiocoders.portfolio;
 
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
@@ -10,10 +11,10 @@ import jakarta.servlet.ServletContextListener;
 
 @SpringBootApplication
 public class Jiocoders2206javaApplication extends SpringBootServletInitializer implements  ServletContextListener {
-	// public static void main(String[] args) {
-	// 	SpringApplication.run(Jiocoders2206javaApplication.class, args);
-	// 	System.out.println("****** Application has been Started ******");
-	// }
+	public static void main(String[] args) {
+		SpringApplication.run(Jiocoders2206javaApplication.class, args);
+		System.out.println("****** Application has been Started ******");
+	}
 	
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
