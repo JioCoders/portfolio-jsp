@@ -112,8 +112,15 @@
         <plugins>
             <!-- WAR Plugin (optional, can be default) -->
             <plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.2</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+
+				<!-- <groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId> -->
             </plugin>
         </plugins>
     </build>
