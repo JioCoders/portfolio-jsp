@@ -1,0 +1,34 @@
+version: 3
+
+agent:
+  authtoken: 2efaIBuX6wHdryd07JD6lge3xeb_7XyNkaNg14DHparH3bNPx
+  api_key: 24yRd5U3DestCQapJrrVHLOqiAC_7RviwRqpd3wc9dKLujQZN
+  metadata: bad8c1c0-8fce-11e4-b4a9-0800200c9a66
+  log: /var/log/ngrok.log
+  web_allow_hosts:
+    - 8.8.8.8
+    - example.com
+  endpoints:
+    - name: httpbin
+      url: https://alan-httpbin.ngrok.app
+      metadata: '{ "id": "httpbin-app" }'
+      description: "our httpbin application"
+      upstream:
+        url: 8080
+    - name: demo
+      url: https://demo.inconshreveable.com
+      upstream:
+        url: 8181
+    - name: ssh
+      url: tcp://1.tcp.ngrok.io:12345
+      upstream:
+        url: 22
+    - name: demo-2
+      url: tls://myexample.ngrok.app
+      upstream:
+        url: 443
+
+tunnels:
+  basic:
+    proto: http
+    addr: 80

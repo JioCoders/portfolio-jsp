@@ -11,7 +11,7 @@
     <groupId>com.jiocoders</groupId>
     <artifactId>portfolio-jsp</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
     <name>jiocoders2206java</name>
     <description>Portfolio project for Spring Boot</description>
     <url/>
@@ -29,7 +29,7 @@
     </scm>
     <properties>
         <java.version>17</java.version>
-	    <spring.boot.version>3.2.5</spring.boot.version>
+	    <spring.boot.version>3.5.3</spring.boot.version>
     </properties>
     <dependencies>
 
@@ -69,12 +69,12 @@
             <!-- <version>3.0.2</version> -->
             <scope>provided</scope>
         </dependency>
-        <!-- <dependency>
+        <dependency>
             <groupId>org.glassfish.web</groupId>
             <artifactId>jakarta.servlet.jsp.jstl</artifactId>
-            <version>3.0.1</version> 
+            <!-- <version>3.0.1</version>  -->
             <scope>provided</scope>
-        </dependency> -->
+        </dependency>
 
         <!-- JSTL support for JSP pages (optional but common) -->
 		<!-- JSTL support -->
@@ -85,39 +85,48 @@
         </dependency>
 
         <!-- Servlet API (only needed if building a WAR) -->
-        <!-- <dependency>
+        <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>
             <scope>provided</scope>
-        </dependency> -->
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-function-web</artifactId>
+        </dependency>
+            <!-- Spring Cloud Function Core -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-function-context</artifactId>
+        </dependency>
+
+        <!-- Spring Cloud Function AWS Adapter -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-function-adapter-aws</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
         <finalName>portfolio-jsp-0.0.1-SNAPSHOT</finalName>
-        <!-- <resources>
-            <resource>
-                <directory>src/main/webapp</directory>
-                <targetPath>META-INF/resources</targetPath>
-                <includes>
-                    <include>**/*.jsp</include>
-                </includes>
-            </resource>
-        </resources> -->
-
         <plugins>
             <!-- WAR Plugin (optional, can be default) -->
             <plugin>
-                <!-- <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>3.3.2</version>
-                <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                </configuration> -->
-
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-dependencies</artifactId>
+            <version>2023.0.1</version> 
+            <type>pom</type>
+            <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>  
 
 </project>
