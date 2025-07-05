@@ -109,6 +109,15 @@
 
     <build>
         <finalName>portfolio-jsp-0.0.1-SNAPSHOT</finalName>
+        <!-- <resources>
+            <resource>
+                <directory>src/main/webapp</directory>
+                <targetPath>META-INF/resources</targetPath>
+                <includes>
+                    <include>**/*.jsp</include>
+                </includes>
+            </resource>
+        </resources> -->
         <plugins>
             <!-- WAR Plugin (optional, can be default) -->
             <plugin>
@@ -121,10 +130,10 @@
 
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
+                <!-- <configuration>
                     <mainClass>com.jiocoders.portfolio.Jiocoders2206javaApplication</mainClass>
-                    <skip>true</skip> <!-- Still skipping repackage for WAR -->
-                </configuration>
+                    <skip>true</skip> 
+                </configuration> -->
 
                 <executions>
                     <execution>
