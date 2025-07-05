@@ -90,21 +90,21 @@
             <artifactId>jakarta.servlet-api</artifactId>
             <scope>provided</scope>
         </dependency>
-        <dependency>
+        <!-- <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-function-web</artifactId>
-        </dependency>
+        </dependency> -->
             <!-- Spring Cloud Function Core -->
-        <dependency>
+        <!-- <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-function-context</artifactId>
-        </dependency>
+        </dependency> -->
 
         <!-- Spring Cloud Function AWS Adapter -->
-        <dependency>
+        <!-- <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-function-adapter-aws</artifactId>
-        </dependency>
+        </dependency> -->
     </dependencies>
 
     <build>
@@ -112,19 +112,34 @@
         <plugins>
             <!-- WAR Plugin (optional, can be default) -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
+                <!-- <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.3.2</version>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration> -->
+
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.jiocoders.portfolio.Jiocoders2206javaApplication</mainClass>
+                    <skip>true</skip> <!-- Still skipping repackage for WAR -->
                 </configuration>
 
-				<!-- <groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId> -->
+                <executions>
+                    <execution>
+                    <goals>
+                        <goal>repackage</goal>
+                    </goals>
+                    <configuration>
+                        <skip>true</skip>
+                    </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
-    <dependencyManagement>
+    <!-- <dependencyManagement>
         <dependencies>
             <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -134,6 +149,6 @@
             <scope>import</scope>
             </dependency>
         </dependencies>
-    </dependencyManagement>  
+    </dependencyManagement>   -->
 
 </project>
