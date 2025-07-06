@@ -3,12 +3,12 @@ services:
     name: portfolio-jsp-0.0.1-SNAPSHOT
     env: docker
     dockerfilePath: ./Dockerfile
-    # buildCommand: "./mvnw clean package"
+    buildCommand: "./mvnw clean package"
     # startCommand: "" # Render will auto-deploy WAR
-    # startCommand: java -jar my-custom-start.jar
+    startCommand: java -jar my-custom-start.jar
     plan: free
     region: oregon
     autoDeploy: true
-    # envVars:
-    #   - key: JAVA_OPTS
-    #     value: "-Xms256m -Xmx512m"
+    envVars:
+      - key: JAVA_OPTS
+        value: "-Xms256m -Xmx512m"
