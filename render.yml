@@ -4,8 +4,8 @@ services:
     env: docker
     dockerfilePath: ./Dockerfile
     buildCommand: "./mvnw clean package"
-    # startCommand: "" # Render will auto-deploy WAR
-    startCommand: java -jar my-custom-start.jar
+    startCommand: "" # Render will auto-deploy WAR
+    # startCommand: java -jar app.jar
     plan: free
     region: oregon
     autoDeploy: true

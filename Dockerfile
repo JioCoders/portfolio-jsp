@@ -15,8 +15,8 @@ RUN mvn clean package -DskipTests
 # CMD ["catalina.sh", "run"]
 
 # Stage 2: Run the app with JDK - Run Spring Boot JAR
-FROM eclipse-temurin:17-jdk
-# FROM openjdk:17
+# FROM eclipse-temurin:17-jdk
+FROM openjdk:17
 WORKDIR /app
 COPY --from=builder /app/target/*.jar app.jar
 

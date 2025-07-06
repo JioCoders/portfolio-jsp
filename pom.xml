@@ -33,8 +33,8 @@
         <java.version>17</java.version>
 	    <spring.boot.version>3.2.5</spring.boot.version>
     </properties>
+    
     <dependencies>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -54,62 +54,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
-        <!-- <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
-        </dependency> -->
-
-        <!-- Required to compile JSP pages - JSP engine -->
-        <!-- JSP support for embedded Tomcat -->
-        <!-- <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-jasper</artifactId>
-            <scope>provided</scope>
-        </dependency> -->
-
-        <!-- <dependency>
-            <groupId>jakarta.servlet.jsp.jstl</groupId>
-            <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
-            <scope>provided</scope>
-        </dependency> -->
-        <!-- <dependency>
-            <groupId>org.glassfish.web</groupId>
-            <artifactId>jakarta.servlet.jsp.jstl</artifactId>
-            <scope>provided</scope>
-        </dependency> -->
-
-        <!-- JSTL support for JSP pages (optional but common) -->
-		<!-- JSTL support -->
-        <!-- <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version>
-        </dependency> -->
-
-        <!-- Servlet API (only needed if building a WAR) -->
-        <!-- <dependency>
-            <groupId>jakarta.servlet</groupId>
-            <artifactId>jakarta.servlet-api</artifactId>
-            <scope>provided</scope>
-        </dependency> -->
-
-        <!-- <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-function-web</artifactId>
-        </dependency> -->
-            <!-- Spring Cloud Function Core -->
-        <!-- <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-function-context</artifactId>
-        </dependency> -->
-
-        <!-- Spring Cloud Function AWS Adapter -->
-        <!-- <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-function-adapter-aws</artifactId>
-        </dependency> -->
     </dependencies>
 
     <build>
@@ -119,10 +63,7 @@
             <plugin>
                 <!-- <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>3.3.2</version>
-                <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                </configuration> -->
+                <version>3.3.2</version> -->
 
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -155,5 +96,4 @@
             </dependency>
         </dependencies>
     </dependencyManagement>   -->
-
 </project>
