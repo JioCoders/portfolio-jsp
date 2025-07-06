@@ -11,8 +11,8 @@
     <groupId>com.jiocoders</groupId>
     <artifactId>portfolio-jsp</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
-    <name>jiocoders2206java</name>
+    <packaging>jar</packaging>
+    <name>jiocoders-portfolio</name>
     <description>Portfolio project for Spring Boot</description>
     <url/>
     <licenses>
@@ -57,38 +57,41 @@
 
         <!-- Required to compile JSP pages - JSP engine -->
         <!-- JSP support for embedded Tomcat -->
-        <dependency>
+        <!-- <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
             <scope>provided</scope>
-        </dependency>
+        </dependency> -->
 
-        <dependency>
+        <!-- <dependency>
             <groupId>jakarta.servlet.jsp.jstl</groupId>
             <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
-            <!-- <version>3.0.2</version> -->
             <scope>provided</scope>
-        </dependency>
-        <dependency>
+        </dependency> -->
+        <!-- <dependency>
             <groupId>org.glassfish.web</groupId>
             <artifactId>jakarta.servlet.jsp.jstl</artifactId>
-            <!-- <version>3.0.1</version>  -->
             <scope>provided</scope>
-        </dependency>
+        </dependency> -->
 
         <!-- JSTL support for JSP pages (optional but common) -->
 		<!-- JSTL support -->
-        <dependency>
+        <!-- <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
             <version>1.2</version>
-        </dependency>
+        </dependency> -->
 
         <!-- Servlet API (only needed if building a WAR) -->
-        <dependency>
+        <!-- <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>
             <scope>provided</scope>
+        </dependency> -->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
         <!-- <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -126,7 +129,7 @@
                     <skip>true</skip> <!-- Still skipping repackage for WAR -->
                 </configuration>
 
-                <executions>
+                <!-- <executions>
                     <execution>
                     <goals>
                         <goal>repackage</goal>
@@ -135,7 +138,7 @@
                         <skip>true</skip>
                     </configuration>
                     </execution>
-                </executions>
+                </executions> -->
             </plugin>
         </plugins>
     </build>

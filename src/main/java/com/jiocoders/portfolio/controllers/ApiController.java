@@ -1,4 +1,4 @@
-package com.jiocoders.portfolio;
+package com.jiocoders.portfolio.controllers;
 
 import java.util.Map;
 
