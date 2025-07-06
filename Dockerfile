@@ -1,3 +1,5 @@
+# https://jiocoders-profile.s3.ap-south-1.amazonaws.com/index.html
+# http://jiocoders-portfolio.us-east-1.elasticbeanstalk.com/
 #############################################################
 # Stage 1: Build WAR file - Use Maven to build the WAR
 FROM maven:3.8.5-openjdk-17 AS builder
