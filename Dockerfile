@@ -2,7 +2,7 @@
 # http://jiocoders-portfolio.us-east-1.elasticbeanstalk.com/
 #############################################################
 # Stage 1: Build WAR file - Use Maven to build the WAR
-FROM maven:3.8.5-openjdk-17 AS builder
+FROM maven:3.9.6-eclipse-temurin-17 AS builder
 WORKDIR /app
 COPY . .
 RUN mvn clean package -DskipTests
@@ -18,7 +18,7 @@ RUN mvn clean package -DskipTests
 
 # Stage 2: Run the app with JDK - Run Spring Boot JAR
 # FROM eclipse-temurin:17-jdk
-FROM openjdk:17
+FROM eclipse-temurin:17-jre
 WORKDIR /app
 COPY --from=builder /app/target/*.jar app.jar
 
