@@ -3,96 +3,9 @@
 
     <head>
         <title>JioCoders | Portfolio</title>
-        <style>
-            body {
-                font-family: 'Segoe UI', sans-serif;
-                margin: 0;
-                padding: 0;
-                background-color: #f5f7fa;
-            }
-
-            header,
-            footer {
-                background-color: #007bff;
-                color: white;
-                padding: 20px 0;
-                text-align: center;
-            }
-
-            footer {
-                font-size: 14px;
-            }
-
-            .container {
-                max-width: 960px;
-                margin: 30px auto;
-                background: white;
-                padding: 30px;
-                border-radius: 10px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            }
-
-            .profile {
-                text-align: center;
-            }
-
-            .avatar {
-                width: 140px;
-                height: 140px;
-                border-radius: 50%;
-                border: 4px solid #007bff;
-                object-fit: cover;
-                display: block;
-                margin: 0 auto;
-            }
-
-            h1 {
-                margin-top: 15px;
-                color: #007bff;
-            }
-
-            h2 {
-                border-bottom: 2px solid #eee;
-                padding-bottom: 5px;
-                color: #444;
-            }
-
-            .section {
-                margin-top: 30px;
-            }
-
-            .skills,
-            .availability {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 10px;
-                margin-top: 10px;
-            }
-
-            .tag {
-                background: #007bff;
-                color: white;
-                padding: 6px 12px;
-                border-radius: 5px;
-                font-size: 14px;
-            }
-
-            .project {
-                margin-bottom: 20px;
-            }
-
-            .project-title {
-                font-weight: bold;
-                font-size: 16px;
-                margin-bottom: 5px;
-            }
-
-            .location-box {
-                font-size: 15px;
-                color: #333;
-                margin-top: 8px;
-            }
-        </style>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+        <link rel="icon" type="image/png" href="/images/jiocoders.png">
+        <link rel="stylesheet" href="/css/styles.css" />
     </head>
 
     <body>
@@ -100,13 +13,14 @@
         <header>
             <h1>JioCoders Portfolio</h1>
             <p>Sr. Software Engineer @ HCL Info Pvt Ltd</p>
+            <button id="changeColorBtn" class="button">🎨 Change Header Color</button>
         </header>
 
         <div class="container">
             <div class="profile">
                 <!-- <img class="avatar" src="https://i.pravatar.cc/300?img=12" alt="JioCoders Avatar"> -->
                 <img class="avatar" src="/images/jiocoders.png" alt="JioCoders Avatar">
-                <h1>JioCoders</h1>
+                <h2>JioCoders</h2>
                 <div class="location-box">
                     📍 Current: <strong>Mumbai</strong> | Preferred: <strong>Delhi NCR</strong><br />
                     🧑‍💼 8 Years Experience | 🎓 MCA | 📍 Prayagraj, Uttar Pradesh
@@ -197,6 +111,8 @@
         <footer>
             © 2025 JioCoders. All rights reserved.
         </footer>
+
+        <script src="/js/portfolio.js"></script>
 
     </body>
 
