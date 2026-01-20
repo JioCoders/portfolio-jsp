@@ -4,21 +4,18 @@ import com.jiocoders.portfolio.dto.UserDTO;
 import com.jiocoders.portfolio.mappers.UserMapper;
 import com.jiocoders.portfolio.models.User;
 import com.jiocoders.portfolio.repositories.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
 
     private final UserRepository userRepository;
     private final UserMapper userMapper;
-
-    public UserService(UserRepository userRepository, UserMapper userMapper) {
-        this.userRepository = userRepository;
-        this.userMapper = userMapper;
-    }
 
     public UserDTO login(String username, String password) {
         Optional<User> userOpt = userRepository.findByUsername(username);

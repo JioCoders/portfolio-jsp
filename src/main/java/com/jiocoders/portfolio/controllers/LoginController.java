@@ -2,6 +2,7 @@ package com.jiocoders.portfolio.controllers;
 
 import com.jiocoders.portfolio.dto.UserDTO;
 import com.jiocoders.portfolio.services.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,13 +10,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
+@RequiredArgsConstructor
 public class LoginController {
 
     private final UserService userService;
-
-    public LoginController(UserService userService) {
-        this.userService = userService;
-    }
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Map<String, String> payload) {
