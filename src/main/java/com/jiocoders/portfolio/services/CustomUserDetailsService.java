@@ -1,8 +1,9 @@
 package com.jiocoders.portfolio.services;
 
 import com.jiocoders.portfolio.models.User;
-import com.jiocoders.portfolio.repositories.UserRepository;
+import com.jiocoders.portfolio.dao.UserDao;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -13,14 +14,19 @@ import java.util.Collections;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class CustomUserDetailsService implements UserDetailsService {
 
-    private final UserRepository userRepository;
+    private final UserDao userDao;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
+        log.debug("Loading user details for: {}", username);
+        User user = userDao.findByUsername(username)
+                .orElseThrow(() -> {
+                    log.error("User not found during authentication: {}", username);
+                    return new UsernameNotFoundException("User not found: " + username);
+                });
 
         // Ensure role has ROLE_ prefix if not present
         String roleName = user.getRole();

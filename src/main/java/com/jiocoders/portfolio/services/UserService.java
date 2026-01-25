@@ -3,7 +3,7 @@ package com.jiocoders.portfolio.services;
 import com.jiocoders.portfolio.dto.UserDTO;
 import com.jiocoders.portfolio.mappers.UserMapper;
 import com.jiocoders.portfolio.models.User;
-import com.jiocoders.portfolio.repositories.UserRepository;
+import com.jiocoders.portfolio.dao.UserDao;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -16,14 +16,14 @@ import java.util.Optional;
 @Slf4j
 public class UserService {
 
-    private final UserRepository userRepository;
+    private final UserDao userDao;
     private final UserMapper userMapper;
     private final com.jiocoders.portfolio.validators.UserValidation userValidation;
     private final org.springframework.security.crypto.password.PasswordEncoder passwordEncoder;
 
     public UserDTO login(String username, String password) {
         log.debug("Authenticating user: {}", username);
-        Optional<User> userOpt = userRepository.findByUsername(username);
+        Optional<User> userOpt = userDao.findByUsername(username);
         if (userOpt.isPresent()) {
             User user = userOpt.get();
             if (passwordEncoder.matches(password, user.getPassword())) {
@@ -43,7 +43,7 @@ public class UserService {
         log.info("Registering new user: {}", userDTO.getUsername());
         userValidation.validateEmail(userDTO.getEmail());
 
-        if (userRepository.findByUsername(userDTO.getUsername()).isPresent()) {
+        if (userDao.findByUsername(userDTO.getUsername()).isPresent()) {
             log.warn("Registration failed: User already exists - {}", userDTO.getUsername());
             throw new com.jiocoders.portfolio.exceptions.UserException("User already exists");
         }
@@ -53,21 +53,21 @@ public class UserService {
         if (user.getRole() == null || user.getRole().isEmpty()) {
             user.setRole("USER");
         }
-        user = userRepository.save(user);
+        user = userDao.save(user);
         log.info("User registered successfully. ID: {}", user.getId());
         return userMapper.toDTO(user);
     }
 
     public java.util.List<UserDTO> getAllUsers() {
         log.info("Fetching all users");
-        return userMapper.toDTOs(userRepository.findAll());
+        return userMapper.toDTOs(userDao.findAll());
     }
 
     public UserDTO getUserByUsernameOrEmail(String identifier) {
         log.info("Searching for user with identifier: {}", identifier);
-        Optional<User> user = userRepository.findByUsername(identifier);
+        Optional<User> user = userDao.findByUsername(identifier);
         if (user.isEmpty()) {
-            user = userRepository.findByEmail(identifier);
+            user = userDao.findByEmail(identifier);
         }
         return user.map(userMapper::toDTO)
                 .orElseThrow(() -> {
