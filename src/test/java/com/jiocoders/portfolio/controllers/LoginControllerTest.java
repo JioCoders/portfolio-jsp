@@ -18,6 +18,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(LoginController.class)
@@ -40,12 +41,17 @@ class LoginControllerTest {
 		payload.put("username", "admin");
 		payload.put("password", "pass");
 
-		when(userService.login(anyString(), anyString())).thenReturn(new UserDTO());
+		UserDTO user = new UserDTO();
+		user.setUsername("admin");
+		when(userService.login(anyString(), anyString())).thenReturn(user);
 
 		mockMvc
 			.perform(post("/login").contentType(MediaType.APPLICATION_JSON)
 				.content(objectMapper.writeValueAsString(payload)))
-			.andExpect(status().isOk());
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$.status").value(1))
+			.andExpect(jsonPath("$.success").value(true))
+			.andExpect(jsonPath("$.data.username").value("admin"));
 	}
 
 	@Test
@@ -59,7 +65,10 @@ class LoginControllerTest {
 		mockMvc
 			.perform(post("/register").contentType(MediaType.APPLICATION_JSON)
 				.content(objectMapper.writeValueAsString(dto)))
-			.andExpect(status().isCreated());
+			.andExpect(status().isCreated())
+			.andExpect(jsonPath("$.status").value(1))
+			.andExpect(jsonPath("$.success").value(true))
+			.andExpect(jsonPath("$.data.username").value("newuser"));
 	}
 
 }

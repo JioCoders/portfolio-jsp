@@ -1,9 +1,10 @@
 package com.jiocoders.portfolio.controllers;
 
+import com.jiocoders.portfolio.dto.JioResponse;
 import com.jiocoders.portfolio.dto.UserDTO;
+import com.jiocoders.portfolio.dto.UserListDTO;
 import com.jiocoders.portfolio.services.UserService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -30,10 +31,12 @@ public class AdminController {
 	@Operation(summary = "Get all users",
 			description = "Retrieves a list of all registered users. Requires ADMIN role.")
 	@ApiResponse(responseCode = "200", description = "Successful retrieval",
-			content = @Content(array = @ArraySchema(schema = @Schema(implementation = UserDTO.class))))
-	public ResponseEntity<List<UserDTO>> getAllUsers() {
+			content = @Content(schema = @Schema(implementation = JioResponse.class)))
+	public ResponseEntity<JioResponse<UserListDTO>> getAllUsers() {
 		log.info("Admin request: fetching all users");
-		return ResponseEntity.ok(userService.getAllUsers());
+		List<UserDTO> users = userService.getAllUsers();
+		UserListDTO userList = new UserListDTO(users);
+		return ResponseEntity.ok(JioResponse.success(userList, "Users retrieved successfully"));
 	}
 
 	@GetMapping("/user/{identifier}")
@@ -41,11 +44,12 @@ public class AdminController {
 	@Operation(summary = "Get a specific user",
 			description = "Retrieves detailed information for a user by their username or email. Requires ADMIN role.")
 	@ApiResponse(responseCode = "200", description = "User found",
-			content = @Content(schema = @Schema(implementation = UserDTO.class)))
+			content = @Content(schema = @Schema(implementation = JioResponse.class)))
 	@ApiResponse(responseCode = "404", description = "User not found")
-	public ResponseEntity<UserDTO> getUser(@PathVariable String identifier) {
+	public ResponseEntity<JioResponse<UserDTO>> getUser(@PathVariable String identifier) {
 		log.info("Admin request: searching for user '{}'", identifier);
-		return ResponseEntity.ok(userService.getUserByUsernameOrEmail(identifier));
+		UserDTO user = userService.getUserByUsernameOrEmail(identifier);
+		return ResponseEntity.ok(JioResponse.success(user, "User found"));
 	}
 
 }

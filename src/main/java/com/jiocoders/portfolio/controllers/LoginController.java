@@ -1,5 +1,7 @@
 package com.jiocoders.portfolio.controllers;
 
+import com.jiocoders.portfolio.dto.JioError;
+import com.jiocoders.portfolio.dto.JioResponse;
 import com.jiocoders.portfolio.dto.LoginRequest;
 import com.jiocoders.portfolio.dto.UserDTO;
 import com.jiocoders.portfolio.services.UserService;
@@ -15,6 +17,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @Slf4j
@@ -26,26 +30,29 @@ public class LoginController {
 	@PostMapping("/login")
 	@Operation(summary = "Login a user", description = "Authenticates a user and returns their profile information.")
 	@ApiResponse(responseCode = "200", description = "Login successful",
-			content = @Content(schema = @Schema(implementation = UserDTO.class)))
+			content = @Content(schema = @Schema(implementation = JioResponse.class)))
 	@ApiResponse(responseCode = "401", description = "Invalid credentials")
 	@ApiResponse(responseCode = "400", description = "Invalid request payload")
-	public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
+	public ResponseEntity<JioResponse<?>> login(@RequestBody LoginRequest loginRequest) {
 		String username = loginRequest.getUsername();
 		log.info("Login attempt for user: {}", username);
 
 		if (username == null || loginRequest.getPassword() == null) {
 			log.warn("Login failed: missing username or password");
-			return ResponseEntity.badRequest().body("Username and password are required");
+			JioError error = JioError.builder().message("Username and password are required").build();
+			return ResponseEntity.badRequest().body(JioResponse.error("Validation Error", error));
 		}
 
 		UserDTO user = userService.login(username, loginRequest.getPassword());
 		if (user != null) {
 			log.info("Login successful for user: {}", username);
-			return ResponseEntity.ok(user);
+			return ResponseEntity.ok(JioResponse.success(user, "Login successful"));
 		}
 		else {
 			log.warn("Login failed: invalid credentials for user: {}", username);
-			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
+			JioError error = JioError.builder().message("Invalid credentials").build();
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+				.body(JioResponse.error("Authentication Failed", error));
 		}
 	}
 
@@ -53,18 +60,20 @@ public class LoginController {
 	@PreAuthorize("hasRole('ADMIN')")
 	@Operation(summary = "Register a new user", description = "Creates a new user account. Requires ADMIN role.")
 	@ApiResponse(responseCode = "201", description = "User created successfully",
-			content = @Content(schema = @Schema(implementation = UserDTO.class)))
+			content = @Content(schema = @Schema(implementation = JioResponse.class)))
 	@ApiResponse(responseCode = "400", description = "Registration failed")
-	public ResponseEntity<?> register(@RequestBody UserDTO userDTO) {
+	public ResponseEntity<JioResponse<?>> register(@RequestBody UserDTO userDTO) {
 		log.info("Registration attempt for username: {}", userDTO.getUsername());
 		try {
 			UserDTO createdUser = userService.register(userDTO);
 			log.info("Registration successful for username: {}", createdUser.getUsername());
-			return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
+			return ResponseEntity.status(HttpStatus.CREATED)
+				.body(JioResponse.success(createdUser, "User registered successfully"));
 		}
 		catch (RuntimeException e) {
 			log.error("Registration failed for username: {}. Reason: {}", userDTO.getUsername(), e.getMessage());
-			return ResponseEntity.badRequest().body(e.getMessage());
+			JioError error = JioError.builder().message(e.getMessage()).errors(List.of(e.getMessage())).build();
+			return ResponseEntity.badRequest().body(JioResponse.error("Registration Failed", error));
 		}
 	}
 

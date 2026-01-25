@@ -13,6 +13,7 @@ import java.util.Collections;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(AdminController.class)
@@ -30,15 +31,23 @@ class AdminControllerTest {
         when(userService.getAllUsers()).thenReturn(Collections.emptyList());
 
         mockMvc.perform(get("/admin/users"))
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.status").value(1))
+                .andExpect(jsonPath("$.success").value(true))
+                .andExpect(jsonPath("$.data.users").isArray());
     }
 
 	@Test
-    void getUser_ShouldReturn200() throws Exception {
-        when(userService.getUserByUsernameOrEmail("admin")).thenReturn(new UserDTO());
+	void getUser_ShouldReturn200() throws Exception {
+		UserDTO user = new UserDTO();
+		user.setUsername("admin");
+		when(userService.getUserByUsernameOrEmail("admin")).thenReturn(user);
 
-        mockMvc.perform(get("/admin/user/admin"))
-                .andExpect(status().isOk());
-    }
+		mockMvc.perform(get("/admin/user/admin"))
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$.status").value(1))
+			.andExpect(jsonPath("$.success").value(true))
+			.andExpect(jsonPath("$.data.username").value("admin"));
+	}
 
 }
