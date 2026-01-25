@@ -3,3 +3,11 @@ target/
 .idea/
 *.iml
 *.log
+logs/
+.DS_Store
+.vscode/
+.env
+.env.local
+.env.prod
+.env.dev
+.env.test

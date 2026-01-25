@@ -1,28 +1,17 @@
-# https://jiocoders-profile.s3.ap-south-1.amazonaws.com/index.html
-# http://jiocoders-portfolio.us-east-1.elasticbeanstalk.com/
-#############################################################
-# Stage 1: Build WAR file - Use Maven to build the WAR
+# Stage 1: Build JAR - Use Maven
 FROM maven:3.9.6-eclipse-temurin-17 AS builder
 WORKDIR /app
 COPY . .
 RUN mvn clean package -DskipTests
 
-# Stage 2: Deploy WAR to Tomcat - Use Tomcat to run the WAR
-# FROM tomcat:9.0-jdk17
-# WORKDIR /app
-# COPY --from=builder /app/target/*.war /usr/local/tomcat/webapps/ROOT.war
-
-# # Expose port 8080
-# EXPOSE 8080
-# CMD ["catalina.sh", "run"]
-
-# Stage 2: Run the app with JDK - Run Spring Boot JAR
-# FROM eclipse-temurin:17-jdk
+# Stage 2: Runtime - Use JRE 17
 FROM eclipse-temurin:17-jre
 WORKDIR /app
 COPY --from=builder /app/target/*.jar app.jar
 
-# Expose port 8080
+# Render usually sets a PORT env var. Spring Boot can pick this up if we map it to server.port 
+# or use SERVER_PORT env var directly.
+ENV SERVER_PORT=8080
+
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
-#############################################################

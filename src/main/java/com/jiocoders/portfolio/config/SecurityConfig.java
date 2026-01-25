@@ -18,10 +18,13 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(AbstractHttpConfigurer::disable)
+                .csrf(AbstractHttpConfigurer::disable)a
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/h2-console/**", "/", "portfolio", "/login", "/register", "/css/**", "/js/**", "/images/**").permitAll()
+                        .requestMatchers("/h2-console/**", "/", "portfolio", "/login", "/css/**", "/js/**",
+                                "/images/**")
+                        .permitAll()
                         .anyRequest().authenticated())
+                .headers(headers -> headers.frameOptions(frame -> frame.disable()))
                 .httpBasic(basic -> {
                 }); // Enable Basic Auth for testing protected endpoints
 

@@ -1,0 +1,426 @@
+2026-01-25 22:44:17.314 [main] INFO  c.j.p.Jiocoders2206javaApplication - Starting Jiocoders2206javaApplication using Java 17.0.12 with PID 34783 (/Users/mac/Documents/javaapp/jiocoders/portfolio-jsp/target/classes started by mac in /Users/mac/Documents/javaapp/jiocoders/portfolio-jsp)
+2026-01-25 22:44:17.317 [main] DEBUG c.j.p.Jiocoders2206javaApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-01-25 22:44:17.319 [main] INFO  c.j.p.Jiocoders2206javaApplication - The following 1 profile is active: "local"
+2026-01-25 22:44:19.494 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-25 22:44:19.627 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 115 ms. Found 1 JPA repository interface.
+2026-01-25 22:44:21.350 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-01-25 22:44:21.376 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-01-25 22:44:21.380 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-01-25 22:44:21.702 [main] INFO  o.a.c.c.C.[.[.[/jiocoders/v1] - Initializing Spring embedded WebApplicationContext
+2026-01-25 22:44:21.729 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4254 ms
+2026-01-25 22:44:22.071 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-25 22:44:22.451 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2026-01-25 22:44:22.454 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-25 22:44:22.485 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2026-01-25 22:44:23.079 [main] INFO  liquibase.database - Set default schema name to PUBLIC
+2026-01-25 22:44:23.324 [main] INFO  liquibase.changelog - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2026-01-25 22:44:28.692 [main] INFO  liquibase.changelog - Reading from PUBLIC.DATABASECHANGELOG
+2026-01-25 22:44:28.806 [main] INFO  liquibase.lockservice - Successfully acquired change log lock
+2026-01-25 22:44:28.808 [main] INFO  liquibase.command - Using deploymentId: 9361268807
+2026-01-25 22:44:28.811 [main] INFO  liquibase.changelog - Reading from PUBLIC.DATABASECHANGELOG
+2026-01-25 22:44:28.928 [main] INFO  liquibase.changelog - Custom SQL executed
+2026-01-25 22:44:28.937 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/001-create-user-table.sql::1::jiocoders ran successfully in 66ms
+2026-01-25 22:44:28.989 [main] INFO  liquibase.changelog - Custom SQL executed
+2026-01-25 22:44:28.992 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/001-create-user-table.sql::2::jiocoders ran successfully in 19ms
+2026-01-25 22:44:29.022 [main] INFO  liquibase.util - UPDATE SUMMARY
+2026-01-25 22:44:29.022 [main] INFO  liquibase.util - Run:                          2
+2026-01-25 22:44:29.023 [main] INFO  liquibase.util - Previously run:               0
+2026-01-25 22:44:29.023 [main] INFO  liquibase.util - Filtered out:                 0
+2026-01-25 22:44:29.023 [main] INFO  liquibase.util - -------------------------------
+2026-01-25 22:44:29.023 [main] INFO  liquibase.util - Total change sets:            2
+2026-01-25 22:44:29.024 [main] INFO  liquibase.util - Update summary generated
+2026-01-25 22:44:29.032 [main] INFO  liquibase.command - Update command completed successfully.
+2026-01-25 22:44:29.038 [main] INFO  liquibase.lockservice - Successfully released change log lock
+2026-01-25 22:44:29.040 [main] INFO  liquibase.command - Command execution complete
+2026-01-25 22:44:30.033 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-25 22:44:30.126 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-25 22:44:32.579 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-25 22:44:33.553 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-25 22:44:34.169 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2026-01-25 22:44:34.883 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2026-01-25 22:44:35.056 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4158b72f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4d45b457, org.springframework.security.web.context.SecurityContextHolderFilter@36996b37, org.springframework.security.web.header.HeaderWriterFilter@34c79268, org.springframework.web.filter.CorsFilter@5c1605e2, org.springframework.security.web.authentication.logout.LogoutFilter@70ca533a, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1bfa398e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6289376f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3b802baa, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@71d3dfd5, org.springframework.security.web.access.ExceptionTranslationFilter@70d61624, org.springframework.security.web.access.intercept.AuthorizationFilter@24fcfdb]
+2026-01-25 22:44:36.022 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/jiocoders/v1'
+2026-01-25 22:44:36.063 [main] INFO  c.j.p.Jiocoders2206javaApplication - Started Jiocoders2206javaApplication in 20.075 seconds (process running for 21.528)
+2026-01-25 22:44:36.165 [main] INFO  c.j.portfolio.JiocodersRunner - Jiocoders Runner activated939249
+2026-01-25 22:59:57.374 [main] INFO  c.j.p.Jiocoders2206javaApplication - Starting Jiocoders2206javaApplication using Java 17.0.12 with PID 36058 (/Users/mac/Documents/javaapp/jiocoders/portfolio-jsp/target/classes started by mac in /Users/mac/Documents/javaapp/jiocoders/portfolio-jsp)
+2026-01-25 22:59:57.381 [main] DEBUG c.j.p.Jiocoders2206javaApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-01-25 22:59:57.384 [main] INFO  c.j.p.Jiocoders2206javaApplication - The following 1 profile is active: "local"
+2026-01-25 22:59:59.402 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-25 22:59:59.604 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 184 ms. Found 1 JPA repository interface.
+2026-01-25 23:00:01.291 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-01-25 23:00:01.326 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-01-25 23:00:01.327 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-01-25 23:00:01.450 [main] INFO  o.a.c.c.C.[.[.[/jiocoders/v1] - Initializing Spring embedded WebApplicationContext
+2026-01-25 23:00:01.455 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3944 ms
+2026-01-25 23:00:01.842 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-25 23:00:02.371 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2026-01-25 23:00:02.374 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-25 23:00:02.407 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2026-01-25 23:00:02.926 [main] INFO  liquibase.database - Set default schema name to PUBLIC
+2026-01-25 23:00:03.213 [main] INFO  liquibase.changelog - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2026-01-25 23:00:08.366 [main] INFO  liquibase.changelog - Reading from PUBLIC.DATABASECHANGELOG
+2026-01-25 23:00:08.464 [main] INFO  liquibase.lockservice - Successfully acquired change log lock
+2026-01-25 23:00:08.467 [main] INFO  liquibase.command - Using deploymentId: 9362208466
+2026-01-25 23:00:08.471 [main] INFO  liquibase.changelog - Reading from PUBLIC.DATABASECHANGELOG
+2026-01-25 23:00:08.560 [main] INFO  liquibase.changelog - Custom SQL executed
+2026-01-25 23:00:08.561 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/001-create-user-table.sql::1::jiocoders ran successfully in 34ms
+2026-01-25 23:00:08.604 [main] INFO  liquibase.changelog - Custom SQL executed
+2026-01-25 23:00:08.607 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/001-create-user-table.sql::2::jiocoders ran successfully in 21ms
+2026-01-25 23:00:08.624 [main] INFO  liquibase.util - UPDATE SUMMARY
+2026-01-25 23:00:08.625 [main] INFO  liquibase.util - Run:                          2
+2026-01-25 23:00:08.625 [main] INFO  liquibase.util - Previously run:               0
+2026-01-25 23:00:08.625 [main] INFO  liquibase.util - Filtered out:                 0
+2026-01-25 23:00:08.626 [main] INFO  liquibase.util - -------------------------------
+2026-01-25 23:00:08.626 [main] INFO  liquibase.util - Total change sets:            2
+2026-01-25 23:00:08.626 [main] INFO  liquibase.util - Update summary generated
+2026-01-25 23:00:08.628 [main] INFO  liquibase.command - Update command completed successfully.
+2026-01-25 23:00:08.635 [main] INFO  liquibase.lockservice - Successfully released change log lock
+2026-01-25 23:00:08.638 [main] INFO  liquibase.command - Command execution complete
+2026-01-25 23:00:09.368 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-25 23:00:09.489 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-25 23:00:10.895 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-25 23:00:11.767 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-25 23:00:12.002 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2026-01-25 23:00:12.691 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2026-01-25 23:00:12.847 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6f0ab520, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@13c79e0d, org.springframework.security.web.context.SecurityContextHolderFilter@551bc2c6, org.springframework.security.web.header.HeaderWriterFilter@62243a7a, org.springframework.web.filter.CorsFilter@648639f1, org.springframework.security.web.authentication.logout.LogoutFilter@29509774, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@19b7852b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7b50e70a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@18be7f57, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@210e971e, org.springframework.security.web.access.ExceptionTranslationFilter@111ae918, org.springframework.security.web.access.intercept.AuthorizationFilter@5b6789cf]
+2026-01-25 23:00:13.770 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/jiocoders/v1'
+2026-01-25 23:00:13.806 [main] INFO  c.j.p.Jiocoders2206javaApplication - Started Jiocoders2206javaApplication in 17.509 seconds (process running for 18.608)
+2026-01-25 23:00:13.900 [main] INFO  c.j.portfolio.JiocodersRunner - Jiocoders Runner activated939249
+2026-01-25 23:06:09.235 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[.[/jiocoders/v1] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-25 23:06:09.240 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-01-25 23:06:09.262 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 21 ms
+2026-01-25 23:06:09.328 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing POST /register
+2026-01-25 23:06:09.400 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured POST /register
+2026-01-25 23:06:09.873 [http-nio-8080-exec-1] INFO  c.j.p.controllers.LoginController - Registration attempt for username: admin11
+2026-01-25 23:06:09.908 [http-nio-8080-exec-1] INFO  c.j.portfolio.services.UserService - Registering new user: admin11
+2026-01-25 23:06:10.863 [http-nio-8080-exec-1] INFO  c.j.portfolio.services.UserService - User registered successfully. ID: 3
+2026-01-25 23:06:10.887 [http-nio-8080-exec-1] INFO  c.j.p.controllers.LoginController - Registration successful for username: admin11
+2026-01-25 23:06:10.981 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-01-25 23:06:15.830 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing POST /register
+2026-01-25 23:06:15.836 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured POST /register
+2026-01-25 23:06:15.843 [http-nio-8080-exec-2] INFO  c.j.p.controllers.LoginController - Registration attempt for username: admin11
+2026-01-25 23:06:15.844 [http-nio-8080-exec-2] INFO  c.j.portfolio.services.UserService - Registering new user: admin11
+2026-01-25 23:06:15.877 [http-nio-8080-exec-2] WARN  c.j.portfolio.services.UserService - Registration failed: User already exists - admin11
+2026-01-25 23:06:15.883 [http-nio-8080-exec-2] ERROR c.j.p.controllers.LoginController - Registration failed for username: admin11. Reason: User already exists
+2026-01-25 23:06:15.893 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-01-25 23:06:25.432 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /portfolio
+2026-01-25 23:06:25.435 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /portfolio
+2026-01-25 23:06:25.483 [http-nio-8080-exec-3] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2026-01-25 23:06:26.239 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-01-25 23:06:26.382 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /css/styles.css
+2026-01-25 23:06:26.382 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /images/jiocoders.png
+2026-01-25 23:06:26.384 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /js/portfolio.js
+2026-01-25 23:06:26.385 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /css/styles.css
+2026-01-25 23:06:26.385 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /images/jiocoders.png
+2026-01-25 23:06:26.387 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /js/portfolio.js
+2026-01-25 23:06:26.395 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-01-25 23:06:26.395 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-01-25 23:06:26.403 [http-nio-8080-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-01-25 23:06:29.002 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /images/jiocoders.png
+2026-01-25 23:06:29.010 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /images/jiocoders.png
+2026-01-25 23:06:29.082 [http-nio-8080-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-01-25 23:07:03.156 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing POST /register
+2026-01-25 23:07:03.160 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured POST /register
+2026-01-25 23:07:03.166 [http-nio-8080-exec-8] INFO  c.j.p.controllers.LoginController - Registration attempt for username: admin
+2026-01-25 23:07:03.167 [http-nio-8080-exec-8] INFO  c.j.portfolio.services.UserService - Registering new user: admin
+2026-01-25 23:07:03.319 [http-nio-8080-exec-8] INFO  c.j.portfolio.services.UserService - User registered successfully. ID: 4
+2026-01-25 23:07:03.320 [http-nio-8080-exec-8] INFO  c.j.p.controllers.LoginController - Registration successful for username: admin
+2026-01-25 23:07:03.324 [http-nio-8080-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-01-25 23:07:10.246 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing POST /register
+2026-01-25 23:07:10.253 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured POST /register
+2026-01-25 23:07:10.272 [http-nio-8080-exec-9] INFO  c.j.p.controllers.LoginController - Registration attempt for username: admin
+2026-01-25 23:07:10.273 [http-nio-8080-exec-9] INFO  c.j.portfolio.services.UserService - Registering new user: admin
+2026-01-25 23:07:10.277 [http-nio-8080-exec-9] WARN  c.j.portfolio.services.UserService - Registration failed: User already exists - admin
+2026-01-25 23:07:10.278 [http-nio-8080-exec-9] ERROR c.j.p.controllers.LoginController - Registration failed for username: admin. Reason: User already exists
+2026-01-25 23:07:10.298 [http-nio-8080-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-01-25 23:25:27.086 [main] INFO  c.j.p.Jiocoders2206javaApplication - Starting Jiocoders2206javaApplication using Java 17.0.12 with PID 37687 (/Users/mac/Documents/javaapp/jiocoders/portfolio-jsp/target/classes started by mac in /Users/mac/Documents/javaapp/jiocoders/portfolio-jsp)
+2026-01-25 23:25:27.089 [main] DEBUG c.j.p.Jiocoders2206javaApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-01-25 23:25:27.091 [main] INFO  c.j.p.Jiocoders2206javaApplication - The following 1 profile is active: "local"
+2026-01-25 23:25:28.914 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-25 23:25:29.030 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 99 ms. Found 1 JPA repository interface.
+2026-01-25 23:25:30.532 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-01-25 23:25:30.565 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-01-25 23:25:30.565 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-01-25 23:25:30.771 [main] INFO  o.a.c.c.C.[.[.[/jiocoders/v1] - Initializing Spring embedded WebApplicationContext
+2026-01-25 23:25:30.773 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3561 ms
+2026-01-25 23:25:31.038 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-25 23:25:31.333 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2026-01-25 23:25:31.338 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-25 23:25:31.356 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2026-01-25 23:25:31.785 [main] INFO  liquibase.database - Set default schema name to PUBLIC
+2026-01-25 23:25:32.066 [main] INFO  liquibase.changelog - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2026-01-25 23:25:37.216 [main] INFO  liquibase.changelog - Reading from PUBLIC.DATABASECHANGELOG
+2026-01-25 23:25:37.291 [main] INFO  liquibase.lockservice - Successfully acquired change log lock
+2026-01-25 23:25:37.293 [main] INFO  liquibase.command - Using deploymentId: 9363737293
+2026-01-25 23:25:37.301 [main] INFO  liquibase.changelog - Reading from PUBLIC.DATABASECHANGELOG
+2026-01-25 23:25:37.392 [main] INFO  liquibase.changelog - Custom SQL executed
+2026-01-25 23:25:37.394 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/001-create-user-table.sql::1::jiocoders ran successfully in 28ms
+2026-01-25 23:25:37.422 [main] INFO  liquibase.changelog - Custom SQL executed
+2026-01-25 23:25:37.425 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/001-create-user-table.sql::2::jiocoders ran successfully in 13ms
+2026-01-25 23:25:37.439 [main] INFO  liquibase.util - UPDATE SUMMARY
+2026-01-25 23:25:37.440 [main] INFO  liquibase.util - Run:                          2
+2026-01-25 23:25:37.440 [main] INFO  liquibase.util - Previously run:               0
+2026-01-25 23:25:37.451 [main] INFO  liquibase.util - Filtered out:                 0
+2026-01-25 23:25:37.452 [main] INFO  liquibase.util - -------------------------------
+2026-01-25 23:25:37.452 [main] INFO  liquibase.util - Total change sets:            2
+2026-01-25 23:25:37.452 [main] INFO  liquibase.util - Update summary generated
+2026-01-25 23:25:37.455 [main] INFO  liquibase.command - Update command completed successfully.
+2026-01-25 23:25:37.464 [main] INFO  liquibase.lockservice - Successfully released change log lock
+2026-01-25 23:25:37.467 [main] INFO  liquibase.command - Command execution complete
+2026-01-25 23:25:38.681 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-25 23:25:38.791 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-25 23:25:40.851 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-25 23:25:41.731 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-25 23:25:42.012 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2026-01-25 23:25:42.678 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2026-01-25 23:25:42.863 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@51cf17e8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7abeaed0, org.springframework.security.web.context.SecurityContextHolderFilter@3741a170, org.springframework.security.web.header.HeaderWriterFilter@2df6d461, org.springframework.web.filter.CorsFilter@490e1017, org.springframework.security.web.authentication.logout.LogoutFilter@367a245e, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@72c8de78, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@45f20384, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@283074e8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2ddb260e, org.springframework.security.web.access.ExceptionTranslationFilter@1fb4377d, org.springframework.security.web.access.intercept.AuthorizationFilter@1203c259]
+2026-01-25 23:25:43.741 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/jiocoders/v1'
+2026-01-25 23:25:43.777 [main] INFO  c.j.p.Jiocoders2206javaApplication - Started Jiocoders2206javaApplication in 17.693 seconds (process running for 18.821)
+2026-01-25 23:25:43.929 [main] INFO  c.j.portfolio.JiocodersRunner - Jiocoders Runner activated939249
+2026-01-25 23:25:48.570 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[.[/jiocoders/v1] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-25 23:25:48.571 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-01-25 23:25:48.574 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-01-25 23:25:48.622 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing POST /register
+2026-01-25 23:25:48.657 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-01-25 23:25:48.671 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
+2026-01-25 23:25:48.671 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@500e6507
+2026-01-25 23:25:48.690 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2026-01-25 23:25:48.692 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-01-25 23:25:48.697 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
+2026-01-25 23:25:48.697 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@500e6507
+2026-01-25 23:26:12.026 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing POST /register
+2026-01-25 23:26:12.585 [http-nio-8080-exec-2] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Failed to find user 'admin'
+2026-01-25 23:26:12.586 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.w.BasicAuthenticationFilter - Failed to process authentication request
+org.springframework.security.authentication.BadCredentialsException: Bad credentials
+	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.authenticate(AbstractUserDetailsAuthenticationProvider.java:141)
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:182)
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:201)
+	at org.springframework.security.authentication.ObservationAuthenticationManager.lambda$authenticate$1(ObservationAuthenticationManager.java:54)
+	at io.micrometer.observation.Observation.observe(Observation.java:565)
+	at org.springframework.security.authentication.ObservationAuthenticationManager.authenticate(ObservationAuthenticationManager.java:53)
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:187)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1736)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2026-01-25 23:26:12.595 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
+2026-01-25 23:26:12.595 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@500e6507
+2026-01-25 23:26:12.603 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2026-01-25 23:26:12.605 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-01-25 23:26:12.607 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
+2026-01-25 23:26:12.607 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@500e6507
+2026-01-25 23:26:24.083 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /register
+2026-01-25 23:26:24.302 [http-nio-8080-exec-3] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-01-25 23:26:24.303 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.w.BasicAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=admintemp, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_ADMIN]]
+2026-01-25 23:26:24.334 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured POST /register
+2026-01-25 23:26:24.640 [http-nio-8080-exec-3] DEBUG o.s.s.a.m.AuthorizationManagerBeforeMethodInterceptor - Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.jiocoders.portfolio.controllers.LoginController.register(com.jiocoders.portfolio.dto.UserDTO); target is of class [com.jiocoders.portfolio.controllers.LoginController]
+2026-01-25 23:26:24.717 [http-nio-8080-exec-3] DEBUG o.s.s.a.m.AuthorizationManagerBeforeMethodInterceptor - Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.jiocoders.portfolio.controllers.LoginController.register(com.jiocoders.portfolio.dto.UserDTO); target is of class [com.jiocoders.portfolio.controllers.LoginController]
+2026-01-25 23:26:24.717 [http-nio-8080-exec-3] INFO  c.j.p.controllers.LoginController - Registration attempt for username: admin
+2026-01-25 23:26:24.728 [http-nio-8080-exec-3] INFO  c.j.portfolio.services.UserService - Registering new user: admin
+2026-01-25 23:26:24.885 [http-nio-8080-exec-3] INFO  c.j.portfolio.services.UserService - User registered successfully. ID: 3
+2026-01-25 23:26:24.900 [http-nio-8080-exec-3] INFO  c.j.p.controllers.LoginController - Registration successful for username: admin
+2026-01-25 23:26:57.460 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing POST /register
+2026-01-25 23:26:57.578 [http-nio-8080-exec-4] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-01-25 23:26:57.578 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.w.BasicAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=admintemp, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_ADMIN]]
+2026-01-25 23:26:57.580 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured POST /register
+2026-01-25 23:26:57.584 [http-nio-8080-exec-4] DEBUG o.s.s.a.m.AuthorizationManagerBeforeMethodInterceptor - Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.jiocoders.portfolio.controllers.LoginController.register(com.jiocoders.portfolio.dto.UserDTO); target is of class [com.jiocoders.portfolio.controllers.LoginController]
+2026-01-25 23:26:57.585 [http-nio-8080-exec-4] DEBUG o.s.s.a.m.AuthorizationManagerBeforeMethodInterceptor - Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.jiocoders.portfolio.controllers.LoginController.register(com.jiocoders.portfolio.dto.UserDTO); target is of class [com.jiocoders.portfolio.controllers.LoginController]
+2026-01-25 23:26:57.585 [http-nio-8080-exec-4] INFO  c.j.p.controllers.LoginController - Registration attempt for username: admin
+2026-01-25 23:26:57.586 [http-nio-8080-exec-4] INFO  c.j.portfolio.services.UserService - Registering new user: admin
+2026-01-25 23:26:57.592 [http-nio-8080-exec-4] WARN  c.j.portfolio.services.UserService - Registration failed: User already exists - admin
+2026-01-25 23:26:57.596 [http-nio-8080-exec-4] ERROR c.j.p.controllers.LoginController - Registration failed for username: admin. Reason: User already exists
+2026-01-25 23:27:00.942 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing POST /register
+2026-01-25 23:27:01.049 [http-nio-8080-exec-5] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-01-25 23:27:01.050 [http-nio-8080-exec-5] DEBUG o.s.s.w.a.w.BasicAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=admintemp, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_ADMIN]]
+2026-01-25 23:27:01.051 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured POST /register
+2026-01-25 23:27:01.054 [http-nio-8080-exec-5] DEBUG o.s.s.a.m.AuthorizationManagerBeforeMethodInterceptor - Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.jiocoders.portfolio.controllers.LoginController.register(com.jiocoders.portfolio.dto.UserDTO); target is of class [com.jiocoders.portfolio.controllers.LoginController]
+2026-01-25 23:27:01.055 [http-nio-8080-exec-5] DEBUG o.s.s.a.m.AuthorizationManagerBeforeMethodInterceptor - Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.jiocoders.portfolio.controllers.LoginController.register(com.jiocoders.portfolio.dto.UserDTO); target is of class [com.jiocoders.portfolio.controllers.LoginController]
+2026-01-25 23:27:01.056 [http-nio-8080-exec-5] INFO  c.j.p.controllers.LoginController - Registration attempt for username: admin
+2026-01-25 23:27:01.057 [http-nio-8080-exec-5] INFO  c.j.portfolio.services.UserService - Registering new user: admin
+2026-01-25 23:27:01.061 [http-nio-8080-exec-5] WARN  c.j.portfolio.services.UserService - Registration failed: User already exists - admin
+2026-01-25 23:27:01.067 [http-nio-8080-exec-5] ERROR c.j.p.controllers.LoginController - Registration failed for username: admin. Reason: User already exists
+2026-01-25 23:27:07.918 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /portfolio
+2026-01-25 23:27:08.020 [http-nio-8080-exec-6] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-01-25 23:27:08.021 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.w.BasicAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=admintemp, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_ADMIN]]
+2026-01-25 23:27:08.022 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /portfolio
+2026-01-25 23:27:08.048 [http-nio-8080-exec-6] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2026-01-25 23:27:08.450 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /css/styles.css
+2026-01-25 23:27:08.454 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /images/jiocoders.png
+2026-01-25 23:27:08.454 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /js/portfolio.js
+2026-01-25 23:27:08.585 [http-nio-8080-exec-7] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-01-25 23:27:08.586 [http-nio-8080-exec-7] DEBUG o.s.s.w.a.w.BasicAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=admintemp, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_ADMIN]]
+2026-01-25 23:27:08.587 [http-nio-8080-exec-8] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-01-25 23:27:08.588 [http-nio-8080-exec-8] DEBUG o.s.s.w.a.w.BasicAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=admintemp, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_ADMIN]]
+2026-01-25 23:27:08.589 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /css/styles.css
+2026-01-25 23:27:08.590 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /images/jiocoders.png
+2026-01-25 23:27:08.600 [http-nio-8080-exec-9] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-01-25 23:27:08.600 [http-nio-8080-exec-9] DEBUG o.s.s.w.a.w.BasicAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=admintemp, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_ADMIN]]
+2026-01-25 23:27:08.605 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /js/portfolio.js
+2026-01-25 23:27:09.530 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /images/jiocoders.png
+2026-01-25 23:27:09.635 [http-nio-8080-exec-10] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-01-25 23:27:09.637 [http-nio-8080-exec-10] DEBUG o.s.s.w.a.w.BasicAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=admintemp, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_ADMIN]]
+2026-01-25 23:27:09.639 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /images/jiocoders.png
+2026-01-25 23:31:53.088 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing POST /login
+2026-01-25 23:31:53.095 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured POST /login
+2026-01-25 23:31:53.135 [http-nio-8080-exec-6] INFO  c.j.p.controllers.LoginController - Login attempt for user: admintemp
+2026-01-25 23:31:53.135 [http-nio-8080-exec-6] DEBUG c.j.portfolio.services.UserService - Authenticating user: admintemp
+2026-01-25 23:31:53.270 [http-nio-8080-exec-6] DEBUG c.j.portfolio.services.UserService - Password match for user: admintemp
+2026-01-25 23:31:53.271 [http-nio-8080-exec-6] INFO  c.j.p.controllers.LoginController - Login successful for user: admintemp
+2026-01-25 23:31:53.278 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-01-25 23:32:06.572 [main] INFO  c.j.p.Jiocoders2206javaApplication - Starting Jiocoders2206javaApplication using Java 17.0.12 with PID 38456 (/Users/mac/Documents/javaapp/jiocoders/portfolio-jsp/target/classes started by mac in /Users/mac/Documents/javaapp/jiocoders/portfolio-jsp)
+2026-01-25 23:32:06.577 [main] DEBUG c.j.p.Jiocoders2206javaApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-01-25 23:32:06.581 [main] INFO  c.j.p.Jiocoders2206javaApplication - The following 1 profile is active: "local"
+2026-01-25 23:32:08.833 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-25 23:32:08.961 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 105 ms. Found 1 JPA repository interface.
+2026-01-25 23:32:10.883 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-01-25 23:32:10.971 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-01-25 23:32:10.972 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-01-25 23:32:11.226 [main] INFO  o.a.c.c.C.[.[.[/jiocoders/v1] - Initializing Spring embedded WebApplicationContext
+2026-01-25 23:32:11.291 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4424 ms
+2026-01-25 23:32:11.739 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-25 23:32:12.249 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2026-01-25 23:32:12.254 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-25 23:32:12.287 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2026-01-25 23:32:12.759 [main] INFO  liquibase.database - Set default schema name to PUBLIC
+2026-01-25 23:32:13.107 [main] INFO  liquibase.changelog - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2026-01-25 23:32:18.293 [main] INFO  liquibase.changelog - Reading from PUBLIC.DATABASECHANGELOG
+2026-01-25 23:32:18.377 [main] INFO  liquibase.lockservice - Successfully acquired change log lock
+2026-01-25 23:32:18.379 [main] INFO  liquibase.command - Using deploymentId: 9364138378
+2026-01-25 23:32:18.382 [main] INFO  liquibase.changelog - Reading from PUBLIC.DATABASECHANGELOG
+2026-01-25 23:32:18.505 [main] INFO  liquibase.changelog - Custom SQL executed
+2026-01-25 23:32:18.509 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/001-create-user-table.sql::1::jiocoders ran successfully in 46ms
+2026-01-25 23:32:18.567 [main] INFO  liquibase.changelog - Custom SQL executed
+2026-01-25 23:32:18.568 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/001-create-user-table.sql::2::jiocoders ran successfully in 14ms
+2026-01-25 23:32:18.586 [main] INFO  liquibase.util - UPDATE SUMMARY
+2026-01-25 23:32:18.587 [main] INFO  liquibase.util - Run:                          2
+2026-01-25 23:32:18.588 [main] INFO  liquibase.util - Previously run:               0
+2026-01-25 23:32:18.588 [main] INFO  liquibase.util - Filtered out:                 0
+2026-01-25 23:32:18.589 [main] INFO  liquibase.util - -------------------------------
+2026-01-25 23:32:18.589 [main] INFO  liquibase.util - Total change sets:            2
+2026-01-25 23:32:18.589 [main] INFO  liquibase.util - Update summary generated
+2026-01-25 23:32:18.602 [main] INFO  liquibase.command - Update command completed successfully.
+2026-01-25 23:32:18.607 [main] INFO  liquibase.lockservice - Successfully released change log lock
+2026-01-25 23:32:18.608 [main] INFO  liquibase.command - Command execution complete
+2026-01-25 23:32:19.329 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-25 23:32:19.501 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-25 23:32:21.538 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-25 23:32:22.512 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-25 23:32:22.774 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2026-01-25 23:32:23.496 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2026-01-25 23:32:23.662 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2083bcfd, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7aabbe81, org.springframework.security.web.context.SecurityContextHolderFilter@670481b2, org.springframework.security.web.header.HeaderWriterFilter@7eb370c5, org.springframework.web.filter.CorsFilter@58885a2e, org.springframework.security.web.authentication.logout.LogoutFilter@6193a9e2, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@713323a3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1c8e4810, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@309d9033, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3d2bcf0a, org.springframework.security.web.access.ExceptionTranslationFilter@6c5e6da, org.springframework.security.web.access.intercept.AuthorizationFilter@72c8de78]
+2026-01-25 23:32:24.588 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/jiocoders/v1'
+2026-01-25 23:32:24.629 [main] INFO  c.j.p.Jiocoders2206javaApplication - Started Jiocoders2206javaApplication in 19.311 seconds (process running for 20.339)
+2026-01-25 23:32:24.716 [main] INFO  c.j.portfolio.JiocodersRunner - Jiocoders Runner activated939249
+2026-01-25 23:32:58.603 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[.[/jiocoders/v1] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-25 23:32:58.604 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-01-25 23:32:58.608 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2026-01-25 23:32:58.659 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing POST /login
+2026-01-25 23:32:58.694 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured POST /login
+2026-01-25 23:32:58.809 [http-nio-8080-exec-1] INFO  c.j.p.controllers.LoginController - Login attempt for user: admintemp
+2026-01-25 23:32:58.809 [http-nio-8080-exec-1] DEBUG c.j.portfolio.services.UserService - Authenticating user: admintemp
+2026-01-25 23:32:59.229 [http-nio-8080-exec-1] DEBUG c.j.portfolio.services.UserService - Password match for user: admintemp
+2026-01-25 23:32:59.230 [http-nio-8080-exec-1] INFO  c.j.p.controllers.LoginController - Login successful for user: admintemp
+2026-01-25 23:32:59.312 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-01-25 23:33:13.570 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /register
+2026-01-25 23:33:13.575 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-01-25 23:33:13.614 [http-nio-8080-exec-3] DEBUG o.s.s.w.s.HttpSessionRequestCache - Saved request http://localhost:8080/jiocoders/v1/register?continue to session
+2026-01-25 23:33:13.615 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
+2026-01-25 23:33:13.616 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@26bab495
+2026-01-25 23:33:13.632 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2026-01-25 23:33:13.635 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-01-25 23:33:13.636 [http-nio-8080-exec-3] DEBUG o.s.s.w.s.HttpSessionRequestCache - Saved request http://localhost:8080/jiocoders/v1/error?continue to session
+2026-01-25 23:33:13.637 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
+2026-01-25 23:33:13.638 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@26bab495
+2026-01-25 23:33:39.514 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /admin/users
+2026-01-25 23:33:39.842 [http-nio-8080-exec-4] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-01-25 23:33:39.845 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.w.BasicAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=admintemp, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=9CC16D8421B6CEA0518774F075663F7E], Granted Authorities=[ROLE_ADMIN]]
+2026-01-25 23:33:39.847 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /admin/users
+2026-01-25 23:33:39.854 [http-nio-8080-exec-4] DEBUG o.s.s.a.m.AuthorizationManagerBeforeMethodInterceptor - Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.jiocoders.portfolio.controllers.AdminController.getAllUsers(); target is of class [com.jiocoders.portfolio.controllers.AdminController]
+2026-01-25 23:33:39.908 [http-nio-8080-exec-4] DEBUG o.s.s.a.m.AuthorizationManagerBeforeMethodInterceptor - Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.jiocoders.portfolio.controllers.AdminController.getAllUsers(); target is of class [com.jiocoders.portfolio.controllers.AdminController]
+2026-01-25 23:33:39.910 [http-nio-8080-exec-4] INFO  c.j.p.controllers.AdminController - Admin request: fetching all users
+2026-01-25 23:33:39.911 [http-nio-8080-exec-4] INFO  c.j.portfolio.services.UserService - Fetching all users
+2026-01-25 23:33:55.849 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing POST /register
+2026-01-25 23:33:55.981 [http-nio-8080-exec-5] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-01-25 23:33:55.982 [http-nio-8080-exec-5] DEBUG o.s.s.w.a.w.BasicAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=admintemp, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=9CC16D8421B6CEA0518774F075663F7E], Granted Authorities=[ROLE_ADMIN]]
+2026-01-25 23:33:55.983 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured POST /register
+2026-01-25 23:33:56.028 [http-nio-8080-exec-5] DEBUG o.s.s.a.m.AuthorizationManagerBeforeMethodInterceptor - Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.jiocoders.portfolio.controllers.LoginController.register(com.jiocoders.portfolio.dto.UserDTO); target is of class [com.jiocoders.portfolio.controllers.LoginController]
+2026-01-25 23:33:56.029 [http-nio-8080-exec-5] DEBUG o.s.s.a.m.AuthorizationManagerBeforeMethodInterceptor - Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.jiocoders.portfolio.controllers.LoginController.register(com.jiocoders.portfolio.dto.UserDTO); target is of class [com.jiocoders.portfolio.controllers.LoginController]
+2026-01-25 23:33:56.030 [http-nio-8080-exec-5] INFO  c.j.p.controllers.LoginController - Registration attempt for username: admintemp
+2026-01-25 23:33:56.031 [http-nio-8080-exec-5] INFO  c.j.portfolio.services.UserService - Registering new user: admintemp
+2026-01-25 23:33:56.035 [http-nio-8080-exec-5] WARN  c.j.portfolio.services.UserService - Registration failed: User already exists - admintemp
+2026-01-25 23:33:56.044 [http-nio-8080-exec-5] ERROR c.j.p.controllers.LoginController - Registration failed for username: admintemp. Reason: User already exists
