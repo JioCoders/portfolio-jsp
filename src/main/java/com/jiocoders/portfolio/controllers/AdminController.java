@@ -16,19 +16,20 @@ import java.util.List;
 @Slf4j
 public class AdminController {
 
-    private final UserService userService;
+	private final UserService userService;
 
-    @GetMapping("/users")
-    @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<List<UserDTO>> getAllUsers() {
-        log.info("Admin request: fetching all users");
-        return ResponseEntity.ok(userService.getAllUsers());
-    }
+	@GetMapping("/users")
+	@PreAuthorize("hasRole('ADMIN')")
+	public ResponseEntity<List<UserDTO>> getAllUsers() {
+		log.info("Admin request: fetching all users");
+		return ResponseEntity.ok(userService.getAllUsers());
+	}
 
-    @GetMapping("/user/{identifier}")
-    @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<UserDTO> getUser(@PathVariable String identifier) {
-        log.info("Admin request: searching for user '{}'", identifier);
-        return ResponseEntity.ok(userService.getUserByUsernameOrEmail(identifier));
-    }
+	@GetMapping("/user/{identifier}")
+	@PreAuthorize("hasRole('ADMIN')")
+	public ResponseEntity<UserDTO> getUser(@PathVariable String identifier) {
+		log.info("Admin request: searching for user '{}'", identifier);
+		return ResponseEntity.ok(userService.getUserByUsernameOrEmail(identifier));
+	}
+
 }

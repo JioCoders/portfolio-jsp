@@ -14,26 +14,27 @@ import java.util.Map;
 @Slf4j
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(UserException.class)
-    public ResponseEntity<Object> handleUserException(UserException ex) {
-        log.warn("UserException occurred: {}", ex.getMessage());
-        Map<String, Object> body = new HashMap<>();
-        body.put("timestamp", LocalDateTime.now());
-        body.put("message", ex.getMessage());
-        body.put("status", HttpStatus.BAD_REQUEST.value());
+	@ExceptionHandler(UserException.class)
+	public ResponseEntity<Object> handleUserException(UserException ex) {
+		log.warn("UserException occurred: {}", ex.getMessage());
+		Map<String, Object> body = new HashMap<>();
+		body.put("timestamp", LocalDateTime.now());
+		body.put("message", ex.getMessage());
+		body.put("status", HttpStatus.BAD_REQUEST.value());
 
-        return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
-    }
+		return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
+	}
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<Object> handleGlobalException(Exception ex) {
-        log.error("Unexpected error occurred", ex);
-        Map<String, Object> body = new HashMap<>();
-        body.put("timestamp", LocalDateTime.now());
-        body.put("message", "An unexpected error occurred");
-        body.put("details", ex.getMessage());
-        body.put("status", HttpStatus.INTERNAL_SERVER_ERROR.value());
+	@ExceptionHandler(Exception.class)
+	public ResponseEntity<Object> handleGlobalException(Exception ex) {
+		log.error("Unexpected error occurred", ex);
+		Map<String, Object> body = new HashMap<>();
+		body.put("timestamp", LocalDateTime.now());
+		body.put("message", "An unexpected error occurred");
+		body.put("details", ex.getMessage());
+		body.put("status", HttpStatus.INTERNAL_SERVER_ERROR.value());
 
-        return new ResponseEntity<>(body, HttpStatus.INTERNAL_SERVER_ERROR);
-    }
+		return new ResponseEntity<>(body, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+
 }

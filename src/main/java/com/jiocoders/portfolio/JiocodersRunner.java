@@ -8,11 +8,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class JiocodersRunner implements CommandLineRunner {
 
-    private static final Logger logger = LoggerFactory.getLogger(JiocodersRunner.class);
+	private static final Logger logger = LoggerFactory.getLogger(JiocodersRunner.class);
 
-    @Override
-    public void run(String... args) throws Exception {
-        logger.info("Jiocoders Runner activated939249");
-    }
-    
+	@Override
+	public void run(String... args) throws Exception {
+		logger.info("Jiocoders Runner activated939249");
+	}
+
 }

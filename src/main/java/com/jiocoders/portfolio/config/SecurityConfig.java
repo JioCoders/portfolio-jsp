@@ -15,24 +15,24 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableMethodSecurity
 public class SecurityConfig {
 
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
-                .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/h2-console/**", "/", "portfolio", "/login", "/css/**", "/js/**",
-                                "/images/**")
-                        .permitAll()
-                        .anyRequest().authenticated())
-                .headers(headers -> headers.frameOptions(frame -> frame.disable()))
-                .httpBasic(basic -> {
-                }); // Enable Basic Auth for testing protected endpoints
+	@Bean
+	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+		http.csrf(AbstractHttpConfigurer::disable)
+			.authorizeHttpRequests(auth -> auth
+				.requestMatchers("/h2-console/**", "/", "portfolio", "/login", "/css/**", "/js/**", "/images/**")
+				.permitAll()
+				.anyRequest()
+				.authenticated())
+			.headers(headers -> headers.frameOptions(frame -> frame.disable()))
+			.httpBasic(basic -> {
+			}); // Enable Basic Auth for testing protected endpoints
 
-        return http.build();
-    }
+		return http.build();
+	}
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
+
 }

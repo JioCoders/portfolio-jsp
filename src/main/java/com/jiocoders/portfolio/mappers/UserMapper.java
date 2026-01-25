@@ -8,11 +8,13 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper {
-    UserDTO toDTO(User user);
 
-    List<UserDTO> toDTOs(List<User> users);
+	UserDTO toDTO(User user);
 
-    @Mapping(target = "id", ignore = true)
-    @Mapping(target = "createdAt", ignore = true)
-    User toEntity(UserDTO userDTO);
+	List<UserDTO> toDTOs(List<User> users);
+
+	@Mapping(target = "id", ignore = true)
+	@Mapping(target = "createdAt", ignore = true)
+	User toEntity(UserDTO userDTO);
+
 }
