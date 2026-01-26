@@ -1,0 +1,47 @@
+### API Documentation & Test Requests
+@baseUrl = http://localhost:8080/jiocoders/v1
+
+### 1. Hello API (Public)
+GET {{baseUrl}}/api/hello
+Accept: application/json
+
+### 2. Hello API with Name (Public)
+POST {{baseUrl}}/api/hello
+Content-Type: application/json
+
+{
+    "name": "jiocoders"
+}
+
+### 3. Login
+# @name login
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+    "username": "admintemp",
+    "password": "password"
+}
+
+### 4. Admin: Get All Users
+# Requires Basic Auth or Session (using admintemp:password for demo)
+GET {{baseUrl}}/admin/users
+Authorization: Basic admintemp password
+Accept: application/json
+
+### 5. Admin: Get Specific User
+GET {{baseUrl}}/admin/user/admintemp
+Authorization: Basic admintemp password
+Accept: application/json
+
+### 6. Admin: Register New User
+POST {{baseUrl}}/register
+Authorization: Basic admintemp password
+Content-Type: application/json
+
+{
+    "username": "newuser",
+    "password": "newpassword",
+    "email": "newuser@example.com",
+    "role": "USER"
+}

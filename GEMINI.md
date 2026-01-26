@@ -16,7 +16,10 @@ This document outlines the standard workflow for developing and verifying new fe
 
 - **Write the code:** Implement the feature, following the established conventions of the project.
 - **Add unit tests:** Create new unit tests that cover the new functionality. Ensure that all new code paths are tested.
-- **Update documentation:** If the feature changes any public-facing APIs or user-visible behavior, update the relevant documentation (e.g., README.md, API documentation).
+- **Update documentation:** If the feature changes any public-facing APIs or user-visible behavior, update the relevant documentation:
+    - **`README.md`**: Update overview, features, or setup instructions.
+    - **`docs/api.http`**: Add/Update endpoint test cases for the new feature.
+    - **`docs/queries.sql`**: Update with relevant queries for any new tables or data logic.
 
 ### 3. Verification
 

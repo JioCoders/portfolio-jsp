@@ -23,14 +23,14 @@ import java.util.List;
 @RequiredArgsConstructor
 @Slf4j
 @Tag(name = "Authentication", description = "Endpoints for user login and registration")
+@RequestMapping("${jio.api.prefix}")
 public class LoginController {
 
 	private final UserService userService;
 
 	@PostMapping("/login")
 	@Operation(summary = "Login a user", description = "Authenticates a user and returns their profile information.")
-	@ApiResponse(responseCode = "200", description = "Login successful",
-			content = @Content(schema = @Schema(implementation = JioResponse.class)))
+	@ApiResponse(responseCode = "200", description = "Login successful", content = @Content(schema = @Schema(implementation = JioResponse.class)))
 	@ApiResponse(responseCode = "401", description = "Invalid credentials")
 	@ApiResponse(responseCode = "400", description = "Invalid request payload")
 	public ResponseEntity<JioResponse<?>> login(@RequestBody LoginRequest loginRequest) {
@@ -47,20 +47,18 @@ public class LoginController {
 		if (user != null) {
 			log.info("Login successful for user: {}", username);
 			return ResponseEntity.ok(JioResponse.success(user, "Login successful"));
-		}
-		else {
+		} else {
 			log.warn("Login failed: invalid credentials for user: {}", username);
 			JioError error = JioError.builder().message("Invalid credentials").build();
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-				.body(JioResponse.error("Authentication Failed", error));
+					.body(JioResponse.error("Authentication Failed", error));
 		}
 	}
 
 	@PostMapping("/register")
 	@PreAuthorize("hasRole('ADMIN')")
 	@Operation(summary = "Register a new user", description = "Creates a new user account. Requires ADMIN role.")
-	@ApiResponse(responseCode = "201", description = "User created successfully",
-			content = @Content(schema = @Schema(implementation = JioResponse.class)))
+	@ApiResponse(responseCode = "201", description = "User created successfully", content = @Content(schema = @Schema(implementation = JioResponse.class)))
 	@ApiResponse(responseCode = "400", description = "Registration failed")
 	public ResponseEntity<JioResponse<?>> register(@RequestBody UserDTO userDTO) {
 		log.info("Registration attempt for username: {}", userDTO.getUsername());
@@ -68,9 +66,8 @@ public class LoginController {
 			UserDTO createdUser = userService.register(userDTO);
 			log.info("Registration successful for username: {}", createdUser.getUsername());
 			return ResponseEntity.status(HttpStatus.CREATED)
-				.body(JioResponse.success(createdUser, "User registered successfully"));
-		}
-		catch (RuntimeException e) {
+					.body(JioResponse.success(createdUser, "User registered successfully"));
+		} catch (RuntimeException e) {
 			log.error("Registration failed for username: {}. Reason: {}", userDTO.getUsername(), e.getMessage());
 			JioError error = JioError.builder().message(e.getMessage()).errors(List.of(e.getMessage())).build();
 			return ResponseEntity.badRequest().body(JioResponse.error("Registration Failed", error));

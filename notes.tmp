@@ -13,3 +13,9 @@ cd deploy && zip ../portfolio-jsp.zip * && cd ..
 export $(grep -v '^#' .env.dev | xargs) && ./mvnw spring-boot:run
 # Run in PROD mode
 export $(grep -v '^#' .env.prod | xargs) && ./mvnw spring-boot:run -Dspring-boot.run.profiles=prod
+
+# ENDPOINTS
+{{baseUrl}}/jiocoders/v1/admin/users
+{{baseUrl}}/jiocoders/v1/login
+{{baseUrl}}/jiocoders/v1/register
+{"username":"admintemp","password":"Hello@112233","role":"ADMIN","email":"admin@mail.com"}

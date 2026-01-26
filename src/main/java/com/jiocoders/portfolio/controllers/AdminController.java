@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("${jio.api.prefix}/admin")
 @RequiredArgsConstructor
 @Slf4j
 @Tag(name = "Admin", description = "Administrative endpoints for user management")
@@ -28,10 +28,8 @@ public class AdminController {
 
 	@GetMapping("/users")
 	@PreAuthorize("hasRole('ADMIN')")
-	@Operation(summary = "Get all users",
-			description = "Retrieves a list of all registered users. Requires ADMIN role.")
-	@ApiResponse(responseCode = "200", description = "Successful retrieval",
-			content = @Content(schema = @Schema(implementation = JioResponse.class)))
+	@Operation(summary = "Get all users", description = "Retrieves a list of all registered users. Requires ADMIN role.")
+	@ApiResponse(responseCode = "200", description = "Successful retrieval", content = @Content(schema = @Schema(implementation = JioResponse.class)))
 	public ResponseEntity<JioResponse<UserListDTO>> getAllUsers() {
 		log.info("Admin request: fetching all users");
 		List<UserDTO> users = userService.getAllUsers();
@@ -41,10 +39,8 @@ public class AdminController {
 
 	@GetMapping("/user/{identifier}")
 	@PreAuthorize("hasRole('ADMIN')")
-	@Operation(summary = "Get a specific user",
-			description = "Retrieves detailed information for a user by their username or email. Requires ADMIN role.")
-	@ApiResponse(responseCode = "200", description = "User found",
-			content = @Content(schema = @Schema(implementation = JioResponse.class)))
+	@Operation(summary = "Get a specific user", description = "Retrieves detailed information for a user by their username or email. Requires ADMIN role.")
+	@ApiResponse(responseCode = "200", description = "User found", content = @Content(schema = @Schema(implementation = JioResponse.class)))
 	@ApiResponse(responseCode = "404", description = "User not found")
 	public ResponseEntity<JioResponse<UserDTO>> getUser(@PathVariable String identifier) {
 		log.info("Admin request: searching for user '{}'", identifier);
