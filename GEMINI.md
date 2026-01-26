@@ -20,6 +20,7 @@ This document outlines the standard workflow for developing and verifying new fe
     - **`README.md`**: Update overview, features, or setup instructions.
     - **`docs/api.http`**: Add/Update endpoint test cases for the new feature.
     - **`docs/queries.sql`**: Update with relevant queries for any new tables or data logic.
+    - **`docs/arch_designs.md`**: Update Mermaid diagrams for changes in architecture or workflows.
 
 ### 3. Verification
 

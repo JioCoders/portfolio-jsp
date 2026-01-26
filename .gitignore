@@ -36,11 +36,10 @@ build/
 .vscode/
 
 ### Environment Variables ###
+env/
 .env
-.env.local
-.env.prod
-.env.dev
-.env.test
+.env.*
+
 
 ### Logs ###
 logs/

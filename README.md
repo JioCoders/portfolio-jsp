@@ -36,12 +36,12 @@ JioCoders Portfolio is a robust Spring Boot application designed to architect an
 
 The application is optimized for rapid deployment and efficient resource usage.
 
-| Metric | Average Value |
-|--------|---------------|
-| **Startup Time** | ~18-22 seconds |
-| **API Init (SpringDoc)** | ~900-1100 ms |
-| **Memory Footprint** | Optimized for JRE 17 |
-| **Test Coverage** | Unit and Integration tests included |
+| Metric                   | Average Value                       |
+| ------------------------ | ----------------------------------- |
+| **Startup Time**         | ~18-22 seconds                      |
+| **API Init (SpringDoc)** | ~900-1100 ms                        |
+| **Memory Footprint**     | Optimized for JRE 17                |
+| **Test Coverage**        | Unit and Integration tests included |
 
 ---
 
@@ -50,6 +50,7 @@ The application is optimized for rapid deployment and efficient resource usage.
 ```text
 jiocoders-portfolio/
 ├── .github/workflows/    # CI/CD Pipelines
+├── env/                  # Environment Variables (.env, .env.prod, etc)
 ├── src/main/java/        # Application Source Code
 │   ├── config/           # App Configuration
 │   ├── controllers/      # REST Endpoints
@@ -80,8 +81,8 @@ cd portfolio-jsp
 
 #### 2. Run in Development Mode
 ```bash
-# Uses .env.dev configuration
-./mvnw spring-boot:run -Dspring-boot.run.profiles=local
+# Load environment variables and run
+export $(grep -v '^#' env/.env.dev | xargs) && ./mvnw spring-boot:run
 ```
 
 #### 3. Run in Production Mode
