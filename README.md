@@ -3,7 +3,7 @@
 [![CI Pipeline](https://github.com/jiocoders/portfolio-jsp/actions/workflows/ci.yml/badge.svg)](https://github.com/jiocoders/portfolio-jsp/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Java Version](https://img.shields.io/badge/Java-21-orange.svg)](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html)
-[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4.2-brightgreen.svg)](https://spring.io/projects/spring-boot)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.4-brightgreen.svg)](https://spring.io/projects/spring-boot)
 
 ## 🚀 Overview
 
@@ -20,7 +20,7 @@ JioCoders Portfolio is a robust Spring Boot application designed to architect an
 
 ## 🛠️ Tech Stack
 
-- **Framework**: Spring Boot 3.4.2
+- **Framework**: Spring Boot 3.5.4
 - **Languages**: Java 21, JSP, HTML, CSS
 - **Database**: H2 (In-memory)
 - **Migrations**: Liquibase
