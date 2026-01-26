@@ -88,13 +88,13 @@ export $(grep -v '^#' env/.env.dev | xargs) && ./mvnw spring-boot:run
 #### 3. Run in Production Mode
 ```bash
 ./mvnw clean package
-java -jar target/portfolio-jsp-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod
+export $(grep -v '^#' env/.env.prod | xargs) && java -jar target/portfolio-jsp-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod
 ```
 
 ### Docker
 ```bash
 docker build -t portfolio-jsp .
-docker run -p 8080:8080 portfolio-jsp
+docker run -p 8080:8080 --env-file env/.env.prod portfolio-jsp
 ```
 
 ---

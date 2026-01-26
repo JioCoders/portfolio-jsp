@@ -11,5 +11,7 @@ services:
       dockerfile: Dockerfile # Ensure this matches your Dockerfile name
     ports:
       - "8080:8080"           # Maps container port 8080 to your local port 8080
+    env_file:
+      - env/.env.prod
     environment:
       - JAVA_OPTS=-Xms256m -Xmx512m
