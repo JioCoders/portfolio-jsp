@@ -25,7 +25,8 @@ public class ApiController {
 	// GET API: /api/hello
 	@GetMapping("/api/hello")
 	@Operation(summary = "Get a greeting message", description = "Returns a simple greeting from the Jiocoders team.")
-	@ApiResponse(responseCode = "200", description = "Successful greeting", content = @Content(schema = @Schema(implementation = JioResponse.class)))
+	@ApiResponse(responseCode = "200", description = "Successful greeting",
+			content = @Content(schema = @Schema(implementation = JioResponse.class)))
 	public ResponseEntity<JioResponse<MessageResponse>> helloApi() {
 		MessageResponse response = new MessageResponse("Hi, I'm Jiocoders team");
 		return ResponseEntity.ok(JioResponse.success(response, "Success"));
@@ -33,8 +34,10 @@ public class ApiController {
 
 	// POST API: /api/hello
 	@PostMapping("/api/hello")
-	@Operation(summary = "Get a personalized greeting", description = "Takes a name and returns a personalized greeting.")
-	@ApiResponse(responseCode = "200", description = "Successful greeting", content = @Content(schema = @Schema(implementation = JioResponse.class)))
+	@Operation(summary = "Get a personalized greeting",
+			description = "Takes a name and returns a personalized greeting.")
+	@ApiResponse(responseCode = "200", description = "Successful greeting",
+			content = @Content(schema = @Schema(implementation = JioResponse.class)))
 	public ResponseEntity<JioResponse<MessageResponse>> helloPost(@RequestBody Map<String, String> body) {
 		String name = body.getOrDefault("name", "friend");
 		MessageResponse response = new MessageResponse("Hi, I'm " + name + " from Jiocoders team");

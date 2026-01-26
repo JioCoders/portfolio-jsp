@@ -7,7 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -22,14 +23,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(LoginController.class)
-@AutoConfigureMockMvc(addFilters = false) // Disable security filters for simple unit test
+@AutoConfigureMockMvc(addFilters = false)
+@TestPropertySource(properties = "jio.api.prefix=/jiocoders/v1")
 @SuppressWarnings("null")
 class LoginControllerTest {
 
 	@Autowired
 	private MockMvc mockMvc;
 
-	@MockBean
+	@MockitoBean
 	private UserService userService;
 
 	@Autowired
@@ -46,12 +48,12 @@ class LoginControllerTest {
 		when(userService.login(anyString(), anyString())).thenReturn(user);
 
 		mockMvc
-			.perform(post("/login").contentType(MediaType.APPLICATION_JSON)
-				.content(objectMapper.writeValueAsString(payload)))
-			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.status").value(1))
-			.andExpect(jsonPath("$.success").value(true))
-			.andExpect(jsonPath("$.data.username").value("admin"));
+				.perform(post("/jiocoders/v1/login").contentType(MediaType.APPLICATION_JSON)
+						.content(objectMapper.writeValueAsString(payload)))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.status").value(1))
+				.andExpect(jsonPath("$.success").value(true))
+				.andExpect(jsonPath("$.data.username").value("admin"));
 	}
 
 	@Test
@@ -63,12 +65,12 @@ class LoginControllerTest {
 		when(userService.register(any())).thenReturn(dto);
 
 		mockMvc
-			.perform(post("/register").contentType(MediaType.APPLICATION_JSON)
-				.content(objectMapper.writeValueAsString(dto)))
-			.andExpect(status().isCreated())
-			.andExpect(jsonPath("$.status").value(1))
-			.andExpect(jsonPath("$.success").value(true))
-			.andExpect(jsonPath("$.data.username").value("newuser"));
+				.perform(post("/jiocoders/v1/register").contentType(MediaType.APPLICATION_JSON)
+						.content(objectMapper.writeValueAsString(dto)))
+				.andExpect(status().isCreated())
+				.andExpect(jsonPath("$.status").value(1))
+				.andExpect(jsonPath("$.success").value(true))
+				.andExpect(jsonPath("$.data.username").value("newuser"));
 	}
 
 }
