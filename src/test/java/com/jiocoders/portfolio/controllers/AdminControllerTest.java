@@ -46,10 +46,10 @@ class AdminControllerTest {
 		when(userService.getUserByUsernameOrEmail("admin")).thenReturn(user);
 
 		mockMvc.perform(get("/jiocoders/v1/admin/user/admin"))
-				.andExpect(status().isOk())
-				.andExpect(jsonPath("$.status").value(1))
-				.andExpect(jsonPath("$.success").value(true))
-				.andExpect(jsonPath("$.data.username").value("admin"));
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$.status").value(1))
+			.andExpect(jsonPath("$.success").value(true))
+			.andExpect(jsonPath("$.data.username").value("admin"));
 	}
 
 }

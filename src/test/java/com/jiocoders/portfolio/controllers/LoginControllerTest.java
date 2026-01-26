@@ -48,12 +48,12 @@ class LoginControllerTest {
 		when(userService.login(anyString(), anyString())).thenReturn(user);
 
 		mockMvc
-				.perform(post("/jiocoders/v1/login").contentType(MediaType.APPLICATION_JSON)
-						.content(objectMapper.writeValueAsString(payload)))
-				.andExpect(status().isOk())
-				.andExpect(jsonPath("$.status").value(1))
-				.andExpect(jsonPath("$.success").value(true))
-				.andExpect(jsonPath("$.data.username").value("admin"));
+			.perform(post("/jiocoders/v1/login").contentType(MediaType.APPLICATION_JSON)
+				.content(objectMapper.writeValueAsString(payload)))
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$.status").value(1))
+			.andExpect(jsonPath("$.success").value(true))
+			.andExpect(jsonPath("$.data.username").value("admin"));
 	}
 
 	@Test
@@ -65,12 +65,12 @@ class LoginControllerTest {
 		when(userService.register(any())).thenReturn(dto);
 
 		mockMvc
-				.perform(post("/jiocoders/v1/register").contentType(MediaType.APPLICATION_JSON)
-						.content(objectMapper.writeValueAsString(dto)))
-				.andExpect(status().isCreated())
-				.andExpect(jsonPath("$.status").value(1))
-				.andExpect(jsonPath("$.success").value(true))
-				.andExpect(jsonPath("$.data.username").value("newuser"));
+			.perform(post("/jiocoders/v1/register").contentType(MediaType.APPLICATION_JSON)
+				.content(objectMapper.writeValueAsString(dto)))
+			.andExpect(status().isCreated())
+			.andExpect(jsonPath("$.status").value(1))
+			.andExpect(jsonPath("$.success").value(true))
+			.andExpect(jsonPath("$.data.username").value("newuser"));
 	}
 
 }

@@ -2300,3 +2300,104 @@ org.springframework.web.servlet.resource.NoResourceFoundException: No static res
 2026-01-26 21:54:45.044 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-01-26 21:54:45.052 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2026-01-26 21:54:45.061 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-01-26 22:07:26.165 [main] INFO  c.j.p.Jiocoders2206javaApplicationTests - Starting Jiocoders2206javaApplicationTests using Java 21.0.9 with PID 38534 (started by mac in /Users/mac/Documents/javaapp/jiocoders/portfolio-jsp)
+2026-01-26 22:07:26.168 [main] DEBUG c.j.p.Jiocoders2206javaApplicationTests - Running with Spring Boot v3.4.2, Spring v6.2.2
+2026-01-26 22:07:26.170 [main] INFO  c.j.p.Jiocoders2206javaApplicationTests - The following 1 profile is active: "local"
+2026-01-26 22:07:29.199 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-26 22:07:29.374 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 151 ms. Found 1 JPA repository interface.
+2026-01-26 22:07:31.041 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-26 22:07:31.506 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2026-01-26 22:07:31.510 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-26 22:07:31.651 [main] INFO  liquibase.database - Set default schema name to PUBLIC
+2026-01-26 22:07:32.475 [main] INFO  liquibase.changelog - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2026-01-26 22:07:38.070 [main] INFO  liquibase.changelog - Reading from PUBLIC.DATABASECHANGELOG
+2026-01-26 22:07:38.473 [main] INFO  liquibase.lockservice - Successfully acquired change log lock
+2026-01-26 22:07:38.476 [main] INFO  liquibase.command - Using deploymentId: 9445458475
+2026-01-26 22:07:38.481 [main] INFO  liquibase.changelog - Reading from PUBLIC.DATABASECHANGELOG
+2026-01-26 22:07:38.514 [main] INFO  liquibase.ui - Running Changeset: db/changelog/changes/001-create-user-table.sql::1::jiocoders
+2026-01-26 22:07:38.573 [main] INFO  liquibase.changelog - Custom SQL executed
+2026-01-26 22:07:38.575 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/001-create-user-table.sql::1::jiocoders ran successfully in 58ms
+2026-01-26 22:07:38.591 [main] INFO  liquibase.ui - Running Changeset: db/changelog/changes/001-create-user-table.sql::2::jiocoders
+2026-01-26 22:07:38.599 [main] INFO  liquibase.changelog - Custom SQL executed
+2026-01-26 22:07:38.601 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/001-create-user-table.sql::2::jiocoders ran successfully in 8ms
+2026-01-26 22:07:38.620 [main] INFO  liquibase.util - UPDATE SUMMARY
+2026-01-26 22:07:38.621 [main] INFO  liquibase.util - Run:                          2
+2026-01-26 22:07:38.622 [main] INFO  liquibase.util - Previously run:               0
+2026-01-26 22:07:38.622 [main] INFO  liquibase.util - Filtered out:                 0
+2026-01-26 22:07:38.622 [main] INFO  liquibase.util - -------------------------------
+2026-01-26 22:07:38.623 [main] INFO  liquibase.util - Total change sets:            2
+2026-01-26 22:07:38.625 [main] INFO  liquibase.util - Update summary generated
+2026-01-26 22:07:38.632 [main] INFO  liquibase.command - Update command completed successfully.
+2026-01-26 22:07:38.632 [main] INFO  liquibase.ui - Liquibase: Update has been successful. Rows affected: 4
+2026-01-26 22:07:38.640 [main] INFO  liquibase.lockservice - Successfully released change log lock
+2026-01-26 22:07:38.642 [main] INFO  liquibase.command - Command execution complete
+2026-01-26 22:07:40.003 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-26 22:07:40.486 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-26 22:07:43.895 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-26 22:07:46.577 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-01-26 22:07:47.288 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2026-01-26 22:07:49.681 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-01-26 22:07:49.766 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [/h2-console/**, /, portfolio, /login, /css/**, /js/**, /images/**, /swagger-ui/**, /v3/api-docs/**, /swagger-ui.html] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-01-26 22:07:50.148 [main] DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, BasicAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-01-26 22:07:50.836 [main] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-01-26 22:07:52.167 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2026-01-26 22:07:52.699 [main] INFO  c.j.p.Jiocoders2206javaApplicationTests - Started Jiocoders2206javaApplicationTests in 28.119 seconds (process running for 36.299)
+2026-01-26 22:07:53.046 [main] INFO  c.j.portfolio.JiocodersRunner - Jiocoders Runner activated939249
+2026-01-26 22:07:53.224 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.jiocoders.portfolio.controllers.LoginControllerTest]: LoginControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-01-26 22:07:53.418 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.jiocoders.portfolio.Jiocoders2206javaApplication for test class com.jiocoders.portfolio.controllers.LoginControllerTest
+2026-01-26 22:07:53.709 [main] INFO  c.j.p.c.LoginControllerTest - Starting LoginControllerTest using Java 21.0.9 with PID 38534 (started by mac in /Users/mac/Documents/javaapp/jiocoders/portfolio-jsp)
+2026-01-26 22:07:53.709 [main] DEBUG c.j.p.c.LoginControllerTest - Running with Spring Boot v3.4.2, Spring v6.2.2
+2026-01-26 22:07:53.710 [main] INFO  c.j.p.c.LoginControllerTest - The following 1 profile is active: "local"
+2026-01-26 22:07:54.632 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2026-01-26 22:07:54.676 [main] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-01-26 22:07:55.183 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 1647d2e1-e9bd-404c-adad-95a2d1407e42
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-01-26 22:07:55.613 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-01-26 22:07:55.662 [main] DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CsrfFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, DefaultResourcesFilter, DefaultLoginPageGeneratingFilter, DefaultLogoutPageGeneratingFilter, BasicAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-01-26 22:07:55.765 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-01-26 22:07:55.766 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-01-26 22:07:55.769 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 3 ms
+2026-01-26 22:07:55.805 [main] INFO  c.j.p.c.LoginControllerTest - Started LoginControllerTest in 2.361 seconds (process running for 39.405)
+2026-01-26 22:07:56.238 [main] INFO  c.j.p.controllers.LoginController - Login attempt for user: admin
+2026-01-26 22:07:56.239 [main] INFO  c.j.p.controllers.LoginController - Login successful for user: admin
+2026-01-26 22:07:56.513 [main] INFO  c.j.p.controllers.LoginController - Registration attempt for username: newuser
+2026-01-26 22:07:56.514 [main] INFO  c.j.p.controllers.LoginController - Registration successful for username: newuser
+2026-01-26 22:07:56.546 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.jiocoders.portfolio.controllers.AdminControllerTest]: AdminControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-01-26 22:07:56.675 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.jiocoders.portfolio.Jiocoders2206javaApplication for test class com.jiocoders.portfolio.controllers.AdminControllerTest
+2026-01-26 22:07:56.825 [main] INFO  c.j.p.c.AdminControllerTest - Starting AdminControllerTest using Java 21.0.9 with PID 38534 (started by mac in /Users/mac/Documents/javaapp/jiocoders/portfolio-jsp)
+2026-01-26 22:07:56.825 [main] DEBUG c.j.p.c.AdminControllerTest - Running with Spring Boot v3.4.2, Spring v6.2.2
+2026-01-26 22:07:56.826 [main] INFO  c.j.p.c.AdminControllerTest - The following 1 profile is active: "local"
+2026-01-26 22:07:57.624 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2026-01-26 22:07:57.643 [main] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-01-26 22:07:58.137 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 55cdb31d-21b1-4cc1-9750-25680cfc9de8
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-01-26 22:07:58.139 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-01-26 22:07:58.177 [main] DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CsrfFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, DefaultResourcesFilter, DefaultLoginPageGeneratingFilter, DefaultLogoutPageGeneratingFilter, BasicAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-01-26 22:07:58.205 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-01-26 22:07:58.205 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-01-26 22:07:58.208 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 3 ms
+2026-01-26 22:07:58.240 [main] INFO  c.j.p.c.AdminControllerTest - Started AdminControllerTest in 1.51 seconds (process running for 41.84)
+2026-01-26 22:07:58.260 [main] INFO  c.j.p.controllers.AdminController - Admin request: fetching all users
+2026-01-26 22:07:58.319 [main] INFO  c.j.p.controllers.AdminController - Admin request: searching for user 'admin'
+2026-01-26 22:07:58.774 [main] DEBUG c.j.portfolio.services.UserService - Authenticating user: testuser
+2026-01-26 22:07:58.776 [main] WARN  c.j.portfolio.services.UserService - Password mismatch for user: testuser
+2026-01-26 22:07:58.819 [main] DEBUG c.j.portfolio.services.UserService - Authenticating user: testuser
+2026-01-26 22:07:58.821 [main] DEBUG c.j.portfolio.services.UserService - Password match for user: testuser
+2026-01-26 22:07:58.839 [main] INFO  c.j.portfolio.services.UserService - Registering new user: testuser
+2026-01-26 22:07:58.844 [main] INFO  c.j.portfolio.services.UserService - User registered successfully. ID: null
+2026-01-26 22:07:58.865 [main] INFO  c.j.portfolio.services.UserService - Registering new user: testuser
+2026-01-26 22:07:58.866 [main] WARN  c.j.portfolio.services.UserService - Registration failed: User already exists - testuser
+2026-01-26 22:07:58.892 [main] DEBUG c.j.p.s.CustomUserDetailsService - Loading user details for: admin
+2026-01-26 22:07:58.927 [main] DEBUG c.j.p.s.CustomUserDetailsService - Loading user details for: nonexistent
+2026-01-26 22:07:58.929 [main] ERROR c.j.p.s.CustomUserDetailsService - User not found during authentication: nonexistent
+2026-01-26 22:07:58.972 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-01-26 22:07:58.982 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-01-26 22:07:58.985 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
