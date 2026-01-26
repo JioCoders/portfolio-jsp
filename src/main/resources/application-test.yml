@@ -1,0 +1,22 @@
+spring:
+  config:
+    activate:
+      on-profile: test
+  datasource:
+    url: ${DB_URL:jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE}
+    driverClassName: ${DB_DRIVER_CLASS_NAME:org.h2.Driver}
+    username: ${DB_USERNAME:sa}
+    password: ${DB_PASSWORD:password}
+  jpa:
+    database-platform: ${DB_PLATFORM:org.hibernate.dialect.H2Dialect}
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+    
+logging:
+  level:
+    root: INFO
+    com.jiocoders.portfolio: DEBUG

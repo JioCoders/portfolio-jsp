@@ -1,0 +1,30 @@
+# spring:
+#   application:
+#     name: jiocoders-portfolio
+#   profiles:
+#     active: local
+
+# server:
+#   port: 8080
+#   servlet:
+#     context-path: /jiocoders/v1
+# logging:
+#   level:
+#     org.springframework.web.servlet.view: DEBUG
+
+# spring:
+#   thymeleaf:
+#     prefix: classpath:/templates/
+#     suffix: .html
+
+# spring.application.name=jiocoders-portfolio
+
+# server.port=8080
+# server.servlet.context-path=/jiocoders/v1
+# logging.level.org.springframework.web.servlet.view=DEBUG
+
+# spring.thymeleaf.prefix=classpath:/templates/
+# spring.thymeleaf.suffix=.html
+
+# # Active Profile
+# spring.profiles.active=local
