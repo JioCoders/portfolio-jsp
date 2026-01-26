@@ -2,8 +2,8 @@
 
 [![CI Pipeline](https://github.com/jiocoders/portfolio-jsp/actions/workflows/ci.yml/badge.svg)](https://github.com/jiocoders/portfolio-jsp/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Java Version](https://img.shields.io/badge/Java-17-orange.svg)](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
-[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2.5-brightgreen.svg)](https://spring.io/projects/spring-boot)
+[![Java Version](https://img.shields.io/badge/Java-21-orange.svg)](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4.2-brightgreen.svg)](https://spring.io/projects/spring-boot)
 
 ## 🚀 Overview
 
@@ -20,8 +20,8 @@ JioCoders Portfolio is a robust Spring Boot application designed to architect an
 
 ## 🛠️ Tech Stack
 
-- **Framework**: Spring Boot 3.2.5
-- **Languages**: Java 17, JSP, HTML, CSS
+- **Framework**: Spring Boot 3.4.2
+- **Languages**: Java 21, JSP, HTML, CSS
 - **Database**: H2 (In-memory)
 - **Migrations**: Liquibase
 - **Security**: Spring Security
@@ -36,12 +36,12 @@ JioCoders Portfolio is a robust Spring Boot application designed to architect an
 
 The application is optimized for rapid deployment and efficient resource usage.
 
-| Metric | Average Value |
-|--------|---------------|
-| **Startup Time** | ~18-22 seconds |
-| **API Init (SpringDoc)** | ~900-1100 ms |
-| **Memory Footprint** | Optimized for JRE 17 |
-| **Test Coverage** | Unit and Integration tests included |
+| Metric                   | Average Value                       |
+| ------------------------ | ----------------------------------- |
+| **Startup Time**         | ~18-22 seconds                      |
+| **API Init (SpringDoc)** | ~900-1100 ms                        |
+| **Memory Footprint**     | Optimized for JRE 21                |
+| **Test Coverage**        | Unit and Integration tests included |
 
 ---
 
@@ -50,6 +50,7 @@ The application is optimized for rapid deployment and efficient resource usage.
 ```text
 jiocoders-portfolio/
 ├── .github/workflows/    # CI/CD Pipelines
+├── env/                  # Environment Variables (.env, .env.prod, etc)
 ├── src/main/java/        # Application Source Code
 │   ├── config/           # App Configuration
 │   ├── controllers/      # REST Endpoints
@@ -67,7 +68,7 @@ jiocoders-portfolio/
 ## 🏃 Getting Started
 
 ### Prerequisites
-- JDK 17
+- JDK 21
 - Maven (or use included `./mvnw`)
 
 ### Running Locally
@@ -80,8 +81,8 @@ cd portfolio-jsp
 
 #### 2. Run in Development Mode
 ```bash
-# Uses .env.dev configuration
-./mvnw spring-boot:run -Dspring-boot.run.profiles=local
+# Load environment variables and run
+export $(grep -v '^#' env/.env.dev | xargs) && ./mvnw spring-boot:run
 ```
 
 #### 3. Run in Production Mode

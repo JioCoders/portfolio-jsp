@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("${jio.api.prefix}/admin")
 @RequiredArgsConstructor
 @Slf4j
 @Tag(name = "Admin", description = "Administrative endpoints for user management")

@@ -23,6 +23,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Slf4j
 @Tag(name = "Authentication", description = "Endpoints for user login and registration")
+@RequestMapping("${jio.api.prefix}")
 public class LoginController {
 
 	private final UserService userService;

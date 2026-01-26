@@ -1,0 +1,391 @@
+{
+  "info": {
+    "_postman_id": "709fa892-badd-4cac-9836-82eccf9163e4",
+    "name": "portfolio-jsp",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "user-list",
+      "id": "03a03af7-55a2-406c-bae3-2211e3d1d82b",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "Hello@112233",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "admintemp",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/jiocoders/v1/admin/users",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "jiocoders",
+            "v1",
+            "admin",
+            "users"
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "9a01ea62-ac9f-42d5-9218-4f4e780a25bf",
+          "name": "user-list",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/jiocoders/v1/admin/users",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "jiocoders",
+                "v1",
+                "admin",
+                "users"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "Text",
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 25 Jan 2026 20:35:52 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"status\": 1,\n    \"success\": true,\n    \"message\": \"Users retrieved successfully\",\n    \"data\": {\n        \"users\": [\n            {\n                \"id\": 1,\n                \"username\": \"admintemp\",\n                \"email\": \"admintemp@jiocoders.com\",\n                \"role\": \"ADMIN\",\n                \"password\": \"$2a$10$vEc.aA6ht5jg1Z2cQK0IQ..Ovze5FVkyVTccJ5039w6o3255NMWbq\"\n            },\n            {\n                \"id\": 2,\n                \"username\": \"usertemp\",\n                \"email\": \"usertemp@jiocoders.com\",\n                \"role\": \"USER\",\n                \"password\": \"$2a$10$c9QLX0h/PBRoz6/QeLuWxOXHQ3QtyZUjH3tWvlcFLhJSEoPoyl/w.\"\n            }\n        ]\n    },\n    \"error\": null,\n    \"timestamp\": \"2026-01-26T02:05:52.320425\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "user-login",
+      "id": "50ab27e3-fc2d-44f8-bb06-3d55295e6b05",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"username\":\"admintemp\",\"password\":\"Hello@112233\",\"role\":\"ADMIN\",\"email\":\"admin@mail.com\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/jiocoders/v1/login",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "jiocoders",
+            "v1",
+            "login"
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "bcf8ae72-c672-47ef-b7f4-d34a74bcbf18",
+          "name": "user-login",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"username\":\"admintemp\",\"password\":\"Hello@112233\",\"role\":\"ADMIN\",\"email\":\"admin@mail.com\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/jiocoders/v1/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "jiocoders",
+                "v1",
+                "login"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "Text",
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 25 Jan 2026 20:36:15 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"status\": 1,\n    \"success\": true,\n    \"message\": \"Login successful\",\n    \"data\": {\n        \"id\": 1,\n        \"username\": \"admintemp\",\n        \"email\": \"admintemp@jiocoders.com\",\n        \"role\": \"ADMIN\",\n        \"password\": \"$2a$10$vEc.aA6ht5jg1Z2cQK0IQ..Ovze5FVkyVTccJ5039w6o3255NMWbq\"\n    },\n    \"error\": null,\n    \"timestamp\": \"2026-01-26T02:06:15.220241\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "user-register",
+      "id": "42c73ab6-445b-47c2-b19a-10627f1a5729",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "Hello@112233",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "admintemp",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"username\":\"admintemp\",\"password\":\"Hello@112233\",\"role\":\"ADMIN\",\"email\":\"admin@mail.com\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/jiocoders/v1/register",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "jiocoders",
+            "v1",
+            "register"
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "39f63ce5-9488-401c-80da-6865f8a9b266",
+          "name": "user-register",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"username\":\"admintemp\",\"password\":\"Hello@112233\",\"role\":\"ADMIN\",\"email\":\"admin@mail.com\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/jiocoders/v1/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "jiocoders",
+                "v1",
+                "register"
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "Text",
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 25 Jan 2026 20:36:28 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "close"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"status\": 0,\n    \"success\": false,\n    \"message\": \"Registration Failed\",\n    \"data\": null,\n    \"error\": {\n        \"message\": \"User already exists\",\n        \"status\": 0,\n        \"errors\": [\n            \"User already exists\"\n        ]\n    },\n    \"timestamp\": \"2026-01-26T02:06:28.75012\"\n}"
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "password",
+        "value": "Hello@112233",
+        "type": "string"
+      },
+      {
+        "key": "username",
+        "value": "admintemp",
+        "type": "string"
+      }
+    ]
+  }
+}

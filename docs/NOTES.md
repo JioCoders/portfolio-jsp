@@ -1,3 +1,5 @@
+
+# Maven Build
 ./mvn clean package -DskipTests
 ./mvnw clean package
 java -jar target/portfolio-jsp-0.0.1-SNAPSHOT.jar
@@ -10,6 +12,12 @@ echo "web: java -jar portfolio-jsp-0.0.1-SNAPSHOT.jar" > deploy/Procfile
 cd deploy && zip ../portfolio-jsp.zip * && cd ..
 
 # Run in DEV mode
-export $(grep -v '^#' .env.dev | xargs) && mvn spring-boot:run
+export $(grep -v '^#' env/.env.dev | xargs) && ./mvnw spring-boot:run
 # Run in PROD mode
-export $(grep -v '^#' .env.prod | xargs) && mvn spring-boot:run
+export $(grep -v '^#' env/.env.prod | xargs) && ./mvnw spring-boot:run -Dspring-boot.run.profiles=prod
+
+# ENDPOINTS
+{{baseUrl}}/jiocoders/v1/admin/users
+{{baseUrl}}/jiocoders/v1/login
+{{baseUrl}}/jiocoders/v1/register
+{"username":"admintemp","password":"Hello@112233","role":"ADMIN","email":"admin@mail.com"}
