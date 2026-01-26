@@ -10,6 +10,6 @@ echo "web: java -jar portfolio-jsp-0.0.1-SNAPSHOT.jar" > deploy/Procfile
 cd deploy && zip ../portfolio-jsp.zip * && cd ..
 
 # Run in DEV mode
-export $(grep -v '^#' .env.dev | xargs) && mvn spring-boot:run
+export $(grep -v '^#' .env.dev | xargs) && ./mvnw spring-boot:run
 # Run in PROD mode
-export $(grep -v '^#' .env.prod | xargs) && mvn spring-boot:run
+export $(grep -v '^#' .env.prod | xargs) && ./mvnw spring-boot:run -Dspring-boot.run.profiles=prod

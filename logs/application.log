@@ -1608,3 +1608,260 @@ This generated password is for development use only. Your security configuration
 2026-01-26 02:07:45.551 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /v3/api-docs
 2026-01-26 02:07:46.512 [http-nio-8080-exec-2] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 943 ms
 2026-01-26 02:07:46.574 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-01-26 13:26:08.372 [main] INFO  c.j.p.Jiocoders2206javaApplication - Starting Jiocoders2206javaApplication using Java 17.0.12 with PID 12407 (/Users/mac/Documents/javaapp/jiocoders/portfolio-jsp/target/classes started by mac in /Users/mac/Documents/javaapp/jiocoders/portfolio-jsp)
+2026-01-26 13:26:08.375 [main] DEBUG c.j.p.Jiocoders2206javaApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-01-26 13:26:08.377 [main] INFO  c.j.p.Jiocoders2206javaApplication - The following 1 profile is active: "local"
+2026-01-26 13:26:11.500 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-26 13:26:11.649 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 130 ms. Found 1 JPA repository interface.
+2026-01-26 13:26:14.066 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-01-26 13:26:14.130 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-01-26 13:26:14.131 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-01-26 13:26:14.336 [main] INFO  o.a.c.c.C.[.[.[/jiocoders/v1] - Initializing Spring embedded WebApplicationContext
+2026-01-26 13:26:14.339 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5840 ms
+2026-01-26 13:26:14.934 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-26 13:26:15.558 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2026-01-26 13:26:15.562 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-26 13:26:15.582 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2026-01-26 13:26:16.244 [main] INFO  liquibase.database - Set default schema name to PUBLIC
+2026-01-26 13:26:16.789 [main] INFO  liquibase.changelog - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2026-01-26 13:26:21.964 [main] INFO  liquibase.changelog - Reading from PUBLIC.DATABASECHANGELOG
+2026-01-26 13:26:22.049 [main] INFO  liquibase.lockservice - Successfully acquired change log lock
+2026-01-26 13:26:22.051 [main] INFO  liquibase.command - Using deploymentId: 9414182050
+2026-01-26 13:26:22.054 [main] INFO  liquibase.changelog - Reading from PUBLIC.DATABASECHANGELOG
+2026-01-26 13:26:22.154 [main] INFO  liquibase.changelog - Custom SQL executed
+2026-01-26 13:26:22.166 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/001-create-user-table.sql::1::jiocoders ran successfully in 52ms
+2026-01-26 13:26:22.218 [main] INFO  liquibase.changelog - Custom SQL executed
+2026-01-26 13:26:22.219 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/001-create-user-table.sql::2::jiocoders ran successfully in 17ms
+2026-01-26 13:26:22.236 [main] INFO  liquibase.util - UPDATE SUMMARY
+2026-01-26 13:26:22.237 [main] INFO  liquibase.util - Run:                          2
+2026-01-26 13:26:22.237 [main] INFO  liquibase.util - Previously run:               0
+2026-01-26 13:26:22.238 [main] INFO  liquibase.util - Filtered out:                 0
+2026-01-26 13:26:22.246 [main] INFO  liquibase.util - -------------------------------
+2026-01-26 13:26:22.246 [main] INFO  liquibase.util - Total change sets:            2
+2026-01-26 13:26:22.247 [main] INFO  liquibase.util - Update summary generated
+2026-01-26 13:26:22.249 [main] INFO  liquibase.command - Update command completed successfully.
+2026-01-26 13:26:22.264 [main] INFO  liquibase.lockservice - Successfully released change log lock
+2026-01-26 13:26:22.266 [main] INFO  liquibase.command - Command execution complete
+2026-01-26 13:26:23.118 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-26 13:26:23.229 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-26 13:26:24.914 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-26 13:26:26.688 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2026-01-26 13:26:27.634 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2026-01-26 13:26:27.868 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@46700301, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@17f4276b, org.springframework.security.web.context.SecurityContextHolderFilter@43165282, org.springframework.security.web.header.HeaderWriterFilter@7631fb3e, org.springframework.web.filter.CorsFilter@786125a6, org.springframework.security.web.authentication.logout.LogoutFilter@6e4d660, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@78405f00, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3aaeb65b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3b96ea23, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@53e6b541, org.springframework.security.web.access.ExceptionTranslationFilter@726e780a, org.springframework.security.web.access.intercept.AuthorizationFilter@18e4bbec]
+2026-01-26 13:26:29.519 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/jiocoders/v1'
+2026-01-26 13:26:29.585 [main] INFO  c.j.p.Jiocoders2206javaApplication - Started Jiocoders2206javaApplication in 22.662 seconds (process running for 24.368)
+2026-01-26 13:26:29.751 [main] INFO  c.j.portfolio.JiocodersRunner - Jiocoders Runner activated939249
+2026-01-26 13:38:09.217 [main] INFO  c.j.p.Jiocoders2206javaApplication - Starting Jiocoders2206javaApplication v0.0.1-SNAPSHOT using Java 21.0.9 with PID 13426 (/Users/mac/Documents/javaapp/jiocoders/portfolio-jsp/target/portfolio-jsp-0.0.1-SNAPSHOT.jar started by mac in /Users/mac/Documents/javaapp/jiocoders/portfolio-jsp)
+2026-01-26 13:38:09.225 [main] INFO  c.j.p.Jiocoders2206javaApplication - The following 1 profile is active: "prod"
+2026-01-26 13:38:13.347 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-26 13:38:13.521 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 155 ms. Found 1 JPA repository interface.
+2026-01-26 13:38:15.799 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-01-26 13:38:15.846 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-01-26 13:38:15.848 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-01-26 13:38:15.952 [main] INFO  o.a.c.c.C.[.[.[/jiocoders/v1] - Initializing Spring embedded WebApplicationContext
+2026-01-26 13:38:15.956 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 6504 ms
+2026-01-26 13:38:16.713 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-26 13:38:20.650 [main] ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
+org.h2.jdbc.JdbcSQLNonTransientException: Error while creating file "/app" [90062-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.store.fs.disk.FilePathDisk.createDirectory(FilePathDisk.java:391)
+	at org.h2.store.fs.FileUtils.createDirectory(FileUtils.java:85)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:382)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:381)
+	at org.h2.store.FileLock.lockFile(FileLock.java:316)
+	at org.h2.store.FileLock.lock(FileLock.java:110)
+	at org.h2.engine.Database.<init>(Database.java:317)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:283)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.jiocoders.portfolio.Jiocoders2206javaApplication.main(Jiocoders2206javaApplication.java:12)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:91)
+	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:53)
+	at org.springframework.boot.loader.launch.JarLauncher.main(JarLauncher.java:58)
+Caused by: java.nio.file.FileSystemException: /app: Read-only file system
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:100)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.createDirectory(UnixFileSystemProvider.java:462)
+	at java.base/java.nio.file.Files.createDirectory(Files.java:700)
+	at org.h2.store.fs.disk.FilePathDisk.createDirectory(FilePathDisk.java:382)
+	... 45 common frames omitted
+2026-01-26 13:38:20.663 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: org.h2.jdbc.JdbcSQLNonTransientException: Error while creating file "/app" [90062-224]
+2026-01-26 13:38:20.693 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2026-01-26 13:38:20.798 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-01-26 13:38:20.878 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: org.h2.jdbc.JdbcSQLNonTransientException: Error while creating file "/app" [90062-224]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.jiocoders.portfolio.Jiocoders2206javaApplication.main(Jiocoders2206javaApplication.java:12)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:91)
+	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:53)
+	at org.springframework.boot.loader.launch.JarLauncher.main(JarLauncher.java:58)
+Caused by: liquibase.exception.DatabaseException: org.h2.jdbc.JdbcSQLNonTransientException: Error while creating file "/app" [90062-224]
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:288)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	... 23 common frames omitted
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error while creating file "/app" [90062-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.store.fs.disk.FilePathDisk.createDirectory(FilePathDisk.java:391)
+	at org.h2.store.fs.FileUtils.createDirectory(FileUtils.java:85)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:382)
+	at org.h2.store.fs.FileUtils.createDirectories(FileUtils.java:381)
+	at org.h2.store.FileLock.lockFile(FileLock.java:316)
+	at org.h2.store.FileLock.lock(FileLock.java:110)
+	at org.h2.engine.Database.<init>(Database.java:317)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:283)
+	... 25 common frames omitted
+Caused by: java.nio.file.FileSystemException: /app: Read-only file system
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:100)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.createDirectory(UnixFileSystemProvider.java:462)
+	at java.base/java.nio.file.Files.createDirectory(Files.java:700)
+	at org.h2.store.fs.disk.FilePathDisk.createDirectory(FilePathDisk.java:382)
+	... 45 common frames omitted
+2026-01-26 13:41:15.937 [main] INFO  c.j.p.Jiocoders2206javaApplication - Starting Jiocoders2206javaApplication v0.0.1-SNAPSHOT using Java 21.0.9 with PID 13969 (/Users/mac/Documents/javaapp/jiocoders/portfolio-jsp/target/portfolio-jsp-0.0.1-SNAPSHOT.jar started by mac in /Users/mac/Documents/javaapp/jiocoders/portfolio-jsp)
+2026-01-26 13:41:15.951 [main] INFO  c.j.p.Jiocoders2206javaApplication - The following 1 profile is active: "prod"
+2026-01-26 13:41:18.748 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-26 13:41:18.874 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 96 ms. Found 1 JPA repository interface.
+2026-01-26 13:41:20.727 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-01-26 13:41:20.774 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-01-26 13:41:20.775 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-01-26 13:41:20.884 [main] INFO  o.a.c.c.C.[.[.[/jiocoders/v1] - Initializing Spring embedded WebApplicationContext
+2026-01-26 13:41:20.887 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4605 ms
+2026-01-26 13:41:21.649 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-26 13:41:27.342 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./data/portfolio user=SA
+2026-01-26 13:41:27.345 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-26 13:41:27.466 [main] INFO  liquibase.database - Set default schema name to PUBLIC
+2026-01-26 13:41:27.786 [main] INFO  liquibase.changelog - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2026-01-26 13:41:28.033 [main] INFO  liquibase.changelog - Reading from PUBLIC.DATABASECHANGELOG
+2026-01-26 13:41:28.108 [main] INFO  liquibase.lockservice - Successfully acquired change log lock
+2026-01-26 13:41:28.109 [main] INFO  liquibase.command - Using deploymentId: 9415088109
+2026-01-26 13:41:28.113 [main] INFO  liquibase.changelog - Reading from PUBLIC.DATABASECHANGELOG
+2026-01-26 13:41:28.200 [main] INFO  liquibase.changelog - Custom SQL executed
+2026-01-26 13:41:28.202 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/001-create-user-table.sql::1::jiocoders ran successfully in 27ms
+2026-01-26 13:41:28.233 [main] INFO  liquibase.changelog - Custom SQL executed
+2026-01-26 13:41:28.234 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/001-create-user-table.sql::2::jiocoders ran successfully in 9ms
+2026-01-26 13:41:28.250 [main] INFO  liquibase.util - UPDATE SUMMARY
+2026-01-26 13:41:28.250 [main] INFO  liquibase.util - Run:                          2
+2026-01-26 13:41:28.251 [main] INFO  liquibase.util - Previously run:               0
+2026-01-26 13:41:28.251 [main] INFO  liquibase.util - Filtered out:                 0
+2026-01-26 13:41:28.251 [main] INFO  liquibase.util - -------------------------------
+2026-01-26 13:41:28.252 [main] INFO  liquibase.util - Total change sets:            2
+2026-01-26 13:41:28.252 [main] INFO  liquibase.util - Update summary generated
+2026-01-26 13:41:28.257 [main] INFO  liquibase.command - Update command completed successfully.
+2026-01-26 13:41:28.265 [main] INFO  liquibase.lockservice - Successfully released change log lock
+2026-01-26 13:41:28.266 [main] INFO  liquibase.command - Command execution complete
+2026-01-26 13:41:29.396 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-26 13:41:31.314 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-26 13:41:32.607 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2026-01-26 13:41:33.193 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2026-01-26 13:41:33.347 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@30c0993e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@12de62aa, org.springframework.security.web.context.SecurityContextHolderFilter@7f7eeaaf, org.springframework.security.web.header.HeaderWriterFilter@29617475, org.springframework.web.filter.CorsFilter@67398bad, org.springframework.security.web.authentication.logout.LogoutFilter@28d48616, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1e499f1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2ca93dee, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4746b319, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@71cdb24, org.springframework.security.web.access.ExceptionTranslationFilter@7d8802cf, org.springframework.security.web.access.intercept.AuthorizationFilter@54d3b4fe]
+2026-01-26 13:41:34.446 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/jiocoders/v1'
+2026-01-26 13:41:34.497 [main] INFO  c.j.p.Jiocoders2206javaApplication - Started Jiocoders2206javaApplication in 20.269 seconds (process running for 21.414)
+2026-01-26 13:41:34.659 [main] INFO  c.j.portfolio.JiocodersRunner - Jiocoders Runner activated939249
+2026-01-26 13:51:44.140 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-01-26 13:51:44.184 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-01-26 13:51:44.196 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-01-26 13:57:29.347 [main] INFO  c.j.p.Jiocoders2206javaApplication - Starting Jiocoders2206javaApplication using Java 17.0.12 with PID 15297 (/Users/mac/Documents/javaapp/jiocoders/portfolio-jsp/target/classes started by mac in /Users/mac/Documents/javaapp/jiocoders/portfolio-jsp)
+2026-01-26 13:57:29.352 [main] INFO  c.j.p.Jiocoders2206javaApplication - The following 1 profile is active: "prod"
+2026-01-26 13:57:31.862 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-26 13:57:32.115 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 226 ms. Found 1 JPA repository interface.
+2026-01-26 13:57:33.738 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-01-26 13:57:33.764 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-01-26 13:57:33.766 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-01-26 13:57:33.927 [main] INFO  o.a.c.c.C.[.[.[/jiocoders/v1] - Initializing Spring embedded WebApplicationContext
+2026-01-26 13:57:33.930 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4456 ms
+2026-01-26 13:57:34.512 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-26 13:57:40.755 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./data/portfolio user=SA
+2026-01-26 13:57:40.766 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-26 13:57:41.199 [main] INFO  liquibase.database - Set default schema name to PUBLIC
+2026-01-26 13:57:42.648 [main] INFO  liquibase.changelog - Reading from PUBLIC.DATABASECHANGELOG
+2026-01-26 13:57:42.982 [main] INFO  liquibase.changelog - Reading from PUBLIC.DATABASECHANGELOG
+2026-01-26 13:57:43.302 [main] INFO  liquibase.util - UPDATE SUMMARY
+2026-01-26 13:57:43.304 [main] INFO  liquibase.util - Run:                          0
+2026-01-26 13:57:43.305 [main] INFO  liquibase.util - Previously run:               2
+2026-01-26 13:57:43.306 [main] INFO  liquibase.util - Filtered out:                 0
+2026-01-26 13:57:43.307 [main] INFO  liquibase.util - -------------------------------
+2026-01-26 13:57:43.308 [main] INFO  liquibase.util - Total change sets:            2
+2026-01-26 13:57:43.310 [main] INFO  liquibase.util - Update summary generated
+2026-01-26 13:57:43.591 [main] INFO  liquibase.lockservice - Successfully released change log lock
+2026-01-26 13:57:43.594 [main] INFO  liquibase.command - Command execution complete
+2026-01-26 13:57:45.533 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-26 13:57:47.759 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-26 13:57:49.059 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2026-01-26 13:57:49.877 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2026-01-26 13:57:50.059 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@46219104, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@64c009b8, org.springframework.security.web.context.SecurityContextHolderFilter@248227db, org.springframework.security.web.header.HeaderWriterFilter@18a9762, org.springframework.web.filter.CorsFilter@77510da, org.springframework.security.web.authentication.logout.LogoutFilter@4235e01b, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@4ad0465c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3c2b7322, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5b71ccf2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@570f96b7, org.springframework.security.web.access.ExceptionTranslationFilter@42bb0492, org.springframework.security.web.access.intercept.AuthorizationFilter@142ac60e]
+2026-01-26 13:57:51.892 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/jiocoders/v1'
+2026-01-26 13:57:51.981 [main] INFO  c.j.p.Jiocoders2206javaApplication - Started Jiocoders2206javaApplication in 24.055 seconds (process running for 25.387)
+2026-01-26 13:57:52.137 [main] INFO  c.j.portfolio.JiocodersRunner - Jiocoders Runner activated939249
