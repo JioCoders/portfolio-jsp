@@ -38,6 +38,17 @@ public class UserDao {
 		}
 	}
 
+	public Optional<User> findById(Long id) {
+		log.debug("DAO: Fetching user by id: {}", id);
+		try {
+			return userRepository.findById(id);
+		}
+		catch (Exception e) {
+			log.error("DAO: Error fetching user by id: {}", id, e);
+			throw e;
+		}
+	}
+
 	public User save(User user) {
 		log.debug("DAO: Saving user: {}", user.getUsername());
 		try {

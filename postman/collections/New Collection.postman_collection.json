@@ -7,7 +7,68 @@
   "item": [
     {
       "name": "expense",
-      "item": [],
+      "item": [
+        {
+          "name": "groups",
+          "id": "482ab6db-b8dd-409f-8b98-e2484167c895",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Goa Trip\",\n  \"description\": \"Fun in the sun\",\n  \"createdBy\": 1, \n  \"members\": [\n    {\"id\": 2}, \n    {\"id\": 3}\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/jiocoders/v1/groups",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jiocoders",
+                "v1",
+                "groups"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "expenses",
+          "id": "e54c4c9a-ce8b-491b-ad3a-8537beb89c35",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Hotel Booking\",\n  \"totalAmount\": 3000,\n  \"expenseDate\": \"2024-05-15\",\n  \"splits\": [\n    {\"userId\": 1, \"paidAmount\": 3000, \"shareAmount\": 1000},\n    {\"userId\": 2, \"paidAmount\": 0, \"shareAmount\": 1000},\n    {\"userId\": 3, \"paidAmount\": 0, \"shareAmount\": 1000}\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/jiocoders/v1/groups/1/expenses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jiocoders",
+                "v1",
+                "groups",
+                "1",
+                "expenses"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
       "id": "af494e4d-30b5-41ff-a8ae-797f0142d81e"
     },
     {
