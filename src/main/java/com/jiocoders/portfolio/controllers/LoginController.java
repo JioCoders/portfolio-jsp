@@ -12,6 +12,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
+import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -38,7 +40,7 @@ public class LoginController {
 		String username = loginRequest.getUsername();
 		log.info("Login attempt for user: {}", username);
 
-		if (username == null || loginRequest.getPassword() == null) {
+		if (ObjectUtils.isEmpty(username) || ObjectUtils.isEmpty(loginRequest.getPassword())) {
 			log.warn("Login failed: missing username or password");
 			JioError error = JioError.builder().message("Username and password are required").build();
 			return ResponseEntity.badRequest().body(JioResponse.error("Validation Error", error));

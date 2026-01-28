@@ -13,8 +13,14 @@ public class UserDTO {
 	@Schema(description = "Username of the user", example = "jiocoders")
 	private String username;
 
+	@Schema(description = "Full name of the user", example = "Harry Potter")
+	private String fullName;
+
 	@Schema(description = "Email address of the user", example = "team@jiocoders.com")
 	private String email;
+
+	@Schema(description = "Phone number of the user", example = "+919876543210")
+	private String phone;
 
 	@Schema(description = "Role of the user", example = "ROLE_ADMIN")
 	private String role;

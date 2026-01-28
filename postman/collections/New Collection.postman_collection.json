@@ -6,6 +6,11 @@
   },
   "item": [
     {
+      "name": "expense",
+      "item": [],
+      "id": "af494e4d-30b5-41ff-a8ae-797f0142d81e"
+    },
+    {
       "name": "user-list",
       "id": "03a03af7-55a2-406c-bae3-2211e3d1d82b",
       "request": {
