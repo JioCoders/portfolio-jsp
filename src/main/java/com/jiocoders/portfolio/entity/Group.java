@@ -32,6 +32,7 @@ public class Group {
 	private User creator;
 
 	@Column(name = "is_deleted")
+	@Builder.Default
 	private boolean deleted = false;
 
 	@Column(name = "created_at")

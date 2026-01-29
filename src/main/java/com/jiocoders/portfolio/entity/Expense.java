@@ -37,12 +37,14 @@ public class Expense {
 	private BigDecimal totalAmount;
 
 	@Column(length = 10)
+	@Builder.Default
 	private String currency = "INR";
 
 	@Column(name = "expense_date", nullable = false)
 	private LocalDate expenseDate;
 
 	@Column(name = "is_deleted")
+	@Builder.Default
 	private boolean deleted = false;
 
 	@Column(name = "created_at")

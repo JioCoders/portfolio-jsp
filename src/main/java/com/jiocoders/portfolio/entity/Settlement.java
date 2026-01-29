@@ -37,6 +37,7 @@ public class Settlement {
 	private BigDecimal amount;
 
 	@Column(length = 10)
+	@Builder.Default
 	private String currency = "INR";
 
 	@Column(name = "settled_at")
