@@ -1,8 +1,8 @@
 package com.jiocoders.portfolio.controllers;
 
-import com.jiocoders.portfolio.dto.JioError;
-import com.jiocoders.portfolio.dto.JioResponse;
-import com.jiocoders.portfolio.dto.LoginRequest;
+import com.jiocoders.portfolio.models.JioError;
+import com.jiocoders.portfolio.models.JioResponse;
+import com.jiocoders.portfolio.models.LoginRequest;
 import com.jiocoders.portfolio.dto.UserDTO;
 import com.jiocoders.portfolio.services.UserService;
 import io.swagger.v3.oas.annotations.Operation;

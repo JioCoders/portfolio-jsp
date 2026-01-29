@@ -1,7 +1,7 @@
 package com.jiocoders.portfolio.exceptions;
 
-import com.jiocoders.portfolio.dto.JioError;
-import com.jiocoders.portfolio.dto.JioResponse;
+import com.jiocoders.portfolio.models.JioError;
+import com.jiocoders.portfolio.models.JioResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

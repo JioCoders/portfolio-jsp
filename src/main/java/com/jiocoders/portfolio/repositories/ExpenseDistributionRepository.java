@@ -1,6 +1,6 @@
 package com.jiocoders.portfolio.repositories;
 
-import com.jiocoders.portfolio.models.ExpenseDistribution;
+import com.jiocoders.portfolio.entity.ExpenseDistribution;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

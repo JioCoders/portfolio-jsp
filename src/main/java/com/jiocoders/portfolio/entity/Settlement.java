@@ -1,4 +1,4 @@
-package com.jiocoders.portfolio.models;
+package com.jiocoders.portfolio.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -2,14 +2,15 @@ package com.jiocoders.portfolio.services;
 
 import com.jiocoders.portfolio.dao.ExpenseDao;
 import com.jiocoders.portfolio.dto.*;
-import com.jiocoders.portfolio.models.*;
+import com.jiocoders.portfolio.entity.*;
+import com.jiocoders.portfolio.mappers.ExpenseMapper;
+import com.jiocoders.portfolio.mappers.GroupMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,6 +24,10 @@ public class ExpenseService {
 	private final ExpenseDao expenseDao;
 
 	private final com.jiocoders.portfolio.dao.UserDao userDao;
+
+	private final GroupMapper groupMapper;
+
+	private final ExpenseMapper expenseMapper;
 
 	/**
 	 * compute net balance per user in a group Net Balance = (Total Paid) - (Total Share)
@@ -86,12 +91,13 @@ public class ExpenseService {
 			}
 		}
 
-		return mapGroupToDTO(savedGroup);
+		// Refresh group to get members
+		return groupMapper.toDTO(savedGroup);
 	}
 
 	public GroupDTO getGroup(Long id) {
 		Group group = expenseDao.findGroupById(id).orElseThrow(() -> new RuntimeException("Group not found: " + id));
-		return mapGroupToDTO(group);
+		return groupMapper.toDTO(group);
 	}
 
 	@Transactional
@@ -135,12 +141,12 @@ public class ExpenseService {
 													// distributions
 		}
 
-		return mapExpenseToDTO(savedExpense);
+		return expenseMapper.toDTO(savedExpense);
 	}
 
 	public List<ExpenseDTO> getExpenses(Long groupId) {
 		List<Expense> expenses = expenseDao.findExpensesByGroup(groupId);
-		return expenses.stream().map(this::mapExpenseToDTO).collect(Collectors.toList());
+		return expenseMapper.toDTOs(expenses);
 	}
 
 	public List<BalanceDTO> getBalances(Long groupId) {
@@ -171,58 +177,7 @@ public class ExpenseService {
 
 		Settlement saved = expenseDao.saveSettlement(settlement);
 
-		// Map back to DTO
-		return SettlementDTO.builder()
-			.id(saved.getId())
-			.fromUserId(saved.getFromUser().getId())
-			.toUserId(saved.getToUser().getId())
-			.amount(saved.getAmount())
-			.currency(saved.getCurrency())
-			.settledAt(saved.getSettledAt())
-			.build();
-	}
-
-	// --- Mappers ---
-
-	private GroupDTO mapGroupToDTO(Group group) {
-		return GroupDTO.builder()
-			.id(group.getId())
-			.name(group.getName())
-			.description(group.getDescription())
-			.createdBy(group.getCreator().getId())
-			.createdAt(group.getCreatedAt())
-			.members(group.getMembers().stream().map(gm -> mapUserToDTO(gm.getUser())).collect(Collectors.toList()))
-			.build();
-	}
-
-	private UserDTO mapUserToDTO(User user) {
-		UserDTO dto = new UserDTO();
-		dto.setId(user.getId());
-		dto.setUsername(user.getUsername());
-		dto.setEmail(user.getEmail());
-		dto.setFullName(user.getFullName());
-		dto.setPhone(user.getPhone());
-		return dto;
-	}
-
-	private ExpenseDTO mapExpenseToDTO(Expense expense) {
-		return ExpenseDTO.builder()
-			.id(expense.getId())
-			.title(expense.getTitle())
-			.description(expense.getDescription())
-			.totalAmount(expense.getTotalAmount())
-			.currency(expense.getCurrency())
-			.expenseDate(expense.getExpenseDate())
-			.groupId(expense.getGroup().getId())
-			.splits(expense.getDistributions()
-				.stream()
-				.map(d -> ExpenseSplitDTO.builder()
-					.userId(d.getUser().getId())
-					.paidAmount(d.getPaidAmount())
-					.shareAmount(d.getShareAmount())
-					.build())
-				.collect(Collectors.toList()))
-			.build();
+		return expenseMapper.toDTO(saved);
 	}
 
 }

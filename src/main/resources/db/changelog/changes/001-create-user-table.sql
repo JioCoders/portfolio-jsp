@@ -13,3 +13,5 @@ CREATE TABLE users (
 -- changeset jiocoders:2
 INSERT INTO users (username, password, email, role) VALUES ('admintemp', '$2a$10$vEc.aA6ht5jg1Z2cQK0IQ..Ovze5FVkyVTccJ5039w6o3255NMWbq', 'admintemp@jiocoders.com', 'ADMIN');
 INSERT INTO users (username, password, email, role) VALUES ('usertemp', '$2a$10$c9QLX0h/PBRoz6/QeLuWxOXHQ3QtyZUjH3tWvlcFLhJSEoPoyl/w.', 'usertemp@jiocoders.com', 'USER');
+INSERT INTO users (username, password, email, role) VALUES ('user1', '$2a$10$c9QLX0h/PBRoz6/QeLuWxOXHQ3QtyZUjH3tWvlcFLhJSEoPoyl/w.', 'user1@jiocoders.com', 'USER');
+INSERT INTO users (username, password, email, role) VALUES ('user2', '$2a$10$c9QLX0h/PBRoz6/QeLuWxOXHQ3QtyZUjH3tWvlcFLhJSEoPoyl/w.', 'user2@jiocoders.com', 'USER');

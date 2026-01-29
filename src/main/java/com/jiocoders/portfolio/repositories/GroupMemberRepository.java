@@ -1,6 +1,6 @@
 package com.jiocoders.portfolio.repositories;
 
-import com.jiocoders.portfolio.models.GroupMember;
+import com.jiocoders.portfolio.entity.GroupMember;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

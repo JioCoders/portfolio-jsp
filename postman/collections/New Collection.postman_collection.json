@@ -35,7 +35,84 @@
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "id": "56812670-69d7-499e-9bba-07f64b517280",
+              "name": "groups",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Goa Trip\",\n  \"description\": \"Fun in the sun\",\n  \"createdBy\": 1, \n  \"members\": [\n    {\"id\": 2}, \n    {\"id\": 3}\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/jiocoders/v1/groups",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "jiocoders",
+                    "v1",
+                    "groups"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 28 Jan 2026 18:50:52 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "2026-01-28T18:53:16.503Z",
+              "body": "{\n    \"status\": 1,\n    \"success\": true,\n    \"message\": \"Group created successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Goa Trip\",\n        \"description\": \"Fun in the sun\",\n        \"createdBy\": 1,\n        \"members\": [],\n        \"createdAt\": \"2026-01-29T00:20:51.997295\"\n    },\n    \"error\": null,\n    \"timestamp\": \"2026-01-29T00:20:52.141243\"\n}"
+            }
+          ]
         },
         {
           "name": "expenses",
@@ -66,7 +143,86 @@
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "id": "b753518a-9839-4074-a00d-7632197d28f7",
+              "name": "expenses",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Hotel Booking\",\n  \"totalAmount\": 3000,\n  \"expenseDate\": \"2024-05-15\",\n  \"splits\": [\n    {\"userId\": 1, \"paidAmount\": 3000, \"shareAmount\": 1000},\n    {\"userId\": 2, \"paidAmount\": 0, \"shareAmount\": 1000},\n    {\"userId\": 3, \"paidAmount\": 0, \"shareAmount\": 1000}\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/jiocoders/v1/groups/1/expenses",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "jiocoders",
+                    "v1",
+                    "groups",
+                    "1",
+                    "expenses"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 28 Jan 2026 18:52:52 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "2026-01-28T18:52:59.006Z",
+              "body": "{\n    \"status\": 1,\n    \"success\": true,\n    \"message\": \"Expense added successfully\",\n    \"data\": {\n        \"id\": 3,\n        \"title\": \"Hotel Booking\",\n        \"description\": null,\n        \"totalAmount\": 3000,\n        \"currency\": \"INR\",\n        \"expenseDate\": \"2024-05-15\",\n        \"groupId\": 1,\n        \"splits\": [\n            {\n                \"userId\": 1,\n                \"paidAmount\": 3000,\n                \"shareAmount\": 1000\n            },\n            {\n                \"userId\": 2,\n                \"paidAmount\": 0,\n                \"shareAmount\": 1000\n            },\n            {\n                \"userId\": 3,\n                \"paidAmount\": 0,\n                \"shareAmount\": 1000\n            }\n        ]\n    },\n    \"error\": null,\n    \"timestamp\": \"2026-01-29T00:22:52.635116\"\n}"
+            }
+          ]
         }
       ],
       "id": "af494e4d-30b5-41ff-a8ae-797f0142d81e"

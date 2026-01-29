@@ -1,6 +1,6 @@
 package com.jiocoders.portfolio.repositories;
 
-import com.jiocoders.portfolio.models.AuditLog;
+import com.jiocoders.portfolio.entity.AuditLog;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

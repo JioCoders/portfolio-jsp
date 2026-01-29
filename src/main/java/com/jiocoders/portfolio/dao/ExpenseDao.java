@@ -1,6 +1,6 @@
 package com.jiocoders.portfolio.dao;
 
-import com.jiocoders.portfolio.models.*;
+import com.jiocoders.portfolio.entity.*;
 import com.jiocoders.portfolio.repositories.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
