@@ -1,7 +1,7 @@
 package com.jiocoders.portfolio.mappers;
 
 import com.jiocoders.portfolio.dto.UserDTO;
-import com.jiocoders.portfolio.models.User;
+import com.jiocoders.portfolio.entity.User;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
 

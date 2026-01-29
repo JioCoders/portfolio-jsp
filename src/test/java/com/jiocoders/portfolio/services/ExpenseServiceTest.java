@@ -3,7 +3,9 @@ package com.jiocoders.portfolio.services;
 import com.jiocoders.portfolio.dao.ExpenseDao;
 import com.jiocoders.portfolio.dao.UserDao;
 import com.jiocoders.portfolio.dto.*;
-import com.jiocoders.portfolio.models.*;
+import com.jiocoders.portfolio.entity.*;
+import com.jiocoders.portfolio.mappers.ExpenseMapper;
+import com.jiocoders.portfolio.mappers.GroupMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -14,6 +16,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -30,6 +33,12 @@ class ExpenseServiceTest {
 
 	@Mock
 	private UserDao userDao;
+
+	@Mock
+	private GroupMapper groupMapper;
+
+	@Mock
+	private ExpenseMapper expenseMapper;
 
 	@InjectMocks
 	private ExpenseService expenseService;
@@ -134,7 +143,15 @@ class ExpenseServiceTest {
 
 		when(userDao.findById(1L)).thenReturn(Optional.of(harry));
 		when(userDao.findById(2L)).thenReturn(Optional.of(rahul));
-		when(expenseDao.saveGroup(any(Group.class))).thenAnswer(i -> i.getArguments()[0]);
+		when(expenseDao.saveGroup(any(Group.class))).thenAnswer(i -> {
+			Group g = (Group) i.getArguments()[0];
+			g.setMembers(new ArrayList<>()); // initialize members for mapper
+			return g;
+		});
+
+		// Stub mapper
+		GroupDTO expectedGroupDTO = GroupDTO.builder().name("Goa Trip").build();
+		when(groupMapper.toDTO(any(Group.class))).thenReturn(expectedGroupDTO);
 
 		GroupDTO result = expenseService.createGroup(inputDTO);
 
@@ -186,6 +203,10 @@ class ExpenseServiceTest {
 			return e;
 		});
 
+		// Stub mapper
+		ExpenseDTO expectedDTO = ExpenseDTO.builder().id(201L).title("Hotel").build();
+		when(expenseMapper.toDTO(any(Expense.class))).thenReturn(expectedDTO);
+
 		ExpenseDTO result = expenseService.addExpense(101L, inputDTO);
 
 		assertNotNull(result);
@@ -214,6 +235,10 @@ class ExpenseServiceTest {
 			s.setId(501L);
 			return s;
 		});
+
+		// Stub mapper
+		SettlementDTO expectedDTO = SettlementDTO.builder().id(501L).amount(new BigDecimal("500")).build();
+		when(expenseMapper.toDTO(any(Settlement.class))).thenReturn(expectedDTO);
 
 		SettlementDTO result = expenseService.addSettlement(101L, inputDTO);
 

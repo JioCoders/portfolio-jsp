@@ -1,7 +1,7 @@
 package com.jiocoders.portfolio.services;
 
 import com.jiocoders.portfolio.dao.UserDao;
-import com.jiocoders.portfolio.models.User;
+import com.jiocoders.portfolio.entity.User;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

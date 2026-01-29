@@ -4,7 +4,7 @@ import com.jiocoders.portfolio.dao.UserDao;
 import com.jiocoders.portfolio.dto.UserDTO;
 import com.jiocoders.portfolio.exceptions.UserException;
 import com.jiocoders.portfolio.mappers.UserMapper;
-import com.jiocoders.portfolio.models.User;
+import com.jiocoders.portfolio.entity.User;
 import com.jiocoders.portfolio.validators.UserValidation;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
