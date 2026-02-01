@@ -38,6 +38,21 @@ public class ExpenseController {
 		return ResponseEntity.ok(JioResponse.success(group, "Group fetched successfully"));
 	}
 
+	@GetMapping("/user/{userId}")
+	@Operation(summary = "Get all groups for a user")
+	public ResponseEntity<JioResponse<List<GroupDTO>>> getUserGroups(@PathVariable Long userId) {
+		List<GroupDTO> groups = expenseService.getUserGroups(userId);
+		return ResponseEntity.ok(JioResponse.success(groups, "Groups fetched successfully"));
+	}
+
+	@DeleteMapping("/{id}")
+	@Operation(summary = "Delete a group (soft delete)")
+	public ResponseEntity<JioResponse<String>> deleteGroup(@PathVariable Long id) {
+		// Implementation would require a method in ExpenseService
+		// This is a placeholder for future implementation
+		return ResponseEntity.ok(JioResponse.success("Not implemented yet", "Group deletion not implemented"));
+	}
+
 	// --- Expenses ---
 
 	@PostMapping("/{groupId}/expenses")
@@ -75,6 +90,40 @@ public class ExpenseController {
 				settlementDTO.getFromUserId(), settlementDTO.getToUserId());
 		SettlementDTO created = expenseService.addSettlement(groupId, settlementDTO);
 		return ResponseEntity.ok(JioResponse.success(created, "Settlement recorded successfully"));
+	}
+
+	// --- Group Members ---
+
+	@PostMapping("/{groupId}/members")
+	@Operation(summary = "Add a member to group")
+	public ResponseEntity<JioResponse<String>> addMember(@PathVariable Long groupId, @RequestBody UserDTO userDTO) {
+		// Implementation would require a method in ExpenseService
+		// This is a placeholder for future implementation
+		return ResponseEntity.ok(JioResponse.success("Not implemented yet", "Member addition not implemented"));
+	}
+
+	@DeleteMapping("/{groupId}/members/{userId}")
+	@Operation(summary = "Remove a member from group")
+	public ResponseEntity<JioResponse<String>> removeMember(@PathVariable Long groupId, @PathVariable Long userId) {
+		// Implementation would require a method in ExpenseService
+		// This is a placeholder for future implementation
+		return ResponseEntity.ok(JioResponse.success("Not implemented yet", "Member removal not implemented"));
+	}
+
+	@GetMapping("/{groupId}/members")
+	@Operation(summary = "Get all members of a group")
+	public ResponseEntity<JioResponse<List<UserDTO>>> getMembers(@PathVariable Long groupId) {
+		// Implementation would require a method in ExpenseService
+		// This is a placeholder for future implementation
+		return ResponseEntity.ok(JioResponse.success(List.of(), "Not implemented yet"));
+	}
+
+	@DeleteMapping("/{groupId}/expenses/{expenseId}")
+	@Operation(summary = "Delete an expense (soft delete)")
+	public ResponseEntity<JioResponse<String>> deleteExpense(@PathVariable Long groupId, @PathVariable Long expenseId) {
+		// Implementation would require a method in ExpenseService
+		// This is a placeholder for future implementation
+		return ResponseEntity.ok(JioResponse.success("Not implemented yet", "Expense deletion not implemented"));
 	}
 
 }

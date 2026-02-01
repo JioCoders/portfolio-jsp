@@ -12,7 +12,7 @@ erDiagram
     USERS ||--o{ EXPENSE_DISTRIBUTIONS : "involved_in"
     GROUPS ||--o{ SETTLEMENTS : resolves
     GROUPS ||--o{ AUDIT_LOGS : tracked_in
-    USERS ||--o{ AUDIT_LOGS : performed_by
+    USERS ||--o{ AUDIT_LOGS : creator
 
     USERS {
         BIGINT id PK
@@ -36,7 +36,8 @@ erDiagram
         VARCHAR entity_type
         BIGINT entity_id
         VARCHAR action
-        BIGINT performed_by FK
+        BIGINT creator_id FK
+        TIMESTAMP created_at
         TEXT details
     }
 ```

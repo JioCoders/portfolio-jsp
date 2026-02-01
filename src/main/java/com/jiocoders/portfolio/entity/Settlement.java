@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
@@ -12,10 +13,11 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "settlements")
 @Data
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Settlement {
+public class Settlement extends BaseAuditEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

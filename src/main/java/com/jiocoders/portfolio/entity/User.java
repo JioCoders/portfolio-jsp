@@ -1,18 +1,20 @@
 package com.jiocoders.portfolio.entity;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "users")
 @Data
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class User extends BaseAuditEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +23,7 @@ public class User {
 	@Column(nullable = false, unique = true)
 	private String username;
 
-	@Column(name = "full_name")
+	@Column(name = "name")
 	private String fullName;
 
 	@Column(nullable = false)
@@ -33,12 +35,8 @@ public class User {
 
 	private String role;
 
-	@Column(name = "created_at")
-	private LocalDateTime createdAt;
-
-	@PrePersist
-	protected void onCreate() {
-		createdAt = LocalDateTime.now();
-	}
+	private boolean isDeleted;
+	
+	private LocalDateTime deletedAt;
 
 }

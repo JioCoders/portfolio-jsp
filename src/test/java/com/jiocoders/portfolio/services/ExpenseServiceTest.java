@@ -115,16 +115,16 @@ class ExpenseServiceTest {
 		Map<Long, BigDecimal> balances = expenseService.calculateBalances(groupId);
 
 		// --- Verify ---
-		// Harry: (+2000 hotel) + (-600 dinner) - (500 settlement received) = +900
-		// He was owed 1400. He got 500. Now he is owed 900.
-		assertEquals(0, new BigDecimal("900").compareTo(balances.get(harry.getId())), "Harry should have +900");
+		// With corrected logic: Share - Paid + Settlements
+		// Harry expenses: Hotel(1000-3000=-2000) + Dinner(600-0=+600) = -1400
+		// Harry settlement: Receives 500 = -1400 + 500 = -900
+		// Rahul expenses: Hotel(1000-0=+1000) + Dinner(500-1500=-1000) = 0
+		// Amit expenses: Hotel(1000-0=+1000) + Dinner(400-0=+400) = +1400
+		// Amit settlement: Pays 500 = +1400 - 500 = +900
 
-		// Rahul: (-1000 hotel) + (+1000 dinner) = 0
+		assertEquals(0, new BigDecimal("-900").compareTo(balances.get(harry.getId())), "Harry should have -900");
 		assertEquals(0, BigDecimal.ZERO.compareTo(balances.get(rahul.getId())), "Rahul should have 0");
-
-		// Amit: (-1000 hotel) + (-400 dinner) + (500 settlement paid) = -900
-		// He owed 1400. He paid 500. Now he owes 900.
-		assertEquals(0, new BigDecimal("-900").compareTo(balances.get(amit.getId())), "Amit should have -900");
+		assertEquals(0, new BigDecimal("900").compareTo(balances.get(amit.getId())), "Amit should have +900");
 	}
 
 	@Test
@@ -134,11 +134,11 @@ class ExpenseServiceTest {
 		// immediately.
 
 		GroupDTO inputDTO = GroupDTO.builder()
-			.name("Goa Trip")
-			.description("Fun")
-			.createdBy(1L)
-			.members(List.of(UserDTO.builder().id(2L).build()))
-			.build();
+				.name("Goa Trip")
+				.description("Fun")
+				.createdBy(1L)
+				.members(List.of(UserDTO.builder().id(2L).build()))
+				.build();
 
 		when(userDao.findById(1L)).thenReturn(Optional.of(harry));
 		when(userDao.findById(2L)).thenReturn(Optional.of(rahul));
@@ -169,31 +169,36 @@ class ExpenseServiceTest {
 		// Rahul, and Amit.
 
 		ExpenseDTO inputDTO = ExpenseDTO.builder()
-			.title("Hotel")
-			.totalAmount(new BigDecimal("3000"))
-			.expenseDate(LocalDate.now())
-			.splits(List.of(
-					ExpenseSplitDTO.builder()
-						.userId(1L)
-						.paidAmount(new BigDecimal("3000"))
-						.shareAmount(new BigDecimal("1000"))
-						.build(),
-					ExpenseSplitDTO.builder()
-						.userId(2L)
-						.paidAmount(BigDecimal.ZERO)
-						.shareAmount(new BigDecimal("1000"))
-						.build(),
-					ExpenseSplitDTO.builder()
-						.userId(3L)
-						.paidAmount(BigDecimal.ZERO)
-						.shareAmount(new BigDecimal("1000"))
-						.build()))
-			.build();
+				.title("Hotel")
+				.totalAmount(new BigDecimal("3000"))
+				.expenseDate(LocalDate.now())
+				.splits(List.of(
+						ExpenseSplitDTO.builder()
+								.userId(1L)
+								.paidAmount(new BigDecimal("3000"))
+								.shareAmount(new BigDecimal("1000"))
+								.build(),
+						ExpenseSplitDTO.builder()
+								.userId(2L)
+								.paidAmount(BigDecimal.ZERO)
+								.shareAmount(new BigDecimal("1000"))
+								.build(),
+						ExpenseSplitDTO.builder()
+								.userId(3L)
+								.paidAmount(BigDecimal.ZERO)
+								.shareAmount(new BigDecimal("1000"))
+								.build()))
+				.build();
 
 		when(expenseDao.findGroupById(101L)).thenReturn(Optional.of(group));
 		when(userDao.findById(1L)).thenReturn(Optional.of(harry));
 		when(userDao.findById(2L)).thenReturn(Optional.of(rahul));
 		when(userDao.findById(3L)).thenReturn(Optional.of(amit));
+
+		// Mock group members
+		List<GroupMember> mockMembers = List.of(GroupMember.builder().user(harry).build(),
+				GroupMember.builder().user(rahul).build(), GroupMember.builder().user(amit).build());
+		when(expenseDao.findMembersByGroup(101L)).thenReturn(mockMembers);
 		when(expenseDao.saveExpense(any(Expense.class))).thenAnswer(i -> {
 			Expense e = (Expense) i.getArguments()[0];
 			e.setId(201L);
@@ -221,14 +226,19 @@ class ExpenseServiceTest {
 		// He records this settlement in the app so his balance updates.
 
 		SettlementDTO inputDTO = SettlementDTO.builder()
-			.fromUserId(3L)
-			.toUserId(1L)
-			.amount(new BigDecimal("500"))
-			.build();
+				.fromUserId(3L)
+				.toUserId(1L)
+				.amount(new BigDecimal("500"))
+				.build();
 
 		when(expenseDao.findGroupById(101L)).thenReturn(Optional.of(group));
 		when(userDao.findById(3L)).thenReturn(Optional.of(amit));
 		when(userDao.findById(1L)).thenReturn(Optional.of(harry));
+
+		// Mock group members
+		List<GroupMember> mockMembers = List.of(GroupMember.builder().user(amit).build(),
+				GroupMember.builder().user(harry).build());
+		when(expenseDao.findMembersByGroup(101L)).thenReturn(mockMembers);
 		when(expenseDao.saveSettlement(any(Settlement.class))).thenAnswer(i -> {
 			Settlement s = (Settlement) i.getArguments()[0];
 			s.setId(501L);
@@ -247,10 +257,10 @@ class ExpenseServiceTest {
 
 	private ExpenseDistribution createDist(User user, double paid, double share) {
 		return ExpenseDistribution.builder()
-			.user(user)
-			.paidAmount(new BigDecimal(paid))
-			.shareAmount(new BigDecimal(share))
-			.build();
+				.user(user)
+				.paidAmount(new BigDecimal(paid))
+				.shareAmount(new BigDecimal(share))
+				.build();
 	}
 
 }

@@ -4,21 +4,22 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "expenses")
 @Data
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Expense {
+public class Expense extends BaseAuditEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,16 +48,8 @@ public class Expense {
 	@Builder.Default
 	private boolean deleted = false;
 
-	@Column(name = "created_at")
-	private LocalDateTime createdAt;
-
 	@OneToMany(mappedBy = "expense", cascade = CascadeType.ALL, orphanRemoval = true)
 	@Builder.Default
 	private List<ExpenseDistribution> distributions = new ArrayList<>();
-
-	@PrePersist
-	protected void onCreate() {
-		createdAt = LocalDateTime.now();
-	}
 
 }

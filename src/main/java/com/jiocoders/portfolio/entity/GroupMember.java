@@ -32,12 +32,11 @@ public class GroupMember {
 	@Builder.Default
 	private String role = "MEMBER";
 
-	@Column(name = "joined_at")
-	private LocalDateTime joinedAt;
+	// @Column(name = "joined_at")
+	// private LocalDateTime joinedAt;
 
-	@PrePersist
-	protected void onJoin() {
-		joinedAt = LocalDateTime.now();
-	}
-
+	// @PrePersist
+	// protected void onJoin() {
+	// 	joinedAt = LocalDateTime.now();
+	// }
 }

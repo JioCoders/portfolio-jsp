@@ -4,17 +4,17 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "audit_logs")
 @Data
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class AuditLog {
+public class AuditLog extends BaseAuditEntity{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,18 +34,10 @@ public class AuditLog {
 	private String action;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "performed_by", nullable = false)
-	private User performedBy;
+	@JoinColumn(name = "created_by", insertable = false, updatable = false)
+	private User creator;
 
 	@Column(columnDefinition = "TEXT")
 	private String details;
-
-	@Column(name = "created_at")
-	private LocalDateTime createdAt;
-
-	@PrePersist
-	protected void onCreate() {
-		createdAt = LocalDateTime.now();
-	}
 
 }
