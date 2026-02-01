@@ -134,11 +134,11 @@ class ExpenseServiceTest {
 		// immediately.
 
 		GroupDTO inputDTO = GroupDTO.builder()
-				.name("Goa Trip")
-				.description("Fun")
-				.createdBy(1L)
-				.members(List.of(UserDTO.builder().id(2L).build()))
-				.build();
+			.name("Goa Trip")
+			.description("Fun")
+			.createdBy(1L)
+			.members(List.of(UserDTO.builder().id(2L).build()))
+			.build();
 
 		when(userDao.findById(1L)).thenReturn(Optional.of(harry));
 		when(userDao.findById(2L)).thenReturn(Optional.of(rahul));
@@ -169,26 +169,26 @@ class ExpenseServiceTest {
 		// Rahul, and Amit.
 
 		ExpenseDTO inputDTO = ExpenseDTO.builder()
-				.title("Hotel")
-				.totalAmount(new BigDecimal("3000"))
-				.expenseDate(LocalDate.now())
-				.splits(List.of(
-						ExpenseSplitDTO.builder()
-								.userId(1L)
-								.paidAmount(new BigDecimal("3000"))
-								.shareAmount(new BigDecimal("1000"))
-								.build(),
-						ExpenseSplitDTO.builder()
-								.userId(2L)
-								.paidAmount(BigDecimal.ZERO)
-								.shareAmount(new BigDecimal("1000"))
-								.build(),
-						ExpenseSplitDTO.builder()
-								.userId(3L)
-								.paidAmount(BigDecimal.ZERO)
-								.shareAmount(new BigDecimal("1000"))
-								.build()))
-				.build();
+			.title("Hotel")
+			.totalAmount(new BigDecimal("3000"))
+			.expenseDate(LocalDate.now())
+			.splits(List.of(
+					ExpenseSplitDTO.builder()
+						.userId(1L)
+						.paidAmount(new BigDecimal("3000"))
+						.shareAmount(new BigDecimal("1000"))
+						.build(),
+					ExpenseSplitDTO.builder()
+						.userId(2L)
+						.paidAmount(BigDecimal.ZERO)
+						.shareAmount(new BigDecimal("1000"))
+						.build(),
+					ExpenseSplitDTO.builder()
+						.userId(3L)
+						.paidAmount(BigDecimal.ZERO)
+						.shareAmount(new BigDecimal("1000"))
+						.build()))
+			.build();
 
 		when(expenseDao.findGroupById(101L)).thenReturn(Optional.of(group));
 		when(userDao.findById(1L)).thenReturn(Optional.of(harry));
@@ -226,10 +226,10 @@ class ExpenseServiceTest {
 		// He records this settlement in the app so his balance updates.
 
 		SettlementDTO inputDTO = SettlementDTO.builder()
-				.fromUserId(3L)
-				.toUserId(1L)
-				.amount(new BigDecimal("500"))
-				.build();
+			.fromUserId(3L)
+			.toUserId(1L)
+			.amount(new BigDecimal("500"))
+			.build();
 
 		when(expenseDao.findGroupById(101L)).thenReturn(Optional.of(group));
 		when(userDao.findById(3L)).thenReturn(Optional.of(amit));
@@ -257,10 +257,10 @@ class ExpenseServiceTest {
 
 	private ExpenseDistribution createDist(User user, double paid, double share) {
 		return ExpenseDistribution.builder()
-				.user(user)
-				.paidAmount(new BigDecimal(paid))
-				.shareAmount(new BigDecimal(share))
-				.build();
+			.user(user)
+			.paidAmount(new BigDecimal(paid))
+			.shareAmount(new BigDecimal(share))
+			.build();
 	}
 
 }

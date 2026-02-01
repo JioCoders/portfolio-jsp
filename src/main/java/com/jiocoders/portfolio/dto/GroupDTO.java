@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 import lombok.Data;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -26,8 +25,5 @@ public class GroupDTO {
 
 	@Schema(description = "List of members in the group")
 	private List<UserDTO> members;
-
-	@Schema(description = "Creation timestamp")
-	private LocalDateTime createdAt;
 
 }

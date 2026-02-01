@@ -36,7 +36,7 @@ public class User extends BaseAuditEntity {
 	private String role;
 
 	private boolean isDeleted;
-	
+
 	private LocalDateTime deletedAt;
 
 }

@@ -43,9 +43,9 @@ public class ExpenseDao {
 	public List<Group> findAllGroupsByUser(Long userId) {
 		List<GroupMember> groupMemberships = groupMemberRepository.findByUserId(userId);
 		return groupMemberships.stream()
-				.map(GroupMember::getGroup)
-				.filter(group -> !group.isDeleted()) // Only return non-deleted groups
-				.toList();
+			.map(GroupMember::getGroup)
+			.filter(group -> !group.isDeleted()) // Only return non-deleted groups
+			.toList();
 	}
 
 	// Member Operations

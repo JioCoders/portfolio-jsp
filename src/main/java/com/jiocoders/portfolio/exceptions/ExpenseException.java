@@ -2,12 +2,12 @@ package com.jiocoders.portfolio.exceptions;
 
 public class ExpenseException extends RuntimeException {
 
-    public ExpenseException(String message) {
-        super(message);
-    }
+	public ExpenseException(String message) {
+		super(message);
+	}
 
-    public ExpenseException(String message, Throwable cause) {
-        super(message, cause);
-    }
+	public ExpenseException(String message, Throwable cause) {
+		super(message, cause);
+	}
 
 }

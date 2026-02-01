@@ -37,6 +37,7 @@ public class GroupMember {
 
 	// @PrePersist
 	// protected void onJoin() {
-	// 	joinedAt = LocalDateTime.now();
+	// joinedAt = LocalDateTime.now();
 	// }
+
 }

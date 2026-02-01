@@ -5,9 +5,9 @@ import com.jiocoders.portfolio.entity.Group;
 import com.jiocoders.portfolio.entity.GroupMember;
 import com.jiocoders.portfolio.dto.UserDTO;
 import org.mapstruct.AfterMapping;
-import org.mapstruct.Context;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 import org.mapstruct.Named;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -40,7 +40,7 @@ public abstract class GroupMapper {
 	}
 
 	@AfterMapping
-	protected void setGroupMembers(@Mapping.Target Group group, GroupDTO groupDTO) {
+	protected void setGroupMembers(@MappingTarget Group group, GroupDTO groupDTO) {
 		if (groupDTO.getMembers() != null) {
 			List<GroupMember> groupMembers = groupDTO.getMembers().stream().map(member -> {
 				GroupMember groupMember = new GroupMember();
