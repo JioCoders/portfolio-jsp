@@ -9,14 +9,14 @@
       "name": "expense",
       "item": [
         {
-          "name": "groups",
+          "name": "groupDetail",
           "id": "482ab6db-b8dd-409f-8b98-e2484167c895",
           "request": {
-            "method": "POST",
+            "method": "GET",
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"Goa Trip\",\n  \"description\": \"Fun in the sun\",\n  \"createdBy\": 1, \n  \"members\": [\n    {\"id\": 2}, \n    {\"id\": 3}\n  ]\n}",
+              "raw": "",
               "options": {
                 "raw": {
                   "language": "json"
@@ -24,27 +24,28 @@
               }
             },
             "url": {
-              "raw": "{{baseUrl}}/jiocoders/v1/groups",
+              "raw": "{{baseUrl}}/jiocoders/v1/groups/1",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "jiocoders",
                 "v1",
-                "groups"
+                "groups",
+                "1"
               ]
             }
           },
           "response": [
             {
-              "id": "56812670-69d7-499e-9bba-07f64b517280",
-              "name": "groups",
+              "id": "2922f4e5-ed18-480b-a758-f89513a26b73",
+              "name": "groupDetail",
               "originalRequest": {
-                "method": "POST",
+                "method": "GET",
                 "header": [],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"Goa Trip\",\n  \"description\": \"Fun in the sun\",\n  \"createdBy\": 1, \n  \"members\": [\n    {\"id\": 2}, \n    {\"id\": 3}\n  ]\n}",
+                  "raw": "",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -52,14 +53,15 @@
                   }
                 },
                 "url": {
-                  "raw": "{{baseUrl}}/jiocoders/v1/groups",
+                  "raw": "{{baseUrl}}/jiocoders/v1/groups/1",
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "path": [
                     "jiocoders",
                     "v1",
-                    "groups"
+                    "groups",
+                    "1"
                   ]
                 }
               },
@@ -97,7 +99,7 @@
                 },
                 {
                   "key": "Date",
-                  "value": "Wed, 28 Jan 2026 18:50:52 GMT"
+                  "value": "Sun, 08 Feb 2026 17:47:43 GMT"
                 },
                 {
                   "key": "Keep-Alive",
@@ -109,8 +111,8 @@
                 }
               ],
               "cookie": [],
-              "responseTime": "2026-01-28T18:53:16.503Z",
-              "body": "{\n    \"status\": 1,\n    \"success\": true,\n    \"message\": \"Group created successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Goa Trip\",\n        \"description\": \"Fun in the sun\",\n        \"createdBy\": 1,\n        \"members\": [],\n        \"createdAt\": \"2026-01-29T00:20:51.997295\"\n    },\n    \"error\": null,\n    \"timestamp\": \"2026-01-29T00:20:52.141243\"\n}"
+              "responseTime": "2026-02-08T17:47:48.041Z",
+              "body": "{\n    \"status\": 1,\n    \"success\": true,\n    \"message\": \"Group fetched successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Goa Trip\",\n        \"description\": \"Fun in the sun\",\n        \"createdBy\": 1,\n        \"members\": [\n            {\n                \"id\": 1,\n                \"username\": \"admintemp\",\n                \"fullName\": \"admin\",\n                \"email\": \"admintemp@jiocoders.com\",\n                \"phone\": \"1234567890\",\n                \"role\": \"ADMIN\"\n            },\n            {\n                \"id\": 2,\n                \"username\": \"usertemp\",\n                \"fullName\": \"harry\",\n                \"email\": \"usertemp@jiocoders.com\",\n                \"phone\": \"1234555555\",\n                \"role\": \"USER\"\n            },\n            {\n                \"id\": 3,\n                \"username\": \"user1\",\n                \"fullName\": \"user1\",\n                \"email\": \"user1@jiocoders.com\",\n                \"phone\": \"1234566666\",\n                \"role\": \"USER\"\n            }\n        ]\n    },\n    \"error\": null,\n    \"timestamp\": \"2026-02-08T23:17:43.441756\"\n}"
             }
           ]
         },
@@ -221,6 +223,188 @@
               "cookie": [],
               "responseTime": "2026-01-28T18:52:59.006Z",
               "body": "{\n    \"status\": 1,\n    \"success\": true,\n    \"message\": \"Expense added successfully\",\n    \"data\": {\n        \"id\": 3,\n        \"title\": \"Hotel Booking\",\n        \"description\": null,\n        \"totalAmount\": 3000,\n        \"currency\": \"INR\",\n        \"expenseDate\": \"2024-05-15\",\n        \"groupId\": 1,\n        \"splits\": [\n            {\n                \"userId\": 1,\n                \"paidAmount\": 3000,\n                \"shareAmount\": 1000\n            },\n            {\n                \"userId\": 2,\n                \"paidAmount\": 0,\n                \"shareAmount\": 1000\n            },\n            {\n                \"userId\": 3,\n                \"paidAmount\": 0,\n                \"shareAmount\": 1000\n            }\n        ]\n    },\n    \"error\": null,\n    \"timestamp\": \"2026-01-29T00:22:52.635116\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "groups",
+          "id": "215cb387-949d-4d0a-906b-d253e12a8c15",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Goa Trip\",\n  \"description\": \"Fun in the sun\",\n  \"createdBy\": 1, \n  \"members\": [\n    {\"id\": 2}, \n    {\"id\": 3}\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/jiocoders/v1/groups",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jiocoders",
+                "v1",
+                "groups"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d02a9d7c-c50c-48f4-aca5-6107d78fee3b",
+              "name": "groups",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Goa Trip\",\n  \"description\": \"Fun in the sun\",\n  \"createdBy\": 1, \n  \"members\": [\n    {\"id\": 2}, \n    {\"id\": 3}\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/jiocoders/v1/groups",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "jiocoders",
+                    "v1",
+                    "groups"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 28 Jan 2026 18:50:52 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "2026-01-28T18:53:16.503Z",
+              "body": "{\n    \"status\": 1,\n    \"success\": true,\n    \"message\": \"Group created successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Goa Trip\",\n        \"description\": \"Fun in the sun\",\n        \"createdBy\": 1,\n        \"members\": [],\n        \"createdAt\": \"2026-01-29T00:20:51.997295\"\n    },\n    \"error\": null,\n    \"timestamp\": \"2026-01-29T00:20:52.141243\"\n}"
+            },
+            {
+              "id": "fdd35c80-74c6-468a-9ef1-b57a89143917",
+              "name": "groups",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Goa Trip\",\n  \"description\": \"Fun in the sun\",\n  \"createdBy\": 1, \n  \"members\": [\n    {\"id\": 2}, \n    {\"id\": 3}\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/jiocoders/v1/groups",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "jiocoders",
+                    "v1",
+                    "groups"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Feb 2026 17:47:10 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "2026-02-08T17:47:16.692Z",
+              "body": "{\n    \"status\": 1,\n    \"success\": true,\n    \"message\": \"Group created successfully\",\n    \"data\": {\n        \"id\": 4,\n        \"name\": \"Goa Trip\",\n        \"description\": \"Fun in the sun\",\n        \"createdBy\": 1,\n        \"members\": []\n    },\n    \"error\": null,\n    \"timestamp\": \"2026-02-08T23:17:10.365863\"\n}"
             }
           ]
         }
