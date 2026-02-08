@@ -4,6 +4,7 @@ import com.jiocoders.portfolio.models.JioError;
 import com.jiocoders.portfolio.models.JioResponse;
 import com.jiocoders.portfolio.models.LoginRequest;
 import com.jiocoders.portfolio.dto.UserDTO;
+import com.jiocoders.portfolio.dto.UserRegisterDTO;
 import com.jiocoders.portfolio.services.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -65,16 +66,16 @@ public class LoginController {
 	@ApiResponse(responseCode = "201", description = "User created successfully",
 			content = @Content(schema = @Schema(implementation = JioResponse.class)))
 	@ApiResponse(responseCode = "400", description = "Registration failed")
-	public ResponseEntity<JioResponse<?>> register(@RequestBody UserDTO userDTO) {
-		log.info("Registration attempt for username: {}", userDTO.getUsername());
+	public ResponseEntity<JioResponse<?>> register(@RequestBody UserRegisterDTO userRegisterDTO) {
+		log.info("Registration attempt for username: {}", userRegisterDTO.getUsername());
 		try {
-			UserDTO createdUser = userService.register(userDTO);
+			UserDTO createdUser = userService.register(userRegisterDTO);
 			log.info("Registration successful for username: {}", createdUser.getUsername());
 			return ResponseEntity.status(HttpStatus.CREATED)
 				.body(JioResponse.success(createdUser, "User registered successfully"));
 		}
 		catch (RuntimeException e) {
-			log.error("Registration failed for username: {}. Reason: {}", userDTO.getUsername(), e.getMessage());
+			log.error("Registration failed for username: {}. Reason: {}", userRegisterDTO.getUsername(), e.getMessage());
 			JioError error = JioError.builder().message(e.getMessage()).errors(List.of(e.getMessage())).build();
 			return ResponseEntity.badRequest().body(JioResponse.error("Registration Failed", error));
 		}

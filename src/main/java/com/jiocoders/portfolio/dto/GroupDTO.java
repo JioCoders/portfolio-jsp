@@ -1,13 +1,18 @@
 package com.jiocoders.portfolio.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Schema(description = "Data Transfer Object for Group information")
 public class GroupDTO {
 
@@ -21,6 +26,7 @@ public class GroupDTO {
 	private String description;
 
 	@Schema(description = "ID of the user who created the group", example = "1")
+	@JsonFormat(shape = JsonFormat.Shape.NUMBER)
 	private Long createdBy;
 
 	@Schema(description = "List of members in the group")

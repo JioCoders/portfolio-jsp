@@ -2,6 +2,7 @@ package com.jiocoders.portfolio.services;
 
 import com.jiocoders.portfolio.dao.UserDao;
 import com.jiocoders.portfolio.dto.UserDTO;
+import com.jiocoders.portfolio.dto.UserRegisterDTO;
 import com.jiocoders.portfolio.exceptions.UserException;
 import com.jiocoders.portfolio.mappers.UserMapper;
 import com.jiocoders.portfolio.entity.User;
@@ -40,14 +41,19 @@ class UserServiceTest {
 
 	private UserDTO userDTO;
 
+	private UserRegisterDTO userRegisterDTO;
+
 	private User user;
 
 	@BeforeEach
 	void setUp() {
+		userRegisterDTO = new UserRegisterDTO();
+		userDTO.setEmail("test@test.com");
+		userRegisterDTO.setUsername("testuser");
+		userRegisterDTO.setPassword("rawPass");
 		userDTO = new UserDTO();
 		userDTO.setUsername("testuser");
 		userDTO.setEmail("test@test.com");
-		userDTO.setPassword("rawPass");
 
 		user = new User();
 		user.setUsername("testuser");
@@ -57,12 +63,12 @@ class UserServiceTest {
 	@Test
     void register_Success_ShouldReturnDTO() {
         when(userDao.findByUsername(anyString())).thenReturn(Optional.empty());
-        when(userMapper.toEntity(any())).thenReturn(user);
+        when(userMapper.toUserEntity(any())).thenReturn(user);
         when(passwordEncoder.encode(anyString())).thenReturn("encodedPass");
         when(userDao.save(any())).thenReturn(user);
         when(userMapper.toDTO(any())).thenReturn(userDTO);
 
-        UserDTO result = userService.register(userDTO);
+        UserDTO result = userService.register(userRegisterDTO);
 
         assertNotNull(result);
         verify(userValidation).validateEmail(userDTO.getEmail());
@@ -73,7 +79,7 @@ class UserServiceTest {
     void register_UserExists_ShouldThrowException() {
         when(userDao.findByUsername(anyString())).thenReturn(Optional.of(user));
 
-        assertThrows(UserException.class, () -> userService.register(userDTO));
+        assertThrows(UserException.class, () -> userService.register(userRegisterDTO));
         verify(userDao, never()).save(any());
     }
 

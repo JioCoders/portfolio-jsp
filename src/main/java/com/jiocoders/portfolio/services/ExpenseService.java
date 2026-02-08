@@ -68,8 +68,14 @@ public class ExpenseService {
 
 	@Transactional
 	public GroupDTO createGroup(GroupDTO groupDTO) {
-		User creator = userDao.findById(groupDTO.getCreatedBy())
-			.orElseThrow(() -> new RuntimeException("User not found: " + groupDTO.getCreatedBy()));
+		log.info("Creating group with DTO: {}", groupDTO);
+		log.info("Created by type: {}, value: {}", groupDTO.getCreatedBy().getClass().getSimpleName(),
+				groupDTO.getCreatedBy());
+
+		// Ensure proper type conversion to Long
+		Long creatorId = groupDTO.getCreatedBy();
+		User creator = userDao.findById(creatorId)
+			.orElseThrow(() -> new RuntimeException("User not found: " + creatorId));
 
 		Group group = Group.builder()
 			.name(groupDTO.getName())
@@ -87,8 +93,10 @@ public class ExpenseService {
 		if (groupDTO.getMembers() != null) {
 			for (UserDTO userDTO : groupDTO.getMembers()) {
 				if (!userDTO.getId().equals(creator.getId())) {
-					User user = userDao.findById(userDTO.getId())
-						.orElseThrow(() -> new RuntimeException("User not found: " + userDTO.getId()));
+					// Ensure proper type conversion to Long
+					Long memberId = userDTO.getId();
+					User user = userDao.findById(memberId)
+						.orElseThrow(() -> new RuntimeException("User not found: " + memberId));
 					expenseDao
 						.addMemberToGroup(GroupMember.builder().group(savedGroup).user(user).role("MEMBER").build());
 				}

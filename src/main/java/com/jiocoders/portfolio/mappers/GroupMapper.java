@@ -44,7 +44,7 @@ public abstract class GroupMapper {
 		if (groupDTO.getMembers() != null) {
 			List<GroupMember> groupMembers = groupDTO.getMembers().stream().map(member -> {
 				GroupMember groupMember = new GroupMember();
-				groupMember.setUser(userMapper.toEntity(member));
+				groupMember.setUser(userMapper.toUserEntity(member));
 				groupMember.setGroup(group);
 				return groupMember;
 			}).collect(Collectors.toList());

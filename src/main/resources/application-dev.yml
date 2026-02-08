@@ -1,4 +1,19 @@
 spring:
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      chat:
+        options:
+          model: gpt-4.1
+          temperature: 0.2
+        client:
+          enabled: false
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        options:
+          model: codellama:latest
+          temperature: 0.7
   config:
     activate:
       on-profile: dev

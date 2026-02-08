@@ -1,11 +1,15 @@
 package com.jiocoders.portfolio.services;
 
 import com.jiocoders.portfolio.dto.UserDTO;
+import com.jiocoders.portfolio.dto.UserRegisterDTO;
 import com.jiocoders.portfolio.mappers.UserMapper;
+import com.jiocoders.portfolio.validators.UserValidation;
 import com.jiocoders.portfolio.entity.User;
 import com.jiocoders.portfolio.dao.UserDao;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,9 +24,9 @@ public class UserService {
 
 	private final UserMapper userMapper;
 
-	private final com.jiocoders.portfolio.validators.UserValidation userValidation;
+	private final UserValidation userValidation;
 
-	private final org.springframework.security.crypto.password.PasswordEncoder passwordEncoder;
+	private final PasswordEncoder passwordEncoder;
 
 	public UserDTO login(String username, String password) {
 		log.debug("Authenticating user: {}", username);
@@ -44,15 +48,15 @@ public class UserService {
 	}
 
 	@Transactional
-	public UserDTO register(UserDTO userDTO) {
-		log.info("Registering new user: {}", userDTO.getUsername());
-		userValidation.validateEmail(userDTO.getEmail());
+	public UserDTO register(UserRegisterDTO userRegisterDTO) {
+		log.info("Registering new user: {}", userRegisterDTO.getUsername());
+		userValidation.validateEmail(userRegisterDTO.getEmail());
 
-		if (userDao.findByUsername(userDTO.getUsername()).isPresent()) {
-			log.warn("Registration failed: User already exists - {}", userDTO.getUsername());
+		if (userDao.findByUsername(userRegisterDTO.getUsername()).isPresent()) {
+			log.warn("Registration failed: User already exists - {}", userRegisterDTO.getUsername());
 			throw new com.jiocoders.portfolio.exceptions.UserException("User already exists");
 		}
-		User user = userMapper.toEntity(userDTO);
+		User user = userMapper.toRegisterEntity(userRegisterDTO);
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		// Default role for now
 		if (user.getRole() == null || user.getRole().isEmpty()) {

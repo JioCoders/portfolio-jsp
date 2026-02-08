@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Schema(description = "Data Transfer Object for User information")
-public class UserDTO {
+public class UserRegisterDTO {
 
 	@Schema(description = "Unique identifier of the user", example = "1")
 	@JsonFormat(shape = JsonFormat.Shape.NUMBER)
@@ -32,5 +32,9 @@ public class UserDTO {
 
 	@Schema(description = "Role of the user", example = "ROLE_ADMIN")
 	private String role;
+
+	@Schema(description = "Password of the user (used for registration only)", example = "password123",
+			accessMode = Schema.AccessMode.WRITE_ONLY)
+	private String password; // For registration
 
 }

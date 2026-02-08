@@ -2,6 +2,7 @@ package com.jiocoders.portfolio.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jiocoders.portfolio.dto.UserDTO;
+import com.jiocoders.portfolio.dto.UserRegisterDTO;
 import com.jiocoders.portfolio.services.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,11 +59,13 @@ class LoginControllerTest {
 
 	@Test
 	void register_Success_ShouldReturn201() throws Exception {
+		UserRegisterDTO registerDTO = new UserRegisterDTO();
+		registerDTO.setUsername("newuser");
+		registerDTO.setPassword("pass");
 		UserDTO dto = new UserDTO();
 		dto.setUsername("newuser");
-		dto.setPassword("pass");
 
-		when(userService.register(any())).thenReturn(dto);
+		when(userService.register(any(UserRegisterDTO.class))).thenReturn(dto);
 
 		mockMvc
 			.perform(post("/jiocoders/v1/register").contentType(MediaType.APPLICATION_JSON)

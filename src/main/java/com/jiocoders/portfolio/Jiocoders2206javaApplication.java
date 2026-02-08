@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import jakarta.annotation.PostConstruct;
 
 @SpringBootApplication
+// @EnableJpaAuditing
 public class Jiocoders2206javaApplication {
 
 	public static void main(String[] args) {
