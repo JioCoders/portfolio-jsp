@@ -71,9 +71,11 @@ public class ExpenseService {
 		log.info("Creating group with DTO: {}", groupDTO);
 		log.info("Created by type: {}, value: {}", groupDTO.getCreatedBy().getClass().getSimpleName(),
 				groupDTO.getCreatedBy());
+		log.info("Members: {}", groupDTO.getMembers());
 
 		// Ensure proper type conversion to Long
 		Long creatorId = groupDTO.getCreatedBy();
+		log.info("Creator ID: {} (type: {})", creatorId, creatorId.getClass().getSimpleName());
 		User creator = userDao.findById(creatorId)
 			.orElseThrow(() -> new RuntimeException("User not found: " + creatorId));
 
@@ -85,13 +87,16 @@ public class ExpenseService {
 
 		Group savedGroup = expenseDao.saveGroup(group);
 
-		// Add creator as member automaticallyx
+		// Add creator as member automatically
 		GroupMember member = GroupMember.builder().group(savedGroup).user(creator).role("ADMIN").build();
 		expenseDao.addMemberToGroup(member);
 
 		// Add other members if provided
 		if (groupDTO.getMembers() != null) {
+			log.info("Processing {} members", groupDTO.getMembers().size());
 			for (UserDTO userDTO : groupDTO.getMembers()) {
+				log.info("Processing member: {} (type: {})", userDTO, userDTO.getClass().getSimpleName());
+				log.info("Member ID: {} (type: {})", userDTO.getId(), userDTO.getId().getClass().getSimpleName());
 				if (!userDTO.getId().equals(creator.getId())) {
 					// Ensure proper type conversion to Long
 					Long memberId = userDTO.getId();
@@ -107,13 +112,21 @@ public class ExpenseService {
 		return groupMapper.toDTO(savedGroup);
 	}
 
+	@Transactional(readOnly = true)
 	public GroupDTO getGroup(Long id) {
 		Group group = expenseDao.findGroupById(id).orElseThrow(() -> new RuntimeException("Group not found: " + id));
+		// Initialize members to avoid lazy initialization exception
+		group.getMembers().size(); // This forces initialization
 		return groupMapper.toDTO(group);
 	}
 
+	@Transactional(readOnly = true)
 	public List<GroupDTO> getUserGroups(Long userId) {
 		List<Group> groups = expenseDao.findAllGroupsByUser(userId);
+		// Initialize members for each group to avoid lazy initialization exception
+		for (Group group : groups) {
+			group.getMembers().size(); // This forces initialization
+		}
 		return groupMapper.toDTOs(groups);
 	}
 

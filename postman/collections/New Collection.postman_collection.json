@@ -487,7 +487,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\"username\":\"oktemp\",\"fullName\":\"okname\",\"password\":\"Ok@112233\",\"role\":\"ADMIN\",\"phone\": \"11223333\",\"email\":\"admin@mail.com\"}",
+          "raw": "{\"username\":\"oktemp\",\"fullName\":\"okname\",\"password\":\"Ok@112233\",\"role\":\"ADMIN\",\"phone\": \"11223333\",\"email\":\"ok@mail.com\"}",
           "options": {
             "raw": {
               "language": "json"

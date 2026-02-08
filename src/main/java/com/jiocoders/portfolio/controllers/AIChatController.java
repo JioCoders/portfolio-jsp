@@ -15,28 +15,27 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping
 public class AIChatController {
 
-    // private ChatClient openAiChatClient;
-    private ChatClient ollamaChatClient;
+	// private ChatClient openAiChatClient;
+	private ChatClient ollamaChatClient;
 
-    public AIChatController(@Qualifier("openAiChatClient") ChatClient openAiChatClient, @Qualifier("ollamaChatClient") ChatClient ollamaChatClient) {
-        // this.openAiChatClient = openAiChatClient;
-        this.ollamaChatClient = ollamaChatClient;
-    }
+	public AIChatController(@Qualifier("openAiChatClient") ChatClient openAiChatClient,
+			@Qualifier("ollamaChatClient") ChatClient ollamaChatClient) {
+		// this.openAiChatClient = openAiChatClient;
+		this.ollamaChatClient = ollamaChatClient;
+	}
 
-    //    public ChatController(OpenAiChatModel openAiChatModel, OllamaChatModel ollamaChatModel) {
-    /// /        System.out.println(chatModel.getClass().getName());
-    /// /        this.chatClient = ChatClient.builder(chatModel).build();
-//        this.openAiChatClient=ChatClient.builder(openAiChatModel).build();
-//        this.ollamaChatClient=ChatClient.builder(ollamaChatModel).build();
+	// public ChatController(OpenAiChatModel openAiChatModel, OllamaChatModel
+	// ollamaChatModel) {
+	/// / System.out.println(chatModel.getClass().getName());
+	/// / this.chatClient = ChatClient.builder(chatModel).build();
+	// this.openAiChatClient=ChatClient.builder(openAiChatModel).build();
+	// this.ollamaChatClient=ChatClient.builder(ollamaChatModel).build();
 
-    @GetMapping("/chat")
-    public ResponseEntity<String> chat(@RequestParam(value = "q", required = true) String q) {
-        var resultResponse = this.ollamaChatClient
-                .prompt(q)
-                .call()
-                .content();
+	@GetMapping("/chat")
+	public ResponseEntity<String> chat(@RequestParam(value = "q", required = true) String q) {
+		var resultResponse = this.ollamaChatClient.prompt(q).call().content();
 
-        return ResponseEntity.ok(resultResponse);
-    }
+		return ResponseEntity.ok(resultResponse);
+	}
 
 }

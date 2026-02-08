@@ -75,7 +75,8 @@ public class LoginController {
 				.body(JioResponse.success(createdUser, "User registered successfully"));
 		}
 		catch (RuntimeException e) {
-			log.error("Registration failed for username: {}. Reason: {}", userRegisterDTO.getUsername(), e.getMessage());
+			log.error("Registration failed for username: {}. Reason: {}", userRegisterDTO.getUsername(),
+					e.getMessage());
 			JioError error = JioError.builder().message(e.getMessage()).errors(List.of(e.getMessage())).build();
 			return ResponseEntity.badRequest().body(JioResponse.error("Registration Failed", error));
 		}

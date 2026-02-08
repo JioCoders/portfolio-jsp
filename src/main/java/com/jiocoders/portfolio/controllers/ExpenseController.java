@@ -26,9 +26,22 @@ public class ExpenseController {
 	@PostMapping
 	@Operation(summary = "Create a new group")
 	public ResponseEntity<JioResponse<GroupDTO>> createGroup(@RequestBody GroupDTO groupDTO) {
-		log.info("Creating group: {}", groupDTO.getName());
+		log.info("Received group DTO: {}", groupDTO);
+		log.info("Created by: {} (type: {})", groupDTO.getCreatedBy(),
+				groupDTO.getCreatedBy().getClass().getSimpleName());
+		if (groupDTO.getMembers() != null) {
+			for (UserDTO member : groupDTO.getMembers()) {
+				log.info("Member: {} (ID type: {})", member, member.getId().getClass().getSimpleName());
+			}
+		}
 		GroupDTO created = expenseService.createGroup(groupDTO);
 		return ResponseEntity.ok(JioResponse.success(created, "Group created successfully"));
+	}
+
+	@PostMapping("/test")
+	public ResponseEntity<String> testGroup(@RequestBody String rawJson) {
+		log.info("Raw JSON received: {}", rawJson);
+		return ResponseEntity.ok("Received: " + rawJson);
 	}
 
 	@GetMapping("/{id}")
