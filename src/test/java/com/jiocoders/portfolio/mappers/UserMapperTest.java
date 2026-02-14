@@ -1,7 +1,8 @@
 package com.jiocoders.portfolio.mappers;
 
 import com.jiocoders.portfolio.dto.UserDTO;
-import com.jiocoders.portfolio.models.User;
+import com.jiocoders.portfolio.dto.UserRegisterDTO;
+import com.jiocoders.portfolio.entity.User;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
 
@@ -32,12 +33,12 @@ class UserMapperTest {
 
 	@Test
 	void toEntity_ShouldMapCorrectly() {
-		UserDTO dto = new UserDTO();
+		UserRegisterDTO dto = new UserRegisterDTO();
 		dto.setUsername("testuser");
 		dto.setEmail("test@test.com");
 		dto.setPassword("pass123");
 
-		User entity = mapper.toEntity(dto);
+		User entity = mapper.toRegisterEntity(dto);
 
 		assertNull(entity.getId());
 		assertEquals(dto.getUsername(), entity.getUsername());

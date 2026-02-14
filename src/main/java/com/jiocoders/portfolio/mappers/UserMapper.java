@@ -1,7 +1,8 @@
 package com.jiocoders.portfolio.mappers;
 
 import com.jiocoders.portfolio.dto.UserDTO;
-import com.jiocoders.portfolio.models.User;
+import com.jiocoders.portfolio.dto.UserRegisterDTO;
+import com.jiocoders.portfolio.entity.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import java.util.List;
@@ -15,6 +16,17 @@ public interface UserMapper {
 
 	@Mapping(target = "id", ignore = true)
 	@Mapping(target = "createdAt", ignore = true)
-	User toEntity(UserDTO userDTO);
+	@Mapping(target = "updatedAt", ignore = true)
+	@Mapping(target = "createdBy", ignore = true)
+	@Mapping(target = "updatedBy", ignore = true)
+	User toRegisterEntity(UserRegisterDTO userRegisterDTO);
+
+	@Mapping(target = "id", ignore = true)
+	@Mapping(target = "password", ignore = true)
+	@Mapping(target = "createdAt", ignore = true)
+	@Mapping(target = "updatedAt", ignore = true)
+	@Mapping(target = "createdBy", ignore = true)
+	@Mapping(target = "updatedBy", ignore = true)
+	User toUserEntity(UserDTO userDTO);
 
 }

@@ -1,6 +1,6 @@
 package com.jiocoders.portfolio.repositories;
 
-import com.jiocoders.portfolio.models.User;
+import com.jiocoders.portfolio.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

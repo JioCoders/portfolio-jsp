@@ -1,6 +1,6 @@
 package com.jiocoders.portfolio.controllers;
 
-import com.jiocoders.portfolio.dto.JioResponse;
+import com.jiocoders.portfolio.models.JioResponse;
 import com.jiocoders.portfolio.dto.UserDTO;
 import com.jiocoders.portfolio.dto.UserListDTO;
 import com.jiocoders.portfolio.services.UserService;

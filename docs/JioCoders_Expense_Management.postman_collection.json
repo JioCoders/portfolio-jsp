@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "b6a6c2a4-5b4d-4e3f-8c1a-9d2e1f3b4a5c",
+		"name": "JioCoders Expense Management",
+		"description": "Collection for testing the Expense Management (Splitwise clone) API endpoints. Assumes users with IDs 1, 2, and 3 exist (Harry, Rahul, Amit).",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Create Group (Goa Trip)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Goa Trip\",\n  \"description\": \"Fun in the sun\",\n  \"createdBy\": 1,\n  \"members\": [\n    {\n      \"id\": 2\n    },\n    {\n      \"id\": 3\n    }\n  ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/jiocoders/v1/groups",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"jiocoders",
+						"v1",
+						"groups"
+					]
+				},
+				"description": "Creates a new expense group. User ID 1 is the creator (ADMIN), adding User IDs 2 and 3 as members."
+			},
+			"response": []
+		},
+		{
+			"name": "2. Get Group Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/jiocoders/v1/groups/101",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"jiocoders",
+						"v1",
+						"groups",
+						"101"
+					]
+				},
+				"description": "Fetches details for group ID 101."
+			},
+			"response": []
+		},
+		{
+			"name": "3. Add Expense (Hotel)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Hotel Booking\",\n  \"description\": \"Taj Hotel 2 nights\",\n  \"totalAmount\": 3000,\n  \"expenseDate\": \"2024-05-15\",\n  \"splits\": [\n    {\n      \"userId\": 1,\n      \"paidAmount\": 3000,\n      \"shareAmount\": 1000\n    },\n    {\n      \"userId\": 2,\n      \"paidAmount\": 0,\n      \"shareAmount\": 1000\n    },\n    {\n      \"userId\": 3,\n      \"paidAmount\": 0,\n      \"shareAmount\": 1000\n    }\n  ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/jiocoders/v1/groups/101/expenses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"jiocoders",
+						"v1",
+						"groups",
+						"101",
+						"expenses"
+					]
+				},
+				"description": "Harry (1) pays 3000. Splits equal (1000) among 1, 2, 3."
+			},
+			"response": []
+		},
+		{
+			"name": "4. Add Expense (Dinner)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Dinner\",\n  \"totalAmount\": 1500,\n  \"expenseDate\": \"2024-05-15\",\n  \"splits\": [\n    {\n      \"userId\": 1,\n      \"paidAmount\": 0,\n      \"shareAmount\": 600\n    },\n    {\n      \"userId\": 2,\n      \"paidAmount\": 1500,\n      \"shareAmount\": 500\n    },\n    {\n      \"userId\": 3,\n      \"paidAmount\": 0,\n      \"shareAmount\": 400\n    }\n  ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/jiocoders/v1/groups/101/expenses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"jiocoders",
+						"v1",
+						"groups",
+						"101",
+						"expenses"
+					]
+				},
+				"description": "Rahul (2) pays 1500. Splits unequal."
+			},
+			"response": []
+		},
+		{
+			"name": "5. Get Balances",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/jiocoders/v1/groups/101/balances",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"jiocoders",
+						"v1",
+						"groups",
+						"101",
+						"balances"
+					]
+				},
+				"description": "Calculates net balances (Who owes whom)."
+			},
+			"response": []
+		},
+		{
+			"name": "6. Add Settlement",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"fromUserId\": 3,\n  \"toUserId\": 1,\n  \"amount\": 500,\n  \"currency\": \"INR\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/jiocoders/v1/groups/101/settlements",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"jiocoders",
+						"v1",
+						"groups",
+						"101",
+						"settlements"
+					]
+				},
+				"description": "Amit (3) pays Harry (1) 500 INR."
+			},
+			"response": []
+		}
+	]
+}

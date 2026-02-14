@@ -1,7 +1,7 @@
 package com.jiocoders.portfolio.controllers;
 
-import com.jiocoders.portfolio.dto.JioResponse;
-import com.jiocoders.portfolio.dto.MessageResponse;
+import com.jiocoders.portfolio.models.JioResponse;
+import com.jiocoders.portfolio.models.MessageResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;

@@ -1,6 +1,6 @@
 package com.jiocoders.portfolio.services;
 
-import com.jiocoders.portfolio.models.User;
+import com.jiocoders.portfolio.entity.User;
 import com.jiocoders.portfolio.dao.UserDao;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

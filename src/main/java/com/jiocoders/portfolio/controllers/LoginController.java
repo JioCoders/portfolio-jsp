@@ -1,9 +1,10 @@
 package com.jiocoders.portfolio.controllers;
 
-import com.jiocoders.portfolio.dto.JioError;
-import com.jiocoders.portfolio.dto.JioResponse;
-import com.jiocoders.portfolio.dto.LoginRequest;
+import com.jiocoders.portfolio.models.JioError;
+import com.jiocoders.portfolio.models.JioResponse;
+import com.jiocoders.portfolio.models.LoginRequest;
 import com.jiocoders.portfolio.dto.UserDTO;
+import com.jiocoders.portfolio.dto.UserRegisterDTO;
 import com.jiocoders.portfolio.services.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -12,6 +13,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
+import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -38,7 +41,7 @@ public class LoginController {
 		String username = loginRequest.getUsername();
 		log.info("Login attempt for user: {}", username);
 
-		if (username == null || loginRequest.getPassword() == null) {
+		if (ObjectUtils.isEmpty(username) || ObjectUtils.isEmpty(loginRequest.getPassword())) {
 			log.warn("Login failed: missing username or password");
 			JioError error = JioError.builder().message("Username and password are required").build();
 			return ResponseEntity.badRequest().body(JioResponse.error("Validation Error", error));
@@ -63,16 +66,17 @@ public class LoginController {
 	@ApiResponse(responseCode = "201", description = "User created successfully",
 			content = @Content(schema = @Schema(implementation = JioResponse.class)))
 	@ApiResponse(responseCode = "400", description = "Registration failed")
-	public ResponseEntity<JioResponse<?>> register(@RequestBody UserDTO userDTO) {
-		log.info("Registration attempt for username: {}", userDTO.getUsername());
+	public ResponseEntity<JioResponse<?>> register(@RequestBody UserRegisterDTO userRegisterDTO) {
+		log.info("Registration attempt for username: {}", userRegisterDTO.getUsername());
 		try {
-			UserDTO createdUser = userService.register(userDTO);
+			UserDTO createdUser = userService.register(userRegisterDTO);
 			log.info("Registration successful for username: {}", createdUser.getUsername());
 			return ResponseEntity.status(HttpStatus.CREATED)
 				.body(JioResponse.success(createdUser, "User registered successfully"));
 		}
 		catch (RuntimeException e) {
-			log.error("Registration failed for username: {}. Reason: {}", userDTO.getUsername(), e.getMessage());
+			log.error("Registration failed for username: {}. Reason: {}", userRegisterDTO.getUsername(),
+					e.getMessage());
 			JioError error = JioError.builder().message(e.getMessage()).errors(List.of(e.getMessage())).build();
 			return ResponseEntity.badRequest().body(JioResponse.error("Registration Failed", error));
 		}

@@ -1,6 +1,6 @@
 package com.jiocoders.portfolio.dao;
 
-import com.jiocoders.portfolio.models.User;
+import com.jiocoders.portfolio.entity.User;
 import com.jiocoders.portfolio.repositories.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

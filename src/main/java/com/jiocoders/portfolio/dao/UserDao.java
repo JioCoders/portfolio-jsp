@@ -1,6 +1,6 @@
 package com.jiocoders.portfolio.dao;
 
-import com.jiocoders.portfolio.models.User;
+import com.jiocoders.portfolio.entity.User;
 import com.jiocoders.portfolio.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -34,6 +34,17 @@ public class UserDao {
 		}
 		catch (Exception e) {
 			log.error("DAO: Error fetching user by email: {}", email, e);
+			throw e;
+		}
+	}
+
+	public Optional<User> findById(Long id) {
+		log.debug("DAO: Fetching user by id: {}", id);
+		try {
+			return userRepository.findById(id);
+		}
+		catch (Exception e) {
+			log.error("DAO: Error fetching user by id: {}", id, e);
 			throw e;
 		}
 	}
