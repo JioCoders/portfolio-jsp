@@ -777,6 +777,34 @@
           "body": "{\n    \"status\": 0,\n    \"success\": false,\n    \"message\": \"Registration Failed\",\n    \"data\": null,\n    \"error\": {\n        \"message\": \"User already exists\",\n        \"status\": 0,\n        \"errors\": [\n            \"User already exists\"\n        ]\n    },\n    \"timestamp\": \"2026-01-26T02:06:28.75012\"\n}"
         }
       ]
+    },
+    {
+      "name": "ai/chat",
+      "id": "e13a649c-411a-43ce-aeb4-6e62aa17096a",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/jiocoders/v1/ai/chat-openai?q=hi",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "jiocoders",
+            "v1",
+            "ai",
+            "chat-openai"
+          ],
+          "query": [
+            {
+              "key": "q",
+              "value": "hi",
+              "uuid": "cc130a0c-0511-40b7-9831-12cf8a9b176a"
+            }
+          ]
+        }
+      },
+      "response": []
     }
   ],
   "auth": {
