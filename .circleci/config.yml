@@ -28,66 +28,24 @@ jobs:
       - store_artifacts:
           path: target/portfolio-jsp-0.0.1-SNAPSHOT.jar
 
+  deploy:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - run:
+          name: Deploy Configuration
+          command: |
+            echo "Deploying to Render..."
+            # Uncomment the following line if you have a Render Deploy Hook URL configured
+            # if [ -n "${RENDER_DEPLOY_HOOK_URL}" ]; then curl -X POST "${RENDER_DEPLOY_HOOK_URL}"; fi
+
 workflows:
-  sample:
+  portfolio:
     jobs:
       - run
-
-
-# # Use the latest 2.1 version of CircleCI pipeline process engine.
-# # See: https://circleci.com/docs/reference/configuration-reference
-# version: 2.1
-
-# # Define a job to be invoked later in a workflow.
-# # See: https://circleci.com/docs/guides/orchestrate/jobs-steps/#jobs-overview & https://circleci.com/docs/reference/configuration-reference/#jobs
-# jobs:
-#   # Below is the definition of your job to build and test your app, you can rename and customize it as you want.
-#   build-and-test:
-#     # Specify the execution environment. You can specify an image from Docker Hub or use one of our convenience images from CircleCI's Developer Hub.
-#     # See: https://circleci.com/docs/guides/execution-managed/executor-intro/ & https://circleci.com/docs/reference/configuration-reference/#executor-job
-#     docker:
-#       # Specify the version you desire here
-#       # See: https://circleci.com/developer/images/image/cimg/openjdk
-#       - image: cimg/openjdk:11.0
-
-#     # Add steps to the job
-#     # See: https://circleci.com/docs/guides/orchestrate/jobs-steps/#steps-overview & https://circleci.com/docs/reference/configuration-reference/#steps
-#     steps:
-#       # Checkout the code as the first step.
-#       - checkout
-
-#       # Use mvn clean and package as the standard maven build phase
-#       - run:
-#           name: Build
-#           command: mvn -B -DskipTests clean package
-#       # Then run your tests!
-#       - run:
-#           name: Test
-#           command: mvn test
-#       - store_test_results:
-#           path: test-results
-
-# # Orchestrate jobs using workflows
-# # See: https://circleci.com/docs/guides/orchestrate/workflows/ & https://circleci.com/docs/reference/configuration-reference/#workflows
-# workflows:
-#   sample: # This is the name of the workflow, feel free to change it to better match your workflow.
-#     # Inside the workflow, you define the jobs you want to run.
-#     jobs:
-#       - build-and-test
-      
-#       - run:
-#           name: Plan a deploy
-#           command: |
-#             circleci run release plan \
-#               --environment-name="<environment-name>" \
-#               --component-name="<component-name>" \
-#               --target-version="<some-version-name>"
-#       # Your job here doing the actual deployment
-#       - run:
-#           name: Update a deploy to SUCCESS
-#           command: circleci run release update --status=SUCCESS 
-#           when: on_success 
-#       - run:
-#           name: Update planned deploy to FAILED
-#           command: circleci run release update --status=FAILED 
-#           when: on_fail
+      - deploy:
+          requires:
+            - run
+          filters:
+            branches:
+              only: main
