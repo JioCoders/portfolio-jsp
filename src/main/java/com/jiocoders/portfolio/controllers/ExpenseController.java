@@ -3,6 +3,7 @@ package com.jiocoders.portfolio.controllers;
 import com.jiocoders.portfolio.dto.*;
 import com.jiocoders.portfolio.models.JioResponse;
 import com.jiocoders.portfolio.services.ExpenseService;
+import com.jiocoders.portfolio.util.Role;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -25,15 +26,33 @@ public class ExpenseController {
 
 	@PostMapping
 	@Operation(summary = "Create a new group")
-	public ResponseEntity<JioResponse<GroupDTO>> createGroup(@RequestBody GroupDTO groupDTO) {
-		log.info("Received group DTO: {}", groupDTO);
-		log.info("Created by: {} (type: {})", groupDTO.getCreatedBy(),
-				groupDTO.getCreatedBy().getClass().getSimpleName());
-		if (groupDTO.getMembers() != null) {
-			for (UserDTO member : groupDTO.getMembers()) {
-				log.info("Member: {} (ID type: {})", member, member.getId().getClass().getSimpleName());
-			}
+	public ResponseEntity<JioResponse<GroupDTO>> createGroup(@RequestBody GroupCreateDTO groupCreateDTO) {
+		log.info("Received group create DTO: {}", groupCreateDTO);
+		log.info("Created by: {} (type: {})", groupCreateDTO.getCreatedBy(),
+				groupCreateDTO.getCreatedBy().getClass().getSimpleName());
+
+		// Transform GroupCreateDTO to GroupDTO
+		GroupDTO groupDTO = new GroupDTO();
+		groupDTO.setName(groupCreateDTO.getName());
+		groupDTO.setDescription(groupCreateDTO.getDescription());
+		groupDTO.setCreatedBy(groupCreateDTO.getCreatedBy());
+
+		// Transform the members from simple ID objects to GroupMemberDTO with default
+		// role
+		if (groupCreateDTO.getMembers() != null) {
+			List<GroupMemberDTO> groupMemberDTOs = groupCreateDTO.getMembers().stream().map(member -> {
+				GroupMemberDTO memberDTO = new GroupMemberDTO();
+				UserDTO userDTO = new UserDTO();
+				userDTO.setId(member.getId()); // Just set the ID, other fields will be
+												// populated by service
+				memberDTO.setUser(userDTO);
+				memberDTO.setRole(Role.MEMBER); // Default role
+				return memberDTO;
+			}).collect(java.util.stream.Collectors.toList());
+			log.info("Transformed members: {}", groupMemberDTOs);
+			groupDTO.setMembers(groupMemberDTOs);
 		}
+
 		GroupDTO created = expenseService.createGroup(groupDTO);
 		return ResponseEntity.ok(JioResponse.success(created, "Group created successfully"));
 	}

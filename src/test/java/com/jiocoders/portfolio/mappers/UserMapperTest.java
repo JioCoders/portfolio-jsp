@@ -3,6 +3,7 @@ package com.jiocoders.portfolio.mappers;
 import com.jiocoders.portfolio.dto.UserDTO;
 import com.jiocoders.portfolio.dto.UserRegisterDTO;
 import com.jiocoders.portfolio.entity.User;
+import com.jiocoders.portfolio.util.Role;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
 
@@ -21,7 +22,7 @@ class UserMapperTest {
 		user.setId(1L);
 		user.setUsername("testuser");
 		user.setEmail("test@test.com");
-		user.setRole("USER");
+		user.setRole(Role.USER);
 
 		UserDTO dto = mapper.toDTO(user);
 

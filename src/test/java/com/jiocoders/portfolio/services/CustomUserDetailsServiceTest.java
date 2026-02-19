@@ -2,6 +2,7 @@ package com.jiocoders.portfolio.services;
 
 import com.jiocoders.portfolio.dao.UserDao;
 import com.jiocoders.portfolio.entity.User;
+import com.jiocoders.portfolio.util.Role;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -30,7 +31,7 @@ class CustomUserDetailsServiceTest {
 		User user = new User();
 		user.setUsername("admin");
 		user.setPassword("pass");
-		user.setRole("ADMIN");
+		user.setRole(Role.ADMIN);
 
 		when(userDao.findByUsername(anyString())).thenReturn(Optional.of(user));
 
@@ -41,10 +42,10 @@ class CustomUserDetailsServiceTest {
 	}
 
 	@Test
-    void loadUserByUsername_NotFound_ShouldThrowException() {
-        when(userDao.findByUsername(anyString())).thenReturn(Optional.empty());
+	void loadUserByUsername_NotFound_ShouldThrowException() {
+		when(userDao.findByUsername(anyString())).thenReturn(Optional.empty());
 
-        assertThrows(UsernameNotFoundException.class, () -> userDetailsService.loadUserByUsername("nonexistent"));
-    }
+		assertThrows(UsernameNotFoundException.class, () -> userDetailsService.loadUserByUsername("nonexistent"));
+	}
 
 }

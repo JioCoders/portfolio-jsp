@@ -15,18 +15,10 @@ public interface UserMapper {
 	List<UserDTO> toDTOs(List<User> users);
 
 	@Mapping(target = "id", ignore = true)
-	@Mapping(target = "createdAt", ignore = true)
-	@Mapping(target = "updatedAt", ignore = true)
-	@Mapping(target = "createdBy", ignore = true)
-	@Mapping(target = "updatedBy", ignore = true)
 	User toRegisterEntity(UserRegisterDTO userRegisterDTO);
 
 	@Mapping(target = "id", ignore = true)
 	@Mapping(target = "password", ignore = true)
-	@Mapping(target = "createdAt", ignore = true)
-	@Mapping(target = "updatedAt", ignore = true)
-	@Mapping(target = "createdBy", ignore = true)
-	@Mapping(target = "updatedBy", ignore = true)
 	User toUserEntity(UserDTO userDTO);
 
 }

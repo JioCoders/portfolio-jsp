@@ -2,6 +2,7 @@ package com.jiocoders.portfolio.services;
 
 import com.jiocoders.portfolio.entity.User;
 import com.jiocoders.portfolio.dao.UserDao;
+import com.jiocoders.portfolio.util.Role;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -28,7 +29,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 		});
 
 		// Ensure role has ROLE_ prefix if not present
-		String roleName = user.getRole();
+		String roleName = user.getRole().getValue();
 		if (!roleName.startsWith("ROLE_")) {
 			roleName = "ROLE_" + roleName;
 		}

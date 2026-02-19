@@ -1,9 +1,11 @@
 package com.jiocoders.portfolio.entity;
 
+import com.jiocoders.portfolio.util.Role;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -14,6 +16,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class User extends BaseAuditEntity {
 
 	@Id
@@ -33,7 +36,8 @@ public class User extends BaseAuditEntity {
 
 	private String phone;
 
-	private String role;
+	@Enumerated(EnumType.STRING)
+	private Role role;
 
 	private boolean isDeleted;
 

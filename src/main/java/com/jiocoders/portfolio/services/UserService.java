@@ -3,6 +3,7 @@ package com.jiocoders.portfolio.services;
 import com.jiocoders.portfolio.dto.UserDTO;
 import com.jiocoders.portfolio.dto.UserRegisterDTO;
 import com.jiocoders.portfolio.mappers.UserMapper;
+import com.jiocoders.portfolio.util.Role;
 import com.jiocoders.portfolio.validators.UserValidation;
 import com.jiocoders.portfolio.entity.User;
 import com.jiocoders.portfolio.dao.UserDao;
@@ -36,12 +37,10 @@ public class UserService {
 			if (passwordEncoder.matches(password, user.getPassword())) {
 				log.debug("Password match for user: {}", username);
 				return userMapper.toDTO(user);
-			}
-			else {
+			} else {
 				log.warn("Password mismatch for user: {}", username);
 			}
-		}
-		else {
+		} else {
 			log.warn("User not found: {}", username);
 		}
 		return null;
@@ -60,7 +59,7 @@ public class UserService {
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		// Default role for now
 		if (user.getRole() == null || user.getRole().isEmpty()) {
-			user.setRole("USER");
+			user.setRole(Role.USER);
 		}
 		user = userDao.save(user);
 		log.info("User registered successfully. ID: {}", user.getId());

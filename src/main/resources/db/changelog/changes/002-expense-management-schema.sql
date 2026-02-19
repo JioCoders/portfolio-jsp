@@ -3,7 +3,7 @@
 -- changeset jio:002-create-groups-table
 CREATE TABLE groups (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL UNIQUE,
     description TEXT,
     creator_id BIGINT NOT NULL,  -- Matches @JoinColumn(name = "creator_id")
     is_deleted BOOLEAN DEFAULT FALSE,

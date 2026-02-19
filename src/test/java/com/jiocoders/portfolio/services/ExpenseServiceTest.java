@@ -6,6 +6,8 @@ import com.jiocoders.portfolio.dto.*;
 import com.jiocoders.portfolio.entity.*;
 import com.jiocoders.portfolio.mappers.ExpenseMapper;
 import com.jiocoders.portfolio.mappers.GroupMapper;
+import com.jiocoders.portfolio.util.Role;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -137,7 +139,7 @@ class ExpenseServiceTest {
 			.name("Goa Trip")
 			.description("Fun")
 			.createdBy(1L)
-			.members(List.of(UserDTO.builder().id(2L).build()))
+			.members(List.of(GroupMemberDTO.builder().user(UserDTO.builder().id(2L).role(Role.MEMBER).build()).build()))
 			.build();
 
 		when(userDao.findById(1L)).thenReturn(Optional.of(harry));

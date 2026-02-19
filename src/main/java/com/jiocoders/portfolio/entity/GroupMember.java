@@ -1,5 +1,6 @@
 package com.jiocoders.portfolio.entity;
 
+import com.jiocoders.portfolio.util.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,9 +29,10 @@ public class GroupMember extends BaseAuditEntity {
 	@JoinColumn(name = "user_id", nullable = false)
 	private User user;
 
+	@Enumerated(EnumType.STRING)
 	@Column(length = 50)
 	@Builder.Default
-	private String role = "MEMBER";
+	private Role role = Role.MEMBER;
 
 	// @Column(name = "joined_at")
 	// private LocalDateTime joinedAt;

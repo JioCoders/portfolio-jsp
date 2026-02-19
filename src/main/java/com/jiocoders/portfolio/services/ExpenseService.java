@@ -3,8 +3,10 @@ package com.jiocoders.portfolio.services;
 import com.jiocoders.portfolio.dao.ExpenseDao;
 import com.jiocoders.portfolio.dto.*;
 import com.jiocoders.portfolio.entity.*;
+import com.jiocoders.portfolio.exceptions.GroupException;
 import com.jiocoders.portfolio.mappers.ExpenseMapper;
 import com.jiocoders.portfolio.mappers.GroupMapper;
+import com.jiocoders.portfolio.util.Role;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -30,7 +32,8 @@ public class ExpenseService {
 	private final ExpenseMapper expenseMapper;
 
 	/**
-	 * compute net balance per user in a group Net Balance = (Total Paid) - (Total Share)
+	 * compute net balance per user in a group Net Balance = (Total Paid) - (Total
+	 * Share)
 	 * + (Settlements Received) - (Settlements Paid)
 	 */
 	public Map<Long, BigDecimal> calculateBalances(Long groupId) {
@@ -73,37 +76,62 @@ public class ExpenseService {
 				groupDTO.getCreatedBy());
 		log.info("Members: {}", groupDTO.getMembers());
 
+		// Validate group name is not duplicate
+		if (groupDTO.getName() != null) {
+			// Check if a group with this name already exists (case-insensitive)
+			List<Group> existingGroups = expenseDao.findActiveGroups()
+					.stream()
+					.filter(g -> g.getName() != null && g.getName().equalsIgnoreCase(groupDTO.getName()))
+					.toList();
+
+			if (!existingGroups.isEmpty()) {
+				throw new GroupException.DuplicateGroupNameException(groupDTO.getName());
+			}
+		}
+
 		// Ensure proper type conversion to Long
 		Long creatorId = groupDTO.getCreatedBy();
 		log.info("Creator ID: {} (type: {})", creatorId, creatorId.getClass().getSimpleName());
 		User creator = userDao.findById(creatorId)
-			.orElseThrow(() -> new RuntimeException("User not found: " + creatorId));
+				.orElseThrow(() -> new RuntimeException("User not found: " + creatorId));
 
 		Group group = Group.builder()
-			.name(groupDTO.getName())
-			.description(groupDTO.getDescription())
-			.creator(creator)
-			.build();
+				.name(groupDTO.getName())
+				.description(groupDTO.getDescription())
+				.creator(creator)
+				.build();
 
 		Group savedGroup = expenseDao.saveGroup(group);
 
 		// Add creator as member automatically
-		GroupMember member = GroupMember.builder().group(savedGroup).user(creator).role("ADMIN").build();
+		GroupMember member = GroupMember.builder().group(savedGroup).user(creator).role(Role.ADMIN).build();
 		expenseDao.addMemberToGroup(member);
 
 		// Add other members if provided
 		if (groupDTO.getMembers() != null) {
 			log.info("Processing {} members", groupDTO.getMembers().size());
-			for (UserDTO userDTO : groupDTO.getMembers()) {
-				log.info("Processing member: {} (type: {})", userDTO, userDTO.getClass().getSimpleName());
-				log.info("Member ID: {} (type: {})", userDTO.getId(), userDTO.getId().getClass().getSimpleName());
-				if (!userDTO.getId().equals(creator.getId())) {
-					// Ensure proper type conversion to Long
-					Long memberId = userDTO.getId();
-					User user = userDao.findById(memberId)
-						.orElseThrow(() -> new RuntimeException("User not found: " + memberId));
-					expenseDao
-						.addMemberToGroup(GroupMember.builder().group(savedGroup).user(user).role("MEMBER").build());
+			for (GroupMemberDTO memberDTO : groupDTO.getMembers()) {
+				log.info("Processing member: {} (type: {})", memberDTO, memberDTO.getClass().getSimpleName());
+
+				// Handle the case where the User field might be null or incomplete
+				if (memberDTO.getUser() != null && memberDTO.getUser().getId() != null) {
+					Long memberId = memberDTO.getUser().getId();
+					log.info("Member ID: {} (type: {})", memberId, memberId.getClass().getSimpleName());
+					if (!memberId.equals(creator.getId())) {
+						User user = userDao.findById(memberId)
+								.orElseThrow(() -> new RuntimeException("User not found: " + memberId));
+						expenseDao.addMemberToGroup(GroupMember.builder()
+								.group(savedGroup)
+								.user(user)
+								.role(memberDTO.getRole() != null ? memberDTO.getRole() : Role.MEMBER)
+								.build());
+					}
+				} else {
+					// If user is null or ID is null, try to get ID from the memberDTO
+					// directly
+					// This shouldn't happen with our current controller transformation
+					log.warn("User field is null or user ID is null in memberDTO: {}", memberDTO);
+					continue; // Skip if no user ID available
 				}
 			}
 		}
@@ -114,10 +142,38 @@ public class ExpenseService {
 
 	@Transactional(readOnly = true)
 	public GroupDTO getGroup(Long id) {
-		Group group = expenseDao.findGroupById(id).orElseThrow(() -> new RuntimeException("Group not found: " + id));
+		Group group = expenseDao.findGroupById(id).orElseThrow(() -> new GroupException.GroupNotFoundException(id));
 		// Initialize members to avoid lazy initialization exception
 		group.getMembers().size(); // This forces initialization
-		return groupMapper.toDTO(group);
+
+		GroupDTO groupDTO = groupMapper.toDTO(group);
+
+		// Manually map members since MapStruct might not handle the nested mapping
+		// correctly
+		if (group.getMembers() != null) {
+			List<GroupMemberDTO> memberDTOs = group.getMembers().stream().map(groupMember -> {
+				GroupMemberDTO memberDTO = new GroupMemberDTO();
+				memberDTO.setId(groupMember.getId());
+				memberDTO.setGroupId(groupMember.getGroup().getId());
+				memberDTO.setRole(groupMember.getRole());
+
+				// Map user
+				User user = groupMember.getUser();
+				UserDTO userDTO = new UserDTO();
+				userDTO.setId(user.getId());
+				userDTO.setUsername(user.getUsername());
+				userDTO.setFullName(user.getFullName());
+				userDTO.setEmail(user.getEmail());
+				userDTO.setPhone(user.getPhone());
+				userDTO.setRole(user.getRole());
+				memberDTO.setUser(userDTO);
+
+				return memberDTO;
+			}).collect(java.util.stream.Collectors.toList());
+			groupDTO.setMembers(memberDTOs);
+		}
+
+		return groupDTO;
 	}
 
 	@Transactional(readOnly = true)
@@ -133,7 +189,7 @@ public class ExpenseService {
 	@Transactional
 	public ExpenseDTO addExpense(Long groupId, ExpenseDTO expenseDTO) {
 		Group group = expenseDao.findGroupById(groupId)
-			.orElseThrow(() -> new RuntimeException("Group not found: " + groupId));
+				.orElseThrow(() -> new GroupException.GroupNotFoundException(groupId));
 
 		// Validate all users are group members
 		List<GroupMember> groupMembers = expenseDao.findMembersByGroup(groupId);
@@ -148,13 +204,13 @@ public class ExpenseService {
 		}
 
 		Expense expense = Expense.builder()
-			.group(group)
-			.title(expenseDTO.getTitle())
-			.description(expenseDTO.getDescription())
-			.totalAmount(expenseDTO.getTotalAmount())
-			.currency(expenseDTO.getCurrency() != null ? expenseDTO.getCurrency() : "INR")
-			.expenseDate(expenseDTO.getExpenseDate())
-			.build();
+				.group(group)
+				.title(expenseDTO.getTitle())
+				.description(expenseDTO.getDescription())
+				.totalAmount(expenseDTO.getTotalAmount())
+				.currency(expenseDTO.getCurrency() != null ? expenseDTO.getCurrency() : "INR")
+				.expenseDate(expenseDTO.getExpenseDate())
+				.build();
 
 		Expense savedExpense = expenseDao.saveExpense(expense);
 
@@ -163,14 +219,14 @@ public class ExpenseService {
 			BigDecimal totalShare = BigDecimal.ZERO;
 			for (ExpenseSplitDTO splitDTO : expenseDTO.getSplits()) {
 				User user = userDao.findById(splitDTO.getUserId())
-					.orElseThrow(() -> new RuntimeException("User not found: " + splitDTO.getUserId()));
+						.orElseThrow(() -> new RuntimeException("User not found: " + splitDTO.getUserId()));
 
 				ExpenseDistribution dist = ExpenseDistribution.builder()
-					.expense(savedExpense)
-					.user(user)
-					.paidAmount(splitDTO.getPaidAmount() != null ? splitDTO.getPaidAmount() : BigDecimal.ZERO)
-					.shareAmount(splitDTO.getShareAmount() != null ? splitDTO.getShareAmount() : BigDecimal.ZERO)
-					.build();
+						.expense(savedExpense)
+						.user(user)
+						.paidAmount(splitDTO.getPaidAmount() != null ? splitDTO.getPaidAmount() : BigDecimal.ZERO)
+						.shareAmount(splitDTO.getShareAmount() != null ? splitDTO.getShareAmount() : BigDecimal.ZERO)
+						.build();
 
 				savedExpense.getDistributions().add(dist);
 				totalShare = totalShare.add(dist.getShareAmount());
@@ -206,7 +262,8 @@ public class ExpenseService {
 
 	@Transactional
 	public SettlementDTO addSettlement(Long groupId, SettlementDTO settlementDTO) {
-		Group group = expenseDao.findGroupById(groupId).orElseThrow(() -> new RuntimeException("Group not found"));
+		Group group = expenseDao.findGroupById(groupId)
+			.orElseThrow(() -> new GroupException.GroupNotFoundException(groupId));
 		User fromUser = userDao.findById(settlementDTO.getFromUserId())
 			.orElseThrow(() -> new RuntimeException("Payer not found"));
 		User toUser = userDao.findById(settlementDTO.getToUserId())

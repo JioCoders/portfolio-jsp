@@ -1,6 +1,7 @@
 package com.jiocoders.portfolio.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.jiocoders.portfolio.util.Role;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,7 +31,7 @@ public class UserDTO {
 	@Schema(description = "Phone number of the user", example = "+919876543210")
 	private String phone;
 
-	@Schema(description = "Role of the user", example = "ROLE_ADMIN")
-	private String role;
+	@Schema(description = "Role of the user", example = "ADMIN")
+	private Role role;
 
 }

@@ -407,6 +407,37 @@
               "body": "{\n    \"status\": 1,\n    \"success\": true,\n    \"message\": \"Group created successfully\",\n    \"data\": {\n        \"id\": 4,\n        \"name\": \"Goa Trip\",\n        \"description\": \"Fun in the sun\",\n        \"createdBy\": 1,\n        \"members\": []\n    },\n    \"error\": null,\n    \"timestamp\": \"2026-02-08T23:17:10.365863\"\n}"
             }
           ]
+        },
+        {
+          "name": "groups",
+          "id": "1c1197d8-f174-46fd-bef6-c62fcb441fde",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Goa Trip\",\n  \"description\": \"Fun in the sun\",\n  \"createdBy\": 1, \n  \"members\": [\n    {\"id\": 2}, \n    {\"id\": 3}\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/jiocoders/v1/groups/user/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jiocoders",
+                "v1",
+                "groups",
+                "user",
+                "1"
+              ]
+            }
+          },
+          "response": []
         }
       ],
       "id": "af494e4d-30b5-41ff-a8ae-797f0142d81e"

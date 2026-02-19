@@ -14,12 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class AIChatController {
 
 	private ChatClient openAiChatClient;
+
 	private ChatClient ollamaChatClient;
 
 	public AIChatController(@Qualifier("openAiChatClient") ChatClient openAiChatClient,
 			@Qualifier("ollamaChatClient") ChatClient ollamaChatClient) {
-	System.out.println(openAiChatClient.getClass().getName());
-	System.out.println(ollamaChatClient.getClass().getName());
+		System.out.println(openAiChatClient.getClass().getName());
+		System.out.println(ollamaChatClient.getClass().getName());
 		this.openAiChatClient = openAiChatClient;
 		this.ollamaChatClient = ollamaChatClient;
 	}

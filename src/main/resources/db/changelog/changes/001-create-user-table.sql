@@ -17,7 +17,7 @@ CREATE TABLE users (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (created_by) REFERENCES users(id),
     FOREIGN KEY (updated_by) REFERENCES users(id),
-    CHECK (role IN ('ADMIN', 'USER'))
+    CHECK (role IN ('ADMIN', 'USER', 'MEMBER'))
 );
 
 -- changeset jiocoders:2
