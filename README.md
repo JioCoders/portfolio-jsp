@@ -10,6 +10,7 @@
 JioCoders Portfolio is a robust Spring Boot application designed to architect and deliver high-performance portfolio management. It combines clean code, scalable architecture, and modern Java best practices.
 
 ### Key Features
+
 - **Security**: Comprehensive authentication and authorization using Spring Security.
 - **Database Management**: Integrated with H2 and managed via Liquibase migrations.
 - **Performance**: Optimized startup and request handling.
@@ -68,30 +69,41 @@ jiocoders-portfolio/
 ## 🏃 Getting Started
 
 ### Prerequisites
+
 - JDK 21
 - Maven (or use included `./mvnw`)
 
 ### Running Locally
 
 #### 1. Clone the repository
+
 ```bash
 git clone https://github.com/jiocoders/portfolio-jsp.git
 cd portfolio-jsp
 ```
 
 #### 2. Run in Development Mode
+
 ```bash
 # Load environment variables and run
 export $(grep -v '^#' env/.env.dev | xargs) && ./mvnw spring-boot:run
 ```
 
 #### 3. Run in Production Mode
+
 ```bash
 ./mvnw clean package
 export $(grep -v '^#' env/.env.prod | xargs) && java -jar target/portfolio-jsp-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod
 ```
 
+### 4. Run in default Mode
+
+```bash
+./mvnw spring-boot:run
+```
+
 ### Docker
+
 ```bash
 docker build -t portfolio-jsp .
 docker run -p 8080:8080 --env-file env/.env.prod portfolio-jsp
@@ -108,9 +120,11 @@ This project is licensed under the **Apache License, Version 2.0**. See the [LIC
 ## 🙎 Maintainer
 
 **JioCoders Team**
+
 - 📍 **Current**: Mumbai | Preferred: Delhi NCR
 - 🧑‍💼 **Experience**: 8 Years | 🎓 MCA
 - 📍 **Origin**: Prayagraj, Uttar Pradesh
 
 ---
-*Created with ❤️ by [JioCoders](https://jiocoders.com)*
+
+_Created with ❤️ by [JioCoders](https://jiocoders.com)_

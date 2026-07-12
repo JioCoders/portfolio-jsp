@@ -1,17 +1,67 @@
 # ✅ How to Run It
 # From the same directory as your docker-compose.yml, run:
 # docker-compose up --build
+# docker-compose up --build -d
+# docker-compose down -v
+# docker logs -f portfolio-jsp
+# docker exec -it ollama-service ollama pull nomic-embed-text
 
 version: '3.8'
 
 services:
-  portfolio-jsp:
-    build:
-      context: .              # Your project root
-      dockerfile: Dockerfile # Ensure this matches your Dockerfile name
+  # portfolio-jsp:
+  #   build:
+  #     context: .              # Your project root
+  #     dockerfile: Dockerfile # Ensure this matches your Dockerfile name
+  #   ports:
+  #     - "8080:8080"           # Maps container port 8080 to your local port 8080
+  #   # env_file:
+  #     # - env/.env.prod
+  #   environment:
+  #     - JAVA_OPTS=-Xms256m -Xmx512m
+  #####################################################
+  #     # Connect to the db and ollama containers by name
+  #     - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/rag_demo
+  #     - SPRING_AI_OLLAMA_BASE_URL=http://ollama:11434
+  #   depends_on:
+  #     db:
+  #       condition: service_healthy
+  #     ollama:
+  #       condition: service_started
+
+  # PostgreSQL with pgvector extension
+  db:
+    image: pgvector/pgvector:pg17
+    container_name: pgvector-db
     ports:
-      - "8080:8080"           # Maps container port 8080 to your local port 8080
-    env_file:
-      - env/.env.prod
+      - "5432:5432"
     environment:
-      - JAVA_OPTS=-Xms256m -Xmx512m
+      POSTGRES_DB: rag_demo
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Password123
+    volumes:
+      # FIX: Captures the image's internal data directory to stop anonymous creation
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d rag_demo"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # Ollama for local LLM and Embeddings
+  ollama:
+    image: alpine/ollama:latest
+    container_name: ollama-alpine
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+
+volumes:
+  # Named declarations managed entirely by the local compose engine
+  ollama_data:
+    external: true
+  postgres_data:       # Tracks the DB files to ensure clean lifecycle
+    external: true
+  open-webui-storage:

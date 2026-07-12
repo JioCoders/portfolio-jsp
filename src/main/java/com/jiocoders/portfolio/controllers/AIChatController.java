@@ -1,6 +1,7 @@
 package com.jiocoders.portfolio.controllers;
 
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
@@ -13,14 +14,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("${jio.api.prefix}/ai")
 public class AIChatController {
 
+	private final VectorStore vectorStore; // Uses Google (Primary)
+
 	private ChatClient openAiChatClient;
 
 	private ChatClient ollamaChatClient;
 
-	public AIChatController(@Qualifier("openAiChatClient") ChatClient openAiChatClient,
+	public AIChatController(VectorStore vectorStore, @Qualifier("openAiChatClient") ChatClient openAiChatClient,
 			@Qualifier("ollamaChatClient") ChatClient ollamaChatClient) {
 		System.out.println(openAiChatClient.getClass().getName());
 		System.out.println(ollamaChatClient.getClass().getName());
+		this.vectorStore = vectorStore;
 		this.openAiChatClient = openAiChatClient;
 		this.ollamaChatClient = ollamaChatClient;
 	}

@@ -1,6 +1,25 @@
 spring:
   ai:
+    vectorstore: # Vector Store Config
+      pgvector:
+        initialize-schema: true
+        index-type: HNSW # Default is HNSW for better performance
+        distance-type: COSINE_DISTANCE
+        #        dimensions: 2048 # Match this to your embedding model (e.g., 1536 for OpenAI, 4096 for ollama)
+        #        embedding-model-name: ollamaChatClient # This tells the vector store exactly which bean to use
+        dimensions: 768 # Required for text-embedding-004
+        embedding-model-name: googleAiEmbeddingModel
+    google: # Google AI Studio (Primary for Vector Store)
+      api-key: ${GOOGLE_API_KEY}
+      chat:
+        options:
+          model: gemini-1.5-flash
+      embedding:
+        options:
+          model: text-embedding-004
     openai:
+      #      embedding:
+      #        enabled: false  # This turns off OpenAI embeddings
       api-key: ${OPENAI_API_KEY}
       chat:
         options:
@@ -8,20 +27,22 @@ spring:
           temperature: 0.2
         client:
           enabled: false
-    ollama:
+    ollama: # Ollama (Kept for local use)
       base-url: http://localhost:11434
       chat:
         options:
-          model: codellama:latest
+          model: gemma4:e2b
           temperature: 0.7
 
   datasource:
-    url: ${DB_URL:jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE}
-    driverClassName: ${DB_DRIVER_CLASS_NAME:org.h2.Driver}
-    username: ${DB_USERNAME:sa}
-    password: ${DB_PASSWORD:password}
+    #    url: ${DB_URL:jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE}
+    url: jdbc:postgresql://localhost:5432/rag_demo
+    driverClassName: ${DB_DRIVER_CLASS_NAME:org.postgresql.Driver}
+    #    driverClassName: ${DB_DRIVER_CLASS_NAME:org.h2.Driver}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:Password123}
   jpa:
-    database-platform: ${DB_PLATFORM:org.hibernate.dialect.H2Dialect}
+    #    database-platform: ${DB_PLATFORM:org.hibernate.dialect.H2Dialect}
     hibernate:
       ddl-auto: validate
     show-sql: true
